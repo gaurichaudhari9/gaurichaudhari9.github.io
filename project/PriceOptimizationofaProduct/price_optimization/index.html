@@ -1,0 +1,4815 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Gauri Chaudhari">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Data Mining">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://gaurichaudhari9.github.io/project/priceoptimizationofaproduct/price_optimization/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#712bd6">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/tomorrow.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/tomorrow.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface%7CCutive+Mono%7CLora:400,400i%7COpen+Sans:400,600,700,800%7CRaleway:300,400,500,600%7CComing+Soon: 400&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XTDV6FWHEZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-XTDV6FWHEZ', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu7b4b0ab84447ec32c5b1d5c5063397b5_1570764_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu7b4b0ab84447ec32c5b1d5c5063397b5_1570764_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://gaurichaudhari9.github.io/project/priceoptimizationofaproduct/price_optimization/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Gauri Chaudhari">
+  <meta property="og:url" content="https://gaurichaudhari9.github.io/project/priceoptimizationofaproduct/price_optimization/">
+  <meta property="og:title" content="Boosting sales margin of a product using data-driven price optimization | Gauri Chaudhari">
+  <meta property="og:description" content="Data Mining"><meta property="og:image" content="https://gaurichaudhari9.github.io/img/sharing.png">
+  <meta property="twitter:image" content="https://gaurichaudhari9.github.io/img/sharing.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2023-02-26T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2023-02-26T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://gaurichaudhari9.github.io/project/priceoptimizationofaproduct/price_optimization/"
+  },
+  "headline": "Boosting sales margin of a product using data-driven price optimization",
+  
+  "datePublished": "2023-02-26T00:00:00Z",
+  "dateModified": "2023-02-26T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Gauri Chaudhari"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Gauri Chaudhari",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://gaurichaudhari9.github.io/images/icon_hu7b4b0ab84447ec32c5b1d5c5063397b5_1570764_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "Data Mining"
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Boosting sales margin of a product using data-driven price optimization | Gauri Chaudhari</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">
+        Gauri Chaudhari</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/resume"><span>Resume</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article article-project">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Boosting sales margin of a product using data-driven price optimization</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Feb 26, 2023
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<h1 id="title-boosting-sales-margin-of-a-product-using-data-driven-price-optimization-for-e-commerce-platform">Title: Boosting sales margin of a product using data-driven price optimization for E-commerce platform<a href="#title-boosting-sales-margin-of-a-product-using-data-driven-price-optimization-for-e-commerce-platform"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h1>
+
+
+
+<h1 id="importing-necessary-libraries">Importing necessary libraries<a href="#importing-necessary-libraries"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h1>
+<pre><code class="language-python">import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from statsmodels.formula.api import ols
+from sklearn import metrics
+import matplotlib.dates as mdates
+import matplotlib.ticker as ticker
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression, RidgeCV, LassoCV, Ridge, Lasso
+from sklearn.preprocessing import StandardScaler as scale
+from sklearn.decomposition import PCA
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
+sns.set()
+</code></pre>
+<p>For the purpose of analysing one real-world product data, we are using olist store dataset which is publicly available on kaggle.
+Reference link: 
+<a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" rel="noopener">click here</a>.</p>
+<p>There are 8 datasets but we have merged the columns according to project requirement. Reference link: 
+<a href="https://www.kaggle.com/datasets/gaurichaudhari9/olist-store-modified-dataset" target="_blank" rel="noopener">click here</a></p>
+<pre><code class="language-python"># Loading dataset
+orders = pd.read_csv(&quot;final_data.csv&quot;)
+</code></pre>
+
+
+
+<h1 id="data-cleaning">Data Cleaning<a href="#data-cleaning"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h1>
+<pre><code class="language-python">orders.info()
+</code></pre>
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 115609 entries, 0 to 115608
+Data columns (total 40 columns):
+ #   Column                         Non-Null Count   Dtype  
+---  ------                         --------------   -----  
+ 0   order_id                       115609 non-null  object 
+ 1   customer_id                    115609 non-null  object 
+ 2   order_status                   115609 non-null  object 
+ 3   order_purchase_timestamp       115609 non-null  object 
+ 4   order_approved_at              115595 non-null  object 
+ 5   order_delivered_carrier_date   114414 non-null  object 
+ 6   order_delivered_customer_date  113209 non-null  object 
+ 7   order_estimated_delivery_date  115609 non-null  object 
+ 8   customer_unique_id             115609 non-null  object 
+ 9   zip_code                       115609 non-null  int64  
+ 10  customer_city                  115609 non-null  object 
+ 11  customer_state                 115609 non-null  object 
+ 12  order_item_id                  115609 non-null  int64  
+ 13  product_id                     115609 non-null  object 
+ 14  seller_id                      115609 non-null  object 
+ 15  shipping_limit_date            115609 non-null  object 
+ 16  price                          115609 non-null  float64
+ 17  freight_value                  115609 non-null  float64
+ 18  product_category_name          115609 non-null  object 
+ 19  product_name_lenght            115609 non-null  int64  
+ 20  product_description_lenght     115609 non-null  int64  
+ 21  product_photos_qty             115609 non-null  int64  
+ 22  product_weight_g               115608 non-null  float64
+ 23  product_length_cm              115608 non-null  float64
+ 24  product_height_cm              115608 non-null  float64
+ 25  product_width_cm               115608 non-null  float64
+ 26  product_category_name_english  115609 non-null  object 
+ 27  payment_sequential             115609 non-null  int64  
+ 28  payment_type                   115609 non-null  object 
+ 29  payment_installments           115609 non-null  int64  
+ 30  payment_value                  115609 non-null  float64
+ 31  seller_zip_code_prefix         115609 non-null  int64  
+ 32  seller_city                    115609 non-null  object 
+ 33  seller_state                   115609 non-null  object 
+ 34  review_id                      115609 non-null  object 
+ 35  review_score                   115609 non-null  int64  
+ 36  review_comment_title           13801 non-null   object 
+ 37  review_comment_message         48906 non-null   object 
+ 38  review_creation_date           115609 non-null  object 
+ 39  review_answer_timestamp        115609 non-null  object 
+dtypes: float64(7), int64(9), object(24)
+memory usage: 35.3+ MB
+</code></pre>
+<p>We have more than 100k sales records and 40 columns.</p>
+<p>For the purpose of this project,we will only try to boost sales of one product from a top selling category which we will frind from EDA in future steps.</p>
+<p>Let&rsquo;s view and analyze the data on the statistical level:</p>
+<pre><code class="language-python">orders.head(5)
+</code></pre>
+  <div id="df-50f83cd2-05e5-4a77-9c87-a5a36f36ec4b">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>order_id</th>
+      <th>customer_id</th>
+      <th>order_status</th>
+      <th>order_purchase_timestamp</th>
+      <th>order_approved_at</th>
+      <th>order_delivered_carrier_date</th>
+      <th>order_delivered_customer_date</th>
+      <th>order_estimated_delivery_date</th>
+      <th>customer_unique_id</th>
+      <th>zip_code</th>
+      <th>...</th>
+      <th>payment_value</th>
+      <th>seller_zip_code_prefix</th>
+      <th>seller_city</th>
+      <th>seller_state</th>
+      <th>review_id</th>
+      <th>review_score</th>
+      <th>review_comment_title</th>
+      <th>review_comment_message</th>
+      <th>review_creation_date</th>
+      <th>review_answer_timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>e481f51cbdc54678b7cc49136f2d6af7</td>
+      <td>9ef432eb6251297304e76186b10a928d</td>
+      <td>delivered</td>
+      <td>2017-10-02 10:56:33</td>
+      <td>2017-10-02 11:07:15</td>
+      <td>2017-10-04 19:55:00</td>
+      <td>2017-10-10 21:25:13</td>
+      <td>2017-10-18 00:00:00</td>
+      <td>7c396fd4830fd04220f754e42b4e5bff</td>
+      <td>3149</td>
+      <td>...</td>
+      <td>18.12</td>
+      <td>9350</td>
+      <td>maua</td>
+      <td>SP</td>
+      <td>a54f0611adc9ed256b57ede6b6eb5114</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Não testei o produto ainda, mas ele veio corre...</td>
+      <td>2017-10-11 00:00:00</td>
+      <td>2017-10-12 03:43:48</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>e481f51cbdc54678b7cc49136f2d6af7</td>
+      <td>9ef432eb6251297304e76186b10a928d</td>
+      <td>delivered</td>
+      <td>2017-10-02 10:56:33</td>
+      <td>2017-10-02 11:07:15</td>
+      <td>2017-10-04 19:55:00</td>
+      <td>2017-10-10 21:25:13</td>
+      <td>2017-10-18 00:00:00</td>
+      <td>7c396fd4830fd04220f754e42b4e5bff</td>
+      <td>3149</td>
+      <td>...</td>
+      <td>2.00</td>
+      <td>9350</td>
+      <td>maua</td>
+      <td>SP</td>
+      <td>a54f0611adc9ed256b57ede6b6eb5114</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Não testei o produto ainda, mas ele veio corre...</td>
+      <td>2017-10-11 00:00:00</td>
+      <td>2017-10-12 03:43:48</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>e481f51cbdc54678b7cc49136f2d6af7</td>
+      <td>9ef432eb6251297304e76186b10a928d</td>
+      <td>delivered</td>
+      <td>2017-10-02 10:56:33</td>
+      <td>2017-10-02 11:07:15</td>
+      <td>2017-10-04 19:55:00</td>
+      <td>2017-10-10 21:25:13</td>
+      <td>2017-10-18 00:00:00</td>
+      <td>7c396fd4830fd04220f754e42b4e5bff</td>
+      <td>3149</td>
+      <td>...</td>
+      <td>18.59</td>
+      <td>9350</td>
+      <td>maua</td>
+      <td>SP</td>
+      <td>a54f0611adc9ed256b57ede6b6eb5114</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Não testei o produto ainda, mas ele veio corre...</td>
+      <td>2017-10-11 00:00:00</td>
+      <td>2017-10-12 03:43:48</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>128e10d95713541c87cd1a2e48201934</td>
+      <td>a20e8105f23924cd00833fd87daa0831</td>
+      <td>delivered</td>
+      <td>2017-08-15 18:29:31</td>
+      <td>2017-08-15 20:05:16</td>
+      <td>2017-08-17 15:28:33</td>
+      <td>2017-08-18 14:44:43</td>
+      <td>2017-08-28 00:00:00</td>
+      <td>3a51803cc0d012c3b5dc8b7528cb05f7</td>
+      <td>3366</td>
+      <td>...</td>
+      <td>37.77</td>
+      <td>9350</td>
+      <td>maua</td>
+      <td>SP</td>
+      <td>b46f1e34512b0f4c74a72398b03ca788</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Deveriam embalar melhor o produto. A caixa vei...</td>
+      <td>2017-08-19 00:00:00</td>
+      <td>2017-08-20 15:16:36</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0e7e841ddf8f8f2de2bad69267ecfbcf</td>
+      <td>26c7ac168e1433912a51b924fbd34d34</td>
+      <td>delivered</td>
+      <td>2017-08-02 18:24:47</td>
+      <td>2017-08-02 18:43:15</td>
+      <td>2017-08-04 17:35:43</td>
+      <td>2017-08-07 18:30:01</td>
+      <td>2017-08-15 00:00:00</td>
+      <td>ef0996a1a279c26e7ecbd737be23d235</td>
+      <td>2290</td>
+      <td>...</td>
+      <td>37.77</td>
+      <td>9350</td>
+      <td>maua</td>
+      <td>SP</td>
+      <td>dc90f19c2806f1abba9e72ad3c350073</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>Só achei ela pequena pra seis xícaras ,mais é ...</td>
+      <td>2017-08-08 00:00:00</td>
+      <td>2017-08-08 23:26:23</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 40 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-50f83cd2-05e5-4a77-9c87-a5a36f36ec4b')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+<p>&lt;svg xmlns=&ldquo;
+<a href="http://www.w3.org/2000/svg%22" target="_blank" rel="noopener">http://www.w3.org/2000/svg"</a> height=&ldquo;24px&quot;viewBox=&ldquo;0 0 24 24&rdquo;
+width=&ldquo;24px&rdquo;&gt;
+<path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+</svg>
+</button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector('#df-50f83cd2-05e5-4a77-9c87-a5a36f36ec4b button.colab-df-convert');
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+    async function convertToInteractive(key) {
+      const element = document.querySelector('#df-50f83cd2-05e5-4a77-9c87-a5a36f36ec4b');
+      const dataTable =
+        await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                 [key], {});
+      if (!dataTable) return;
+
+      const docLinkHtml = 'Like what you see? Visit the ' +
+        '&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;'
+        + ' to learn more about interactive tables.';
+      element.innerHTML = '';
+      dataTable['output_type'] = 'display_data';
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement('div');
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    }
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+<h2 id="do-we-have-any-incomplete-records-in-the-dataset">Do we have any incomplete records in the dataset?<a href="#do-we-have-any-incomplete-records-in-the-dataset"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h2>
+<pre><code class="language-python">orders.isna().sum()
+</code></pre>
+<pre><code>order_id                              0
+customer_id                           0
+order_status                          0
+order_purchase_timestamp              0
+order_approved_at                    14
+order_delivered_carrier_date       1195
+order_delivered_customer_date      2400
+order_estimated_delivery_date         0
+customer_unique_id                    0
+zip_code                              0
+customer_city                         0
+customer_state                        0
+order_item_id                         0
+product_id                            0
+seller_id                             0
+shipping_limit_date                   0
+price                                 0
+freight_value                         0
+product_category_name                 0
+product_name_lenght                   0
+product_description_lenght            0
+product_photos_qty                    0
+product_weight_g                      1
+product_length_cm                     1
+product_height_cm                     1
+product_width_cm                      1
+product_category_name_english         0
+payment_sequential                    0
+payment_type                          0
+payment_installments                  0
+payment_value                         0
+seller_zip_code_prefix                0
+seller_city                           0
+seller_state                          0
+review_id                             0
+review_score                          0
+review_comment_title             101808
+review_comment_message            66703
+review_creation_date                  0
+review_answer_timestamp               0
+dtype: int64
+</code></pre>
+<p><strong>Observation:</strong>  9 colums seems to have incomplete records.</p>
+<p>Since we don&rsquo;t want to deal with inconsistent data, let&rsquo;s drop all the incomplete records.</p>
+<pre><code class="language-python">orders = orders.drop(columns=['order_approved_at','order_delivered_carrier_date','order_delivered_customer_date','order_estimated_delivery_date','review_comment_title','shipping_limit_date','review_comment_title','review_comment_message'],axis=1)
+</code></pre>
+<p>Renaming the &lsquo;product_category_name_english&rsquo; column for better understanding</p>
+<pre><code class="language-python">orders.rename(columns={'product_category_name_english':'category'},inplace=True)
+</code></pre>
+<pre><code class="language-python">orders.isna().sum()
+</code></pre>
+<pre><code>order_id                      0
+customer_id                   0
+order_status                  0
+order_purchase_timestamp      0
+customer_unique_id            0
+zip_code                      0
+customer_city                 0
+customer_state                0
+order_item_id                 0
+product_id                    0
+seller_id                     0
+price                         0
+freight_value                 0
+product_category_name         0
+product_name_lenght           0
+product_description_lenght    0
+product_photos_qty            0
+product_weight_g              1
+product_length_cm             1
+product_height_cm             1
+product_width_cm              1
+category                      0
+payment_sequential            0
+payment_type                  0
+payment_installments          0
+payment_value                 0
+seller_zip_code_prefix        0
+seller_city                   0
+seller_state                  0
+review_id                     0
+review_score                  0
+review_creation_date          0
+review_answer_timestamp       0
+dtype: int64
+</code></pre>
+<pre><code class="language-python">orders.info()
+</code></pre>
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 115609 entries, 0 to 115608
+Data columns (total 33 columns):
+ #   Column                      Non-Null Count   Dtype  
+---  ------                      --------------   -----  
+ 0   order_id                    115609 non-null  object 
+ 1   customer_id                 115609 non-null  object 
+ 2   order_status                115609 non-null  object 
+ 3   order_purchase_timestamp    115609 non-null  object 
+ 4   customer_unique_id          115609 non-null  object 
+ 5   zip_code                    115609 non-null  int64  
+ 6   customer_city               115609 non-null  object 
+ 7   customer_state              115609 non-null  object 
+ 8   order_item_id               115609 non-null  int64  
+ 9   product_id                  115609 non-null  object 
+ 10  seller_id                   115609 non-null  object 
+ 11  price                       115609 non-null  float64
+ 12  freight_value               115609 non-null  float64
+ 13  product_category_name       115609 non-null  object 
+ 14  product_name_lenght         115609 non-null  int64  
+ 15  product_description_lenght  115609 non-null  int64  
+ 16  product_photos_qty          115609 non-null  int64  
+ 17  product_weight_g            115608 non-null  float64
+ 18  product_length_cm           115608 non-null  float64
+ 19  product_height_cm           115608 non-null  float64
+ 20  product_width_cm            115608 non-null  float64
+ 21  category                    115609 non-null  object 
+ 22  payment_sequential          115609 non-null  int64  
+ 23  payment_type                115609 non-null  object 
+ 24  payment_installments        115609 non-null  int64  
+ 25  payment_value               115609 non-null  float64
+ 26  seller_zip_code_prefix      115609 non-null  int64  
+ 27  seller_city                 115609 non-null  object 
+ 28  seller_state                115609 non-null  object 
+ 29  review_id                   115609 non-null  object 
+ 30  review_score                115609 non-null  int64  
+ 31  review_creation_date        115609 non-null  object 
+ 32  review_answer_timestamp     115609 non-null  object 
+dtypes: float64(7), int64(9), object(17)
+memory usage: 29.1+ MB
+</code></pre>
+
+
+
+<h2 id="do-we-have-any-duplicate-records-in-the-data">Do we have any duplicate records in the data?<a href="#do-we-have-any-duplicate-records-in-the-data"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h2>
+<pre><code class="language-python">orders.duplicated().sum()
+</code></pre>
+<pre><code>0
+</code></pre>
+<p><strong>Observations:</strong> We don&rsquo;t observe any duplicate records</p>
+<p>After performing data cleaning, it seems like the data is ready to use.</p>
+
+
+
+<h1 id="data-pre-processing">Data Pre-processing<a href="#data-pre-processing"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h1>
+<p>What are the different status of orders present in dataset?</p>
+<pre><code class="language-python">orders['order_status'].unique()
+</code></pre>
+<pre><code>array(['delivered', 'shipped', 'invoiced', 'processing', 'canceled',
+       'approved', 'unavailable'], dtype=object)
+</code></pre>
+<pre><code class="language-python">orders['order_status'].value_counts()
+</code></pre>
+<pre><code>delivered      113210
+shipped          1138
+canceled          536
+invoiced          358
+processing        357
+unavailable         7
+approved            3
+Name: order_status, dtype: int64
+</code></pre>
+<p><strong>Observations:</strong> It looks like there are 7 statuses. In this project, we are only dealing with closed deals for simplicity so we will only considered delivered orders from this dataset</p>
+<pre><code class="language-python">orders = orders[(orders.order_status == 'delivered')]
+</code></pre>
+<pre><code class="language-python">orders.info()
+</code></pre>
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 113210 entries, 0 to 115608
+Data columns (total 33 columns):
+ #   Column                      Non-Null Count   Dtype  
+---  ------                      --------------   -----  
+ 0   order_id                    113210 non-null  object 
+ 1   customer_id                 113210 non-null  object 
+ 2   order_status                113210 non-null  object 
+ 3   order_purchase_timestamp    113210 non-null  object 
+ 4   customer_unique_id          113210 non-null  object 
+ 5   zip_code                    113210 non-null  int64  
+ 6   customer_city               113210 non-null  object 
+ 7   customer_state              113210 non-null  object 
+ 8   order_item_id               113210 non-null  int64  
+ 9   product_id                  113210 non-null  object 
+ 10  seller_id                   113210 non-null  object 
+ 11  price                       113210 non-null  float64
+ 12  freight_value               113210 non-null  float64
+ 13  product_category_name       113210 non-null  object 
+ 14  product_name_lenght         113210 non-null  int64  
+ 15  product_description_lenght  113210 non-null  int64  
+ 16  product_photos_qty          113210 non-null  int64  
+ 17  product_weight_g            113209 non-null  float64
+ 18  product_length_cm           113209 non-null  float64
+ 19  product_height_cm           113209 non-null  float64
+ 20  product_width_cm            113209 non-null  float64
+ 21  category                    113210 non-null  object 
+ 22  payment_sequential          113210 non-null  int64  
+ 23  payment_type                113210 non-null  object 
+ 24  payment_installments        113210 non-null  int64  
+ 25  payment_value               113210 non-null  float64
+ 26  seller_zip_code_prefix      113210 non-null  int64  
+ 27  seller_city                 113210 non-null  object 
+ 28  seller_state                113210 non-null  object 
+ 29  review_id                   113210 non-null  object 
+ 30  review_score                113210 non-null  int64  
+ 31  review_creation_date        113210 non-null  object 
+ 32  review_answer_timestamp     113210 non-null  object 
+dtypes: float64(7), int64(9), object(17)
+memory usage: 29.4+ MB
+</code></pre>
+<p>Since the order_purchase_timestamp is of object type, we are changing its type to datetime for future computations.</p>
+<pre><code class="language-python"># Changing timestamp type from object to datetime
+orders['order_purchase_timestamp'] = pd.to_datetime(orders['order_purchase_timestamp']).dt.date
+orders['order_purchase_timestamp'] =  pd.to_datetime(orders['order_purchase_timestamp'])
+
+</code></pre>
+<p>Extracting year, month, year_month from the timestamp. Additionally adding order count column for total sales calculation</p>
+<pre><code class="language-python">orders['year'] = orders.order_purchase_timestamp.apply(lambda x: x.year)
+orders['month'] = orders.order_purchase_timestamp.apply(lambda x: x.month)
+orders['year_month'] = orders['order_purchase_timestamp'].dt.strftime('%Y-%m')
+orders['order_count']=1
+</code></pre>
+
+
+
+<h1 id="feature-selection">Feature Selection<a href="#feature-selection"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h1>
+<p>Do we need all features for our optimizer modeling?</p>
+<pre><code class="language-python">orders.columns.size
+</code></pre>
+<pre><code>44
+</code></pre>
+<pre><code class="language-python">orders.columns
+</code></pre>
+<pre><code>Index(['order_id', 'customer_id', 'order_status', 'order_purchase_timestamp',
+       'order_approved_at', 'order_delivered_carrier_date',
+       'order_delivered_customer_date', 'order_estimated_delivery_date',
+       'customer_unique_id', 'zip_code', 'customer_city', 'customer_state',
+       'order_item_id', 'product_id', 'seller_id', 'shipping_limit_date',
+       'price', 'freight_value', 'product_category_name',
+       'product_name_lenght', 'product_description_lenght',
+       'product_photos_qty', 'product_weight_g', 'product_length_cm',
+       'product_height_cm', 'product_width_cm', 'category',
+       'payment_sequential', 'payment_type', 'payment_installments',
+       'payment_value', 'seller_zip_code_prefix', 'seller_city',
+       'seller_state', 'review_id', 'review_score', 'review_comment_title',
+       'review_comment_message', 'review_creation_date',
+       'review_answer_timestamp', 'year', 'month', 'year_month',
+       'order_count'],
+      dtype='object')
+</code></pre>
+<p><strong>Observation 1:</strong> We have 44 columns but do we require all 44 columns to predict a price that would increase sales?</p>
+<pre><code class="language-python">plt.figure(figsize=(20,20))
+sns.heatmap(orders.corr(),vmin=-1,cmap='coolwarm',annot=True)
+</code></pre>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f1f1f474790&gt;
+</code></pre>
+<p><img src="./Price_Optimization_38_1.png" alt="png"></p>
+<p>Not all the columns have a correlation so not all columns are required to be fed to the optimizer. We can exclude few features.</p>
+<p>Dropping timestamp based columns,reviews(as we are not dealing with NLP) and original product category name</p>
+<pre><code class="language-python">orders = orders.drop(['order_purchase_timestamp','order_approved_at','order_delivered_carrier_date','order_delivered_customer_date','order_estimated_delivery_date','review_comment_message','shipping_limit_date','product_category_name','review_comment_title','review_answer_timestamp','review_creation_date'],axis=1)
+</code></pre>
+<pre><code class="language-python">orders.info()
+</code></pre>
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 11578 entries, 128 to 115608
+Data columns (total 33 columns):
+ #   Column                      Non-Null Count  Dtype  
+---  ------                      --------------  -----  
+ 0   order_id                    11578 non-null  object 
+ 1   customer_id                 11578 non-null  object 
+ 2   order_status                11578 non-null  object 
+ 3   customer_unique_id          11578 non-null  object 
+ 4   zip_code                    11578 non-null  int64  
+ 5   customer_city               11578 non-null  object 
+ 6   customer_state              11578 non-null  object 
+ 7   order_item_id               11578 non-null  int64  
+ 8   product_id                  11578 non-null  object 
+ 9   seller_id                   11578 non-null  object 
+ 10  price                       11578 non-null  float64
+ 11  freight_value               11578 non-null  float64
+ 12  product_name_lenght         11578 non-null  int64  
+ 13  product_description_lenght  11578 non-null  int64  
+ 14  product_photos_qty          11578 non-null  int64  
+ 15  product_weight_g            11578 non-null  float64
+ 16  product_length_cm           11578 non-null  float64
+ 17  product_height_cm           11578 non-null  float64
+ 18  product_width_cm            11578 non-null  float64
+ 19  category                    11578 non-null  object 
+ 20  payment_sequential          11578 non-null  int64  
+ 21  payment_type                11578 non-null  object 
+ 22  payment_installments        11578 non-null  int64  
+ 23  payment_value               11578 non-null  float64
+ 24  seller_zip_code_prefix      11578 non-null  int64  
+ 25  seller_city                 11578 non-null  object 
+ 26  seller_state                11578 non-null  object 
+ 27  review_id                   11578 non-null  object 
+ 28  review_score                11578 non-null  int64  
+ 29  year                        11578 non-null  int64  
+ 30  month                       11578 non-null  int64  
+ 31  year_month                  11578 non-null  object 
+ 32  order_count                 11578 non-null  int64  
+dtypes: float64(7), int64(12), object(14)
+memory usage: 3.0+ MB
+</code></pre>
+
+
+
+<h1 id="dimensionality-reduction">Dimensionality Reduction<a href="#dimensionality-reduction"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h1>
+<p>For the sake of performing PCA, we are dropping id based columns as they are alphanumeric</p>
+<pre><code class="language-python">orders_pca = orders.drop(columns=['order_id','customer_id','review_id','order_item_id','seller_id','customer_unique_id','product_id','order_status','year_month'],axis=1)
+orders_pca.info()
+</code></pre>
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 11578 entries, 128 to 115608
+Data columns (total 24 columns):
+ #   Column                      Non-Null Count  Dtype  
+---  ------                      --------------  -----  
+ 0   zip_code                    11578 non-null  int64  
+ 1   customer_city               11578 non-null  object 
+ 2   customer_state              11578 non-null  object 
+ 3   price                       11578 non-null  float64
+ 4   freight_value               11578 non-null  float64
+ 5   product_name_lenght         11578 non-null  int64  
+ 6   product_description_lenght  11578 non-null  int64  
+ 7   product_photos_qty          11578 non-null  int64  
+ 8   product_weight_g            11578 non-null  float64
+ 9   product_length_cm           11578 non-null  float64
+ 10  product_height_cm           11578 non-null  float64
+ 11  product_width_cm            11578 non-null  float64
+ 12  category                    11578 non-null  object 
+ 13  payment_sequential          11578 non-null  int64  
+ 14  payment_type                11578 non-null  object 
+ 15  payment_installments        11578 non-null  int64  
+ 16  payment_value               11578 non-null  float64
+ 17  seller_zip_code_prefix      11578 non-null  int64  
+ 18  seller_city                 11578 non-null  object 
+ 19  seller_state                11578 non-null  object 
+ 20  review_score                11578 non-null  int64  
+ 21  year                        11578 non-null  int64  
+ 22  month                       11578 non-null  int64  
+ 23  order_count                 11578 non-null  int64  
+dtypes: float64(7), int64(11), object(6)
+memory usage: 2.2+ MB
+</code></pre>
+<p>Applying Label Encoding to Categorical attributes</p>
+<pre><code class="language-python"># label_encoder object knows how to understand word labels.
+label_encoder = preprocessing.LabelEncoder()
+  
+# Encode labels in column 'species'.
+orders_pca['customer_city']= label_encoder.fit_transform(orders_pca['customer_city'])
+orders_pca['customer_state']= label_encoder.fit_transform(orders_pca['customer_state'])
+orders_pca['seller_city']= label_encoder.fit_transform(orders_pca['seller_city'])
+orders_pca['seller_state']= label_encoder.fit_transform(orders_pca['seller_state'])
+orders_pca['payment_type']= label_encoder.fit_transform(orders_pca['payment_type'])
+orders_pca['category'] = label_encoder.fit_transform(orders_pca['category'])
+orders_pca
+</code></pre>
+  <div id="df-7e43f5f9-2509-4baf-bdd8-3fd2b8646ff4">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>zip_code</th>
+      <th>customer_city</th>
+      <th>customer_state</th>
+      <th>price</th>
+      <th>freight_value</th>
+      <th>product_name_lenght</th>
+      <th>product_description_lenght</th>
+      <th>product_photos_qty</th>
+      <th>product_weight_g</th>
+      <th>product_length_cm</th>
+      <th>...</th>
+      <th>payment_type</th>
+      <th>payment_installments</th>
+      <th>payment_value</th>
+      <th>seller_zip_code_prefix</th>
+      <th>seller_city</th>
+      <th>seller_state</th>
+      <th>review_score</th>
+      <th>year</th>
+      <th>month</th>
+      <th>order_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>128</th>
+      <td>13481</td>
+      <td>799</td>
+      <td>25</td>
+      <td>17.37</td>
+      <td>7.39</td>
+      <td>60</td>
+      <td>817</td>
+      <td>1</td>
+      <td>50.0</td>
+      <td>16.0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>24.76</td>
+      <td>2030</td>
+      <td>315</td>
+      <td>17</td>
+      <td>4</td>
+      <td>2018</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>97590</td>
+      <td>1221</td>
+      <td>22</td>
+      <td>5.90</td>
+      <td>18.23</td>
+      <td>41</td>
+      <td>400</td>
+      <td>1</td>
+      <td>350.0</td>
+      <td>16.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>144.78</td>
+      <td>2030</td>
+      <td>315</td>
+      <td>17</td>
+      <td>1</td>
+      <td>2018</td>
+      <td>7</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>97590</td>
+      <td>1221</td>
+      <td>22</td>
+      <td>5.90</td>
+      <td>18.23</td>
+      <td>41</td>
+      <td>400</td>
+      <td>1</td>
+      <td>350.0</td>
+      <td>16.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>144.78</td>
+      <td>2030</td>
+      <td>315</td>
+      <td>17</td>
+      <td>1</td>
+      <td>2018</td>
+      <td>7</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>179</th>
+      <td>97590</td>
+      <td>1221</td>
+      <td>22</td>
+      <td>5.90</td>
+      <td>18.23</td>
+      <td>41</td>
+      <td>400</td>
+      <td>1</td>
+      <td>350.0</td>
+      <td>16.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>144.78</td>
+      <td>2030</td>
+      <td>315</td>
+      <td>17</td>
+      <td>1</td>
+      <td>2018</td>
+      <td>7</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>180</th>
+      <td>97590</td>
+      <td>1221</td>
+      <td>22</td>
+      <td>5.90</td>
+      <td>18.23</td>
+      <td>41</td>
+      <td>400</td>
+      <td>1</td>
+      <td>350.0</td>
+      <td>16.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>144.78</td>
+      <td>2030</td>
+      <td>315</td>
+      <td>17</td>
+      <td>1</td>
+      <td>2018</td>
+      <td>7</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>115590</th>
+      <td>18047</td>
+      <td>1436</td>
+      <td>25</td>
+      <td>18.99</td>
+      <td>7.39</td>
+      <td>53</td>
+      <td>80</td>
+      <td>1</td>
+      <td>250.0</td>
+      <td>32.0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>26.38</td>
+      <td>5201</td>
+      <td>315</td>
+      <td>17</td>
+      <td>5</td>
+      <td>2018</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>115591</th>
+      <td>3574</td>
+      <td>1374</td>
+      <td>25</td>
+      <td>18.99</td>
+      <td>7.39</td>
+      <td>53</td>
+      <td>80</td>
+      <td>1</td>
+      <td>250.0</td>
+      <td>32.0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>26.38</td>
+      <td>5201</td>
+      <td>315</td>
+      <td>17</td>
+      <td>4</td>
+      <td>2018</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>115604</th>
+      <td>88350</td>
+      <td>211</td>
+      <td>23</td>
+      <td>289.49</td>
+      <td>24.83</td>
+      <td>47</td>
+      <td>1002</td>
+      <td>3</td>
+      <td>1900.0</td>
+      <td>19.0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>5</td>
+      <td>314.32</td>
+      <td>95910</td>
+      <td>174</td>
+      <td>15</td>
+      <td>5</td>
+      <td>2018</td>
+      <td>8</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>115607</th>
+      <td>9951</td>
+      <td>449</td>
+      <td>25</td>
+      <td>19.00</td>
+      <td>12.86</td>
+      <td>32</td>
+      <td>660</td>
+      <td>3</td>
+      <td>500.0</td>
+      <td>16.0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>84.63</td>
+      <td>17201</td>
+      <td>165</td>
+      <td>17</td>
+      <td>3</td>
+      <td>2018</td>
+      <td>7</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>115608</th>
+      <td>9951</td>
+      <td>449</td>
+      <td>25</td>
+      <td>39.90</td>
+      <td>12.87</td>
+      <td>57</td>
+      <td>942</td>
+      <td>5</td>
+      <td>500.0</td>
+      <td>21.0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>84.63</td>
+      <td>17201</td>
+      <td>165</td>
+      <td>17</td>
+      <td>3</td>
+      <td>2018</td>
+      <td>7</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>11578 rows × 24 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7e43f5f9-2509-4baf-bdd8-3fd2b8646ff4')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+<p>&lt;svg xmlns=&ldquo;
+<a href="http://www.w3.org/2000/svg%22" target="_blank" rel="noopener">http://www.w3.org/2000/svg"</a> height=&ldquo;24px&quot;viewBox=&ldquo;0 0 24 24&rdquo;
+width=&ldquo;24px&rdquo;&gt;
+<path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+</svg>
+</button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector('#df-7e43f5f9-2509-4baf-bdd8-3fd2b8646ff4 button.colab-df-convert');
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+    async function convertToInteractive(key) {
+      const element = document.querySelector('#df-7e43f5f9-2509-4baf-bdd8-3fd2b8646ff4');
+      const dataTable =
+        await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                 [key], {});
+      if (!dataTable) return;
+
+      const docLinkHtml = 'Like what you see? Visit the ' +
+        '&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;'
+        + ' to learn more about interactive tables.';
+      element.innerHTML = '';
+      dataTable['output_type'] = 'display_data';
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement('div');
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    }
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+<h3 id="feature-scaling">Feature scaling<a href="#feature-scaling"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h3>
+<pre><code class="language-python">scaler = scale()
+scaler.fit(orders_pca)
+scaled_data = scaler.transform(orders_pca)
+</code></pre>
+<pre><code class="language-python">pca = PCA(n_components=24) 
+principalComponents = pca.fit_transform(scaled_data)
+features = range(pca.n_components_)
+plt.bar(features, pca.explained_variance_ratio_, color = &quot;black&quot;)
+plt.xlabel(&quot;PCA Features&quot;)
+plt.ylabel(&quot;variance&quot;)
+plt.xticks(features)
+</code></pre>
+<pre><code>([&lt;matplotlib.axis.XTick at 0x7f1f3470eac0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1f3470e070&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef148ca0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1efb12c580&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef43dc70&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef07c8b0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1f34e61cd0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef07c2b0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef12d550&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef030820&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef07aa60&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef02ec70&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef0b3ee0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef062d00&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef02a340&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef02aa00&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef062460&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef030370&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef07c880&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef0653d0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef023520&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef01d100&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1eef01d610&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f1f1f5bf9d0&gt;],
+ &lt;a list of 24 Text major ticklabel objects&gt;)
+</code></pre>
+<p><img src="./Price_Optimization_50_1.png" alt="png"></p>
+<pre><code class="language-python">print(f'scaled transformed:\n{principalComponents}')
+</code></pre>
+<pre><code>scaled transformed:
+[[-1.78915648 -0.9915772   0.50575118 ... -0.44939969  0.07284326
+  -0.        ]
+ [-1.29130725  0.1445215   1.4490181  ... -0.16043196 -0.06483136
+   0.        ]
+ [-1.29130725  0.1445215   1.4490181  ... -0.16043196 -0.06483136
+   0.        ]
+ ...
+ [ 0.74134337  2.57629743 -0.58086013 ...  0.46497455 -0.44635816
+   0.        ]
+ [-1.69398342 -0.1945956  -0.69429724 ...  0.31200652  0.08429204
+  -0.        ]
+ [-1.45454791 -0.2238317  -0.17733502 ...  0.17962967  0.08459756
+  -0.        ]]
+</code></pre>
+<pre><code class="language-python">print(f'Eigenvalues: \n{pca.explained_variance_}')
+</code></pre>
+<pre><code>Eigenvalues: 
+[3.51935228 1.98088086 1.67946373 1.55547842 1.42841886 1.27674909
+ 1.11870001 1.08060292 1.00973884 0.93066439 0.88270347 0.82969318
+ 0.79960423 0.75008807 0.69775192 0.6880032  0.5592638  0.50074465
+ 0.45251188 0.41167427 0.37122486 0.24885426 0.22981949 0.        ]
+</code></pre>
+<pre><code class="language-python">print(f'Eigenvectors: \n{pca.components_}')
+</code></pre>
+<pre><code>Eigenvectors: 
+[[ 1.07283581e-01 -5.83211233e-02 -8.75066915e-02  3.42131017e-01
+   4.09440942e-01  2.31132297e-02  1.18262007e-01  1.79369185e-02
+   4.23694074e-01  3.30424817e-01  3.03938820e-01  3.18123872e-01
+  -3.43433723e-02  2.28480604e-02  1.84135184e-02  2.07692351e-01
+   3.38854409e-01  1.13238335e-01 -9.88447581e-02 -9.76218285e-02
+  -4.53598384e-02  7.00981683e-03 -3.72342651e-02  0.00000000e+00]
+ [ 3.88724290e-01 -2.99029131e-01 -3.74951196e-01  7.06538891e-02
+   8.96661546e-02 -2.89583636e-03  9.84516718e-02 -2.82069638e-02
+  -2.18054651e-01 -2.26755306e-01 -1.62170931e-01 -2.62919569e-01
+   4.58308090e-02 -6.41342164e-02 -3.71843899e-02  6.31367801e-02
+   5.75518287e-02  3.97308410e-01 -2.31334547e-01 -4.16967816e-01
+   7.89442092e-04 -1.00150321e-02  2.71738751e-02 -0.00000000e+00]
+ [ 2.90394237e-01 -1.90481049e-01 -2.89987069e-01  1.80062990e-01
+   4.76735845e-02  7.39414135e-02  9.22006496e-02  2.42149771e-01
+  -5.30302181e-02 -1.38539713e-01 -1.23847001e-02 -1.66072922e-01
+   2.25058150e-01 -7.76520138e-02 -9.80477884e-02  1.06947615e-01
+   2.10682155e-01 -4.32641817e-01  4.42648427e-01  3.56634074e-01
+  -6.49808349e-02 -5.61325187e-03 -3.97336095e-02  0.00000000e+00]
+ [ 2.89608860e-01 -2.45173532e-01 -2.94822901e-01 -2.69505708e-01
+   8.69910602e-02  5.89379149e-02 -1.54368436e-01 -1.40906414e-02
+   6.25456701e-02  1.49683259e-01  2.24962566e-02  1.95653762e-01
+  -1.31667467e-01  4.86582490e-01  4.24438633e-01 -1.62167605e-01
+  -3.28343751e-01 -1.00562246e-01  4.70590414e-02  7.64566856e-02
+   2.42762738e-02  1.07766181e-02 -9.51662694e-02 -0.00000000e+00]
+ [-1.92331604e-01  1.73142312e-01  1.75848351e-01  2.68088669e-01
+  -3.85532803e-02  1.66422741e-01  2.77862193e-01  2.72920221e-01
+  -7.94532741e-02 -1.38786379e-01 -6.21311419e-02 -1.82236295e-01
+   2.06351963e-01  4.63262806e-01  4.99705454e-01  7.03207540e-02
+   1.45305213e-01  7.93728404e-02  5.31598368e-02 -1.28526957e-01
+   6.24309888e-02 -1.04381157e-01  1.15410553e-01 -0.00000000e+00]
+ [-1.32709149e-02  6.35721992e-02 -2.09909117e-02  1.82983506e-01
+  -4.69047408e-02 -5.21232722e-01 -3.45495413e-01 -4.86948745e-01
+  -5.02866388e-02 -1.93398976e-01  4.77942287e-02 -1.12867530e-01
+   7.23563338e-02  1.58220066e-01  2.52367255e-01  2.50734124e-01
+   2.06848581e-01 -4.26249926e-02  5.65561438e-03  9.11063883e-02
+  -1.67128268e-01  1.08889959e-01 -1.64266569e-01  0.00000000e+00]
+ [ 6.17832708e-03 -4.11843564e-02 -1.41090936e-02 -1.59753225e-01
+   1.20411046e-01 -3.91016671e-01 -3.24754424e-02  2.62468253e-02
+   1.82230855e-01 -1.83638441e-02  3.15964512e-01 -6.18464039e-02
+   5.76280797e-01 -4.80955792e-02 -2.44448331e-02 -1.03568537e-01
+  -2.01527995e-01  1.81323234e-03  4.77688421e-02 -9.83599456e-02
+   3.34919375e-01 -2.63218340e-01  2.94007256e-01  0.00000000e+00]
+ [ 2.13078923e-02 -1.02805370e-01 -2.13022907e-02  1.20333746e-01
+   1.52211939e-02 -2.98998291e-02 -9.40644306e-02 -1.79792245e-01
+  -1.09884933e-01  5.45091107e-02 -2.65661145e-01  1.38380878e-01
+  -3.48434815e-01 -3.66401239e-02  6.49990675e-02  1.75667987e-01
+   9.78748696e-02 -7.08669980e-02  4.32902921e-02  1.32034045e-01
+   1.78146529e-01 -4.87376394e-01  6.04945362e-01 -0.00000000e+00]
+ [-1.56171985e-02  7.15341614e-03 -1.66047108e-02 -1.19825894e-01
+  -2.62659670e-02 -8.73034062e-03  1.99367519e-01 -7.21207995e-02
+   5.85180608e-02 -5.96675117e-02  1.87811761e-01 -8.42379876e-02
+  -4.84482121e-03  2.53916452e-02 -2.28149709e-02 -1.39630725e-01
+  -3.39957086e-02 -1.84213948e-02 -7.43371668e-02  7.02973091e-03
+  -7.07576429e-01 -5.97082417e-01 -7.12347403e-02  0.00000000e+00]
+ [ 1.65175933e-02  3.99081314e-03 -1.80265683e-02  1.53930569e-01
+  -7.34099232e-03 -2.25941006e-01  4.43010780e-01 -2.80246320e-01
+  -1.04126580e-02 -3.96169766e-02  2.91873858e-02 -6.10574864e-02
+  -2.76469256e-01  1.29799938e-01 -1.19815272e-01 -4.62210073e-01
+   1.35687510e-01 -5.20296890e-02  1.44263442e-01 -3.94527385e-03
+   3.95145948e-01 -1.59096036e-01 -3.14419066e-01  0.00000000e+00]
+ [-2.27353040e-02 -3.37957103e-02  9.44479233e-03 -2.43848816e-02
+  -1.30539082e-01  1.21348786e-01 -1.55853180e-01  1.07769877e-01
+  -3.33851024e-02  6.73073187e-02 -7.23945092e-02  4.41585809e-02
+   9.55955812e-02 -1.03332109e-01  4.23378725e-02  4.00883303e-01
+  -5.09309262e-02  1.03642135e-02 -1.48481393e-01  4.09218413e-02
+   3.30954489e-01 -4.95540547e-01 -5.94407974e-01  0.00000000e+00]
+ [ 1.34162687e-01  5.80221460e-01 -2.21586750e-01  1.21088841e-01
+   1.68147571e-01  6.58693888e-02 -4.40798018e-01  9.23905352e-02
+  -4.57621091e-02  7.67535408e-02 -2.41668964e-01  8.32844495e-02
+   1.22804158e-01  8.63990234e-02 -1.45044960e-01 -3.46746096e-01
+   1.33935806e-01  1.12521195e-01  1.61661280e-01 -1.24987612e-01
+  -3.20258897e-02 -1.80003557e-01 -5.66030730e-02 -0.00000000e+00]
+ [-6.36568339e-02 -1.69832446e-01  4.20770940e-02  1.64764755e-02
+  -1.26313136e-01 -5.99914891e-01  1.23280570e-01  4.14931020e-01
+  -1.21895206e-01  3.42872578e-01 -3.79092646e-01  2.19783019e-01
+   1.16679409e-02 -1.06973863e-02  7.45038758e-03  1.28064628e-05
+   1.37814756e-02  3.42539397e-02  1.15704968e-01 -1.42034472e-01
+  -1.86594169e-01  1.64783505e-02 -8.41932644e-02 -0.00000000e+00]
+ [-1.42650836e-01 -5.92162803e-01  3.10240015e-01  2.32702555e-01
+  -5.78034822e-02  1.25466788e-01 -4.48052736e-01  1.02707264e-01
+   3.26250554e-02 -8.93433300e-02  4.47811989e-02 -1.82612689e-03
+   6.68233456e-02  1.35274944e-01 -1.25614772e-01 -3.77063902e-01
+   2.04498502e-01  7.54460034e-02 -2.99480708e-02 -1.91186538e-03
+  -1.88044622e-02 -7.87459347e-02 -3.83192194e-02  0.00000000e+00]
+ [ 7.36451328e-02  1.43423257e-01 -1.48161386e-01  1.06057856e-01
+  -3.90153634e-02 -2.06996671e-01 -3.05380815e-02  3.46215552e-01
+  -1.26158413e-02 -7.35191539e-02  7.42710004e-02 -1.03285027e-01
+  -1.08759737e-01  8.41157366e-02 -4.00754889e-02 -1.51032904e-01
+   7.70385047e-02 -2.05201424e-01 -7.30549068e-01  3.42885035e-01
+   7.18105472e-02  2.36679910e-02  7.44150454e-02  0.00000000e+00]
+ [-1.59160781e-03  8.32453514e-02  1.30394652e-02 -6.44234891e-02
+   6.50350718e-02 -1.97312113e-01 -2.02074057e-01  4.30568969e-01
+   5.07368827e-02 -3.32249265e-01  3.93669626e-01 -1.13028671e-01
+  -5.34103382e-01 -2.79250244e-02  1.07932728e-02  1.31786127e-01
+  -5.11027079e-02  1.34543240e-01  2.93735397e-01 -1.50137624e-01
+   4.97897650e-02 -5.22758427e-02 -1.92291631e-02  0.00000000e+00]
+ [ 6.00183457e-01  9.40335340e-02  5.52475945e-01 -6.66495220e-02
+   4.53967806e-02 -6.18225039e-02  5.71198066e-02  1.08647379e-02
+  -5.61262413e-02  8.57400260e-02 -9.25913979e-03 -7.83237650e-02
+   2.80921324e-02  1.86098771e-01 -1.52720312e-01  9.27420781e-02
+  -2.71557569e-02  3.34604367e-01  4.42209488e-02  3.36080192e-01
+  -9.17388007e-03 -1.42365277e-02  6.63153252e-03 -0.00000000e+00]
+ [ 5.46907618e-02  4.18860456e-02 -1.08675576e-01 -1.36065328e-02
+  -4.37733557e-01  3.52923798e-02  2.18800758e-02 -3.39165892e-02
+  -1.12267583e-01 -2.45267561e-02  2.11177186e-01  2.58165865e-01
+   5.04196390e-02  5.08316875e-01 -5.00644793e-01  2.35018652e-01
+   6.85075822e-02 -1.40784633e-01 -8.56032811e-03 -2.49330940e-01
+   1.52672265e-02  1.00929050e-02  1.02116431e-01 -0.00000000e+00]
+ [-3.58447392e-01 -8.29370043e-02 -5.81412112e-02 -7.99847816e-02
+   5.22521941e-01 -5.54732634e-02  1.87140943e-02 -6.33542971e-03
+   1.23850524e-01 -4.97375093e-02 -2.90061118e-01 -2.62549743e-01
+  -3.62594486e-02  3.86329404e-01 -3.96117028e-01  2.10158744e-01
+  -1.88011812e-01  3.12600873e-02 -4.52542426e-03  1.29194020e-01
+  -1.93019917e-02 -2.91553552e-03 -4.92211052e-02  0.00000000e+00]
+ [ 2.72201671e-01  3.34900553e-02  3.89628043e-01  2.01330384e-02
+   2.65771854e-01 -1.71059541e-02 -1.54968579e-02 -1.05967195e-02
+   8.49877506e-02 -2.43811916e-01 -1.93416906e-01  9.16009164e-02
+  -3.26788684e-02 -3.47743839e-02  1.38383209e-02  2.03195183e-02
+  -9.21196550e-02 -5.89466290e-01 -1.35873400e-01 -4.55877945e-01
+  -2.38313101e-02 -1.48360565e-02 -5.39367830e-02  0.00000000e+00]
+ [-7.53175907e-02 -8.64004631e-03 -2.84947906e-02  3.19425353e-02
+   1.65543512e-01 -3.05430591e-02  1.41901319e-01  2.58496053e-02
+  -1.35570406e-01 -5.86628267e-01 -6.26142958e-02  6.71892386e-01
+   1.36018009e-01 -3.79626209e-02  5.89482497e-04 -2.91760888e-02
+  -8.04481483e-02  2.03921254e-01 -1.64261517e-02  2.30264640e-01
+  -2.27360050e-02  4.81926596e-03 -5.22055291e-02 -0.00000000e+00]
+ [ 7.54423959e-02  9.31466657e-03 -5.57766465e-02 -2.65728125e-01
+  -3.22052107e-01 -1.69475042e-02  2.60289632e-02  2.83117312e-02
+   7.40192308e-01 -2.57048651e-01 -3.51415609e-01 -1.95793623e-02
+  -8.95880411e-03  2.45769073e-02  2.07697185e-02  6.37980325e-04
+   2.50681350e-01  1.02383206e-01  1.51123520e-02  2.48018419e-02
+   3.06152344e-02  4.37311215e-03  3.06751533e-02  0.00000000e+00]
+ [-7.42099362e-02 -2.96312374e-02  5.13793069e-02 -6.49114798e-01
+   2.37692029e-01  9.01971706e-03  7.30432110e-03  2.60229379e-02
+  -2.86547052e-01  2.93692728e-02  6.70015623e-02  3.86642926e-02
+   2.71993291e-02  4.29299434e-02  5.94561481e-02 -6.80059889e-03
+   6.37449709e-01 -6.08681872e-02 -4.18683598e-02 -2.69848805e-02
+   6.71816089e-02 -3.04127868e-03 -1.20341159e-02 -0.00000000e+00]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+</code></pre>
+<p>We plotted variance graph for all 24 features.
+Now, we take some number of components and plot graph of its variance percentage.</p>
+<pre><code class="language-python">components =[5,10,15,16,17,18,19,20]
+variance_percent=[]
+for i in components:
+  pca= PCA(i)
+  PrincipalComponents_ = pca.fit_transform(scaled_data)
+  var_ratio = pca.explained_variance_ratio_
+  variance_percent.append(sum(var_ratio)*100)
+
+plt.plot(components,variance_percent,color='blue', marker='o')
+plt.axvline(17, color='r', linestyle='dashed')
+plt.xlabel(&quot;PCA componets&quot;)
+plt.ylabel(&quot;variance percentage&quot;)
+plt.show()
+# df_pc = pd.DataFrame(PrincipalComponents_,columns=[&quot;PCA1&quot;,&quot;PCA2&quot;,&quot;PCA3&quot;,&quot;PCA4&quot;,&quot;PCA5&quot;,&quot;PCA6&quot;,&quot;PCA7&quot;,&quot;PCA8&quot;,&quot;PCA9&quot;,&quot;PCA10&quot;,&quot;PCA11&quot;,&quot;PCA12&quot;,&quot;PCA13&quot;,&quot;PCA14&quot;,&quot;PCA15&quot;,&quot;PCA16&quot;])
+</code></pre>
+<p><img src="./Price_Optimization_55_0.png" alt="png"></p>
+<p>We see, when number of components is 16, variance percentage is 91. Hence, we can reduce number of features to 16</p>
+<pre><code class="language-python">pca= PCA(17)
+PrincipalComponents_ = pca.fit_transform(scaled_data)
+df_pc = pd.DataFrame(PrincipalComponents_,columns=[&quot;PCA1&quot;,&quot;PCA2&quot;,&quot;PCA3&quot;,&quot;PCA4&quot;,&quot;PCA5&quot;,&quot;PCA6&quot;,&quot;PCA7&quot;,&quot;PCA8&quot;,&quot;PCA9&quot;,&quot;PCA10&quot;,&quot;PCA11&quot;,&quot;PCA12&quot;,&quot;PCA13&quot;,&quot;PCA14&quot;,&quot;PCA15&quot;,&quot;PCA16&quot;,&quot;PCA17&quot;])
+df_pc.head(5)
+</code></pre>
+  <div id="df-a77741ba-1ceb-4a7a-a1b5-036ef77c014f">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PCA1</th>
+      <th>PCA2</th>
+      <th>PCA3</th>
+      <th>PCA4</th>
+      <th>PCA5</th>
+      <th>PCA6</th>
+      <th>PCA7</th>
+      <th>PCA8</th>
+      <th>PCA9</th>
+      <th>PCA10</th>
+      <th>PCA11</th>
+      <th>PCA12</th>
+      <th>PCA13</th>
+      <th>PCA14</th>
+      <th>PCA15</th>
+      <th>PCA16</th>
+      <th>PCA17</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1.789156</td>
+      <td>-0.991577</td>
+      <td>0.505751</td>
+      <td>-0.218450</td>
+      <td>0.293792</td>
+      <td>-0.154203</td>
+      <td>0.301297</td>
+      <td>-0.542795</td>
+      <td>0.353870</td>
+      <td>0.304042</td>
+      <td>-0.240973</td>
+      <td>-0.764370</td>
+      <td>-1.565101</td>
+      <td>0.649536</td>
+      <td>-0.829681</td>
+      <td>-0.004337</td>
+      <td>-0.141422</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.291307</td>
+      <td>0.144521</td>
+      <td>1.449018</td>
+      <td>-0.365807</td>
+      <td>-1.501985</td>
+      <td>0.931064</td>
+      <td>0.597494</td>
+      <td>-0.346621</td>
+      <td>1.478661</td>
+      <td>-0.238831</td>
+      <td>-1.682608</td>
+      <td>0.868156</td>
+      <td>-0.508295</td>
+      <td>-0.147700</td>
+      <td>-0.041574</td>
+      <td>0.354897</td>
+      <td>1.823573</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.291307</td>
+      <td>0.144521</td>
+      <td>1.449018</td>
+      <td>-0.365807</td>
+      <td>-1.501985</td>
+      <td>0.931064</td>
+      <td>0.597494</td>
+      <td>-0.346621</td>
+      <td>1.478661</td>
+      <td>-0.238831</td>
+      <td>-1.682608</td>
+      <td>0.868156</td>
+      <td>-0.508295</td>
+      <td>-0.147700</td>
+      <td>-0.041574</td>
+      <td>0.354897</td>
+      <td>1.823573</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-1.291307</td>
+      <td>0.144521</td>
+      <td>1.449018</td>
+      <td>-0.365807</td>
+      <td>-1.501985</td>
+      <td>0.931064</td>
+      <td>0.597494</td>
+      <td>-0.346621</td>
+      <td>1.478661</td>
+      <td>-0.238831</td>
+      <td>-1.682608</td>
+      <td>0.868156</td>
+      <td>-0.508295</td>
+      <td>-0.147700</td>
+      <td>-0.041574</td>
+      <td>0.354897</td>
+      <td>1.823573</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-1.291307</td>
+      <td>0.144521</td>
+      <td>1.449018</td>
+      <td>-0.365807</td>
+      <td>-1.501985</td>
+      <td>0.931064</td>
+      <td>0.597494</td>
+      <td>-0.346621</td>
+      <td>1.478661</td>
+      <td>-0.238831</td>
+      <td>-1.682608</td>
+      <td>0.868156</td>
+      <td>-0.508295</td>
+      <td>-0.147700</td>
+      <td>-0.041574</td>
+      <td>0.354897</td>
+      <td>1.823573</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a77741ba-1ceb-4a7a-a1b5-036ef77c014f')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+<p>&lt;svg xmlns=&ldquo;
+<a href="http://www.w3.org/2000/svg%22" target="_blank" rel="noopener">http://www.w3.org/2000/svg"</a> height=&ldquo;24px&quot;viewBox=&ldquo;0 0 24 24&rdquo;
+width=&ldquo;24px&rdquo;&gt;
+<path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+</svg>
+</button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector('#df-a77741ba-1ceb-4a7a-a1b5-036ef77c014f button.colab-df-convert');
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+    async function convertToInteractive(key) {
+      const element = document.querySelector('#df-a77741ba-1ceb-4a7a-a1b5-036ef77c014f');
+      const dataTable =
+        await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                 [key], {});
+      if (!dataTable) return;
+
+      const docLinkHtml = 'Like what you see? Visit the ' +
+        '&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;'
+        + ' to learn more about interactive tables.';
+      element.innerHTML = '';
+      dataTable['output_type'] = 'display_data';
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement('div');
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    }
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+<pre><code class="language-python">var_ratio = pca.explained_variance_ratio_
+print(f'total variance for 17 components:{sum(var_ratio)*100}')
+</code></pre>
+<pre><code>total variance for 17 components:90.37113861630736
+</code></pre>
+
+
+
+<h1 id="exploratory-data-analysis">Exploratory Data Analysis<a href="#exploratory-data-analysis"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h1>
+<p>How many categories does the data have?</p>
+<pre><code class="language-python"># Unique categories
+categories = orders['category'].unique()
+len(categories)
+</code></pre>
+<pre><code>71
+</code></pre>
+<p><strong>Observations:</strong> There are 71 unique categories</p>
+<pre><code class="language-python">categories
+</code></pre>
+<pre><code>array(['housewares', 'bed_bath_table', 'health_beauty', 'auto',
+       'construction_tools_construction', 'stationery', 'furniture_decor',
+       'office_furniture', 'garden_tools', 'computers_accessories',
+       'cool_stuff', 'sports_leisure', 'food', 'musical_instruments',
+       'construction_tools_lights', 'industry_commerce_and_business',
+       'kitchen_dining_laundry_garden_furniture', 'art',
+       'costruction_tools_tools', 'toys', 'fashion_underwear_beach',
+       'market_place', 'perfumery', 'home_construction', 'pet_shop',
+       'home_appliances', 'baby', 'furniture_living_room', 'telephony',
+       'fashion_bags_accessories', 'electronics', 'luggage_accessories',
+       'watches_gifts', 'small_appliances', 'computers', 'music',
+       'party_supplies', 'fashion_childrens_clothes', 'furniture_bedroom',
+       'audio', 'signaling_and_security', 'agro_industry_and_commerce',
+       'fixed_telephony', 'consoles_games', 'cine_photo',
+       'construction_tools_safety', 'books_general_interest',
+       'air_conditioning', 'fashion_male_clothing',
+       'costruction_tools_garden', 'food_drink', 'home_confort',
+       'arts_and_craftmanship', 'cds_dvds_musicals', 'home_appliances_2',
+       'drinks', 'fashion_shoes', 'tablets_printing_image',
+       'dvds_blu_ray', 'books_technical', 'diapers_and_hygiene',
+       'books_imported', 'small_appliances_home_oven_and_coffee',
+       'home_comfort_2', 'christmas_supplies', 'flowers'], dtype=object)
+</code></pre>
+
+
+
+<h3 id="how-is-the-trend-of-sales-with-passing-months">How is the trend of sales with passing months?<a href="#how-is-the-trend-of-sales-with-passing-months"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h3>
+<pre><code class="language-python">orderSales = orders.groupby(['year', 'month','year_month'], as_index=False).sum().loc[:, ['year', 'month','year_month', 'price','order_count']]
+orderSales
+# From the results we can see gradually the order_counts increase with passing months
+</code></pre>
+  <div id="df-3a7aea78-9f8f-4605-adc8-39c3bae71337">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>month</th>
+      <th>year_month</th>
+      <th>price</th>
+      <th>order_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2016</td>
+      <td>10</td>
+      <td>2016-10</td>
+      <td>41043.73</td>
+      <td>328</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2016</td>
+      <td>12</td>
+      <td>2016-12</td>
+      <td>10.90</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2017</td>
+      <td>1</td>
+      <td>2017-01</td>
+      <td>118525.81</td>
+      <td>958</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2017</td>
+      <td>2</td>
+      <td>2017-02</td>
+      <td>236110.95</td>
+      <td>1902</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2017</td>
+      <td>3</td>
+      <td>2017-03</td>
+      <td>370039.64</td>
+      <td>3010</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2017</td>
+      <td>4</td>
+      <td>2017-04</td>
+      <td>349595.61</td>
+      <td>2622</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2017</td>
+      <td>5</td>
+      <td>2017-05</td>
+      <td>516270.99</td>
+      <td>4174</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2017</td>
+      <td>6</td>
+      <td>2017-06</td>
+      <td>437773.82</td>
+      <td>3639</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2017</td>
+      <td>7</td>
+      <td>2017-07</td>
+      <td>510081.68</td>
+      <td>4666</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2017</td>
+      <td>8</td>
+      <td>2017-08</td>
+      <td>572738.71</td>
+      <td>4973</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2017</td>
+      <td>9</td>
+      <td>2017-09</td>
+      <td>635831.10</td>
+      <td>4921</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2017</td>
+      <td>10</td>
+      <td>2017-10</td>
+      <td>655969.70</td>
+      <td>5382</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2017</td>
+      <td>11</td>
+      <td>2017-11</td>
+      <td>1008123.20</td>
+      <td>8693</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2017</td>
+      <td>12</td>
+      <td>2017-12</td>
+      <td>728074.99</td>
+      <td>6261</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2018</td>
+      <td>1</td>
+      <td>2018-01</td>
+      <td>934616.32</td>
+      <td>8146</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2018</td>
+      <td>2</td>
+      <td>2018-02</td>
+      <td>850316.10</td>
+      <td>7669</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2018</td>
+      <td>3</td>
+      <td>2018-03</td>
+      <td>971126.98</td>
+      <td>8184</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2018</td>
+      <td>4</td>
+      <td>2018-04</td>
+      <td>994816.77</td>
+      <td>7987</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>2018</td>
+      <td>5</td>
+      <td>2018-05</td>
+      <td>1001315.80</td>
+      <td>8017</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>2018</td>
+      <td>6</td>
+      <td>2018-06</td>
+      <td>896402.58</td>
+      <td>7265</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>2018</td>
+      <td>7</td>
+      <td>2018-07</td>
+      <td>882260.08</td>
+      <td>7117</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>2018</td>
+      <td>8</td>
+      <td>2018-08</td>
+      <td>859092.89</td>
+      <td>7295</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-3a7aea78-9f8f-4605-adc8-39c3bae71337')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+<p>&lt;svg xmlns=&ldquo;
+<a href="http://www.w3.org/2000/svg%22" target="_blank" rel="noopener">http://www.w3.org/2000/svg"</a> height=&ldquo;24px&quot;viewBox=&ldquo;0 0 24 24&rdquo;
+width=&ldquo;24px&rdquo;&gt;
+<path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+</svg>
+</button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector('#df-3a7aea78-9f8f-4605-adc8-39c3bae71337 button.colab-df-convert');
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+    async function convertToInteractive(key) {
+      const element = document.querySelector('#df-3a7aea78-9f8f-4605-adc8-39c3bae71337');
+      const dataTable =
+        await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                 [key], {});
+      if (!dataTable) return;
+
+      const docLinkHtml = 'Like what you see? Visit the ' +
+        '&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;'
+        + ' to learn more about interactive tables.';
+      element.innerHTML = '';
+      dataTable['output_type'] = 'display_data';
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement('div');
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    }
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+<pre><code class="language-python"># Reference: https://medium.com/hamoye-blogs/unraveling-brazilian-e-commerce-dataset-e78463d77340
+top_cat = orders.groupby([&quot;category&quot;]).sum().sort_values(&quot;price&quot;, ascending=False).reset_index()
+top_category = top_cat['category'].head(17).to_list()
+
+category_graph = orders.groupby(['category', 'year_month'])['price'].sum().reset_index()
+fig = plt.figure(figsize = (16, 14))
+fig.subplots_adjust(hspace=1.2, wspace=0.5)
+for i, cat in enumerate(top_category):
+    ax = plt.subplot(5, 4, i+1)
+    data = category_graph[category_graph['category']== cat]
+    sns.lineplot(data['year_month'], data['price'], ax=ax, color='green')
+    plt.xticks(rotation=90)
+    plt.title(cat, fontsize= 10)
+    plt.xlabel('year_month', fontsize=8)
+    plt.ylabel('Total_price', fontsize=11)
+</code></pre>
+<p><img src="./Price_Optimization_66_0.png" alt="png"></p>
+
+
+
+<h2 id="which-categories-generated-most-revenues-in-the-year-2018">Which categories generated most revenues in the year 2018?<a href="#which-categories-generated-most-revenues-in-the-year-2018"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h2>
+<p>A good way to find top selling products is analyzing latest year&rsquo;s available data to determine which categories are responsible and contributing to most of the revenues of the company.</p>
+<pre><code class="language-python">orders_2018 = orders.loc[orders['year']==2018]
+</code></pre>
+<p>There are 61680 records in 2018</p>
+<pre><code class="language-python">revenue_2018 = orders_2018.groupby([&quot;category&quot;]).agg({'price':'sum'}).rename(columns={'price':'revenue'}).reset_index()
+revenue_2018 = revenue_2018.sort_values(by=['revenue'], ascending=False)
+revenue_2018.head()
+</code></pre>
+  <div id="df-b3a3b0f5-1f7d-419f-a2db-1264b5c79e79">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category</th>
+      <th>revenue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>43</th>
+      <td>health_beauty</td>
+      <td>768757.83</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>watches_gifts</td>
+      <td>712538.50</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>bed_bath_table</td>
+      <td>553929.63</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>sports_leisure</td>
+      <td>528282.56</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>computers_accessories</td>
+      <td>516811.72</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-b3a3b0f5-1f7d-419f-a2db-1264b5c79e79')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+<p>&lt;svg xmlns=&ldquo;
+<a href="http://www.w3.org/2000/svg%22" target="_blank" rel="noopener">http://www.w3.org/2000/svg"</a> height=&ldquo;24px&quot;viewBox=&ldquo;0 0 24 24&rdquo;
+width=&ldquo;24px&rdquo;&gt;
+<path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+</svg>
+</button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector('#df-b3a3b0f5-1f7d-419f-a2db-1264b5c79e79 button.colab-df-convert');
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+    async function convertToInteractive(key) {
+      const element = document.querySelector('#df-b3a3b0f5-1f7d-419f-a2db-1264b5c79e79');
+      const dataTable =
+        await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                 [key], {});
+      if (!dataTable) return;
+
+      const docLinkHtml = 'Like what you see? Visit the ' +
+        '&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;'
+        + ' to learn more about interactive tables.';
+      element.innerHTML = '';
+      dataTable['output_type'] = 'display_data';
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement('div');
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    }
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+<pre><code class="language-python">category = revenue_2018['category'].to_list()
+revenue = revenue_2018['revenue'].to_list()
+</code></pre>
+<pre><code>['health_beauty',
+ 'watches_gifts',
+ 'bed_bath_table',
+ 'sports_leisure',
+ 'computers_accessories',
+ 'housewares',
+ 'furniture_decor',
+ 'auto',
+ 'baby',
+ 'cool_stuff',
+ 'garden_tools',
+ 'telephony',
+ 'perfumery',
+ 'toys',
+ 'office_furniture',
+ 'stationery',
+ 'pet_shop',
+ 'construction_tools_construction']
+</code></pre>
+<pre><code class="language-python">ax= revenue_2018.iloc[:17,:].plot.bar('category','revenue',rot=0,figsize=(25,10))
+</code></pre>
+<p><img src="./Price_Optimization_73_0.png" alt="png"></p>
+<p><strong>Observations:</strong>  health_beaty department has generated a revenue of $768757.83 in the year 2018 and is the top selling category among the entire olist store.</p>
+<pre><code class="language-python">revenue_2018['revenue'].sum()
+</code></pre>
+<pre><code>7389947.5200000005
+</code></pre>
+<p>Total revenue generated by olist store in 2018: $ 7389947.52</p>
+
+
+
+<h3 id="how-much-do-the-top-17-categories-contribute-to-the-total-revenue">How much do the top 17 categories contribute to the total revenue?<a href="#how-much-do-the-top-17-categories-contribute-to-the-total-revenue"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h3>
+<pre><code class="language-python">revenue_2018['revenue'].head(17).sum() #Total revenue generated by top 17 categories
+</code></pre>
+<pre><code>5905145.5600000005
+</code></pre>
+<pre><code class="language-python">revenue_2018['revenue'].head(20)
+</code></pre>
+<pre><code>43    768757.83
+69    712538.50
+7     553929.63
+64    528282.56
+15    516811.72
+49    408959.27
+39    398837.15
+5     355330.67
+6     266723.02
+20    232030.11
+42    219565.02
+67    179981.05
+59    177141.42
+68    174842.28
+57    142779.67
+65    137862.38
+60    130773.28
+17    125107.20
+56    111078.95
+26     99160.51
+Name: revenue, dtype: float64
+</code></pre>
+<p><strong>Observation:</strong> From above two codes we can conclude that the top 17 out of the 71 selling categories contribute to almost 80% of the total revenue.</p>
+
+
+
+<h1 id="is-there-any-effect-on-the-sales-based-on-particular-days">Is there any effect on the sales based on particular days?<a href="#is-there-any-effect-on-the-sales-based-on-particular-days"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h1>
+<pre><code class="language-python"># Reference: https://medium.com/hamoye-blogs/unraveling-brazilian-e-commerce-dataset-e78463d77340
+</code></pre>
+<pre><code class="language-python">successful_orders_sales = orders.groupby(['year', 'month','year_month'], as_index=False).sum().loc[:, ['year', 'month','year_month', 'price','order_count']]
+</code></pre>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import matplotlib.ticker as ticker
+import seaborn as sns
+
+def bar_plot(x, y, df, colors='Blues_d', hue=False, ax=None, value=False, title=''):
+    
+    # Preparing variables
+    try:
+        ncount = sum(df[y])
+    except:
+        ncount = sum(df[x])
+    #fig, ax = plt.subplots()
+    if hue != False:
+        ax = sns.barplot(x=x, y=y, data=df, palette=colors, hue=hue, ax=ax, ci=None)
+    else:
+        ax = sns.barplot(x=x, y=y, data=df, palette=colors, ax=ax, ci=None)
+
+    # Setting borders
+    format_spines(ax)
+
+    # Setting percentage
+    for p in ax.patches:
+        xp=p.get_bbox().get_points()[:,0]
+        yp=p.get_bbox().get_points()[1,1]
+        if value:
+            ax.annotate('{:.2f}k'.format(yp/1000), (xp.mean(), yp), 
+                    ha='center', va='bottom') # set the alignment of the text
+        else:
+            ax.annotate('{:.1f}%'.format(100.*yp/ncount), (xp.mean(), yp), 
+                    ha='center', va='bottom') # set the alignment of the text
+    if not hue:
+        ax.set_title(df[x].describe().name + ' Analysis', size=12, pad=15)
+    else:
+        ax.set_title(df[x].describe().name + ' Analysis by ' + hue, size=12, pad=15)
+    if title != '':
+        ax.set_title(title)  
+    plt.tight_layout()
+
+def format_spines(ax, right_border=True):
+    
+    ax.spines['bottom'].set_color('#888888')
+    ax.spines['left'].set_color('#888888')
+    ax.spines['top'].set_visible(False)
+    if right_border:
+        ax.spines['right'].set_color('#FFFFFF')
+    else:
+        ax.spines['right'].set_color('#FFFFFF')
+    ax.patch.set_facecolor('#FFFFFF')
+
+fig, ax = plt.subplots(figsize=(20, 4.5))
+ax = sns.lineplot(x='year_month', y='price', data=successful_orders_sales)
+bar_plot(x='year_month', y='price', df=successful_orders_sales, value=True)
+format_spines(ax, right_border=False)
+ax.set_title('Brazilian E-Commerce Monthly Sales from 2016 to 2018');
+</code></pre>
+<p><img src="./Price_Optimization_84_0.png" alt="png"></p>
+<p>Observations: 27-11 which also happens to be black friday has the most number of sales. There is a possibility that the sellers had given out a lot of discounts and promotional offers on this day which resulted in more sales.</p>
+
+
+
+<h1 id="considering-health_beauty-category-which-generated-the-most-sales-in-2018">Considering health_beauty category which generated the most sales in 2018<a href="#considering-health_beauty-category-which-generated-the-most-sales-in-2018"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h1>
+<pre><code class="language-python">orders_health_beauty = orders.loc[orders['category']=='health_beauty']
+orders_health_beauty
+</code></pre>
+  <div id="df-dbe5d624-c0f5-4b8a-8523-deca9cdf686e">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>order_id</th>
+      <th>customer_id</th>
+      <th>order_status</th>
+      <th>order_purchase_timestamp</th>
+      <th>customer_unique_id</th>
+      <th>zip_code</th>
+      <th>customer_city</th>
+      <th>customer_state</th>
+      <th>order_item_id</th>
+      <th>product_id</th>
+      <th>...</th>
+      <th>seller_city</th>
+      <th>seller_state</th>
+      <th>review_id</th>
+      <th>review_score</th>
+      <th>review_creation_date</th>
+      <th>review_answer_timestamp</th>
+      <th>year</th>
+      <th>month</th>
+      <th>year_month</th>
+      <th>order_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>455</th>
+      <td>04cc9ab9d21b11d7aca691cf7facaaa1</td>
+      <td>16fea2cb1931a45f2a7c8d178afb1c83</td>
+      <td>delivered</td>
+      <td>2018-04-30</td>
+      <td>0e201fc3c7b9b02edb2d1a6e7f188912</td>
+      <td>3047</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>2</td>
+      <td>2948658cb6abc82847412be7201bfc4c</td>
+      <td>...</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>4752f49c65f0e85be766def8840a0d00</td>
+      <td>4</td>
+      <td>2018-05-05 00:00:00</td>
+      <td>2018-05-07 18:37:21</td>
+      <td>2018</td>
+      <td>4</td>
+      <td>2018-04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1300</th>
+      <td>ca290a06ee0945b956f79c93b5191633</td>
+      <td>acd575d7382968889f41a5a3f37510dd</td>
+      <td>delivered</td>
+      <td>2018-04-09</td>
+      <td>323c4e9d78f774df9255793377ce636e</td>
+      <td>77645</td>
+      <td>lajeado</td>
+      <td>TO</td>
+      <td>1</td>
+      <td>2948658cb6abc82847412be7201bfc4c</td>
+      <td>...</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>8f17f539b9a0564eaf31899dbc8d9775</td>
+      <td>4</td>
+      <td>2018-04-26 00:00:00</td>
+      <td>2018-04-26 19:50:48</td>
+      <td>2018</td>
+      <td>4</td>
+      <td>2018-04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1301</th>
+      <td>61898b3ad4d51459e014bc6d4c2e7166</td>
+      <td>a9b67ff10261665661f54c364e82d9b2</td>
+      <td>delivered</td>
+      <td>2018-06-10</td>
+      <td>05bc8e1bebeff93bdf784213a7aed5d7</td>
+      <td>17022</td>
+      <td>bauru</td>
+      <td>SP</td>
+      <td>1</td>
+      <td>2948658cb6abc82847412be7201bfc4c</td>
+      <td>...</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>25f33727efe9832e753a23b0ece70157</td>
+      <td>5</td>
+      <td>2018-06-16 00:00:00</td>
+      <td>2018-06-18 11:13:48</td>
+      <td>2018</td>
+      <td>6</td>
+      <td>2018-06</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1302</th>
+      <td>6b9ac2a31d647731d9523ae035f17dbc</td>
+      <td>b25d246218db68891876e79b3476038f</td>
+      <td>delivered</td>
+      <td>2018-04-26</td>
+      <td>66a2199c05159203014883cc0d3cf33f</td>
+      <td>54762</td>
+      <td>camaragibe</td>
+      <td>PE</td>
+      <td>1</td>
+      <td>2948658cb6abc82847412be7201bfc4c</td>
+      <td>...</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>984710cdfba2b948e05c7004c0a7f36f</td>
+      <td>4</td>
+      <td>2018-05-25 00:00:00</td>
+      <td>2018-05-25 22:25:26</td>
+      <td>2018</td>
+      <td>4</td>
+      <td>2018-04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1304</th>
+      <td>acf579dc44e10bf23cabf01d80f9f62c</td>
+      <td>527b26bd8ea58b018efd96060cac5ccb</td>
+      <td>delivered</td>
+      <td>2018-04-05</td>
+      <td>1b0843d4f653e7301b596757fed2179d</td>
+      <td>45680</td>
+      <td>urucuca</td>
+      <td>BA</td>
+      <td>1</td>
+      <td>2948658cb6abc82847412be7201bfc4c</td>
+      <td>...</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>c0404b666de439a078be8897dd70d7d4</td>
+      <td>4</td>
+      <td>2018-04-28 00:00:00</td>
+      <td>2018-04-28 22:17:14</td>
+      <td>2018</td>
+      <td>4</td>
+      <td>2018-04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>108072</th>
+      <td>e82787bc54afe9f580cbec98c3af178a</td>
+      <td>b30eac48437e2422a2530a87568b5613</td>
+      <td>delivered</td>
+      <td>2017-06-01</td>
+      <td>4f7d260b5caf79ba4cab37d9acb80f19</td>
+      <td>62640</td>
+      <td>pentecoste</td>
+      <td>CE</td>
+      <td>1</td>
+      <td>5f537918a8fcb8d675c944266babf1d6</td>
+      <td>...</td>
+      <td>lencois paulista</td>
+      <td>SP</td>
+      <td>043f535cf817cb6248ec3edac454e20e</td>
+      <td>4</td>
+      <td>2017-06-14 00:00:00</td>
+      <td>2017-06-15 03:04:17</td>
+      <td>2017</td>
+      <td>6</td>
+      <td>2017-06</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>108073</th>
+      <td>21dcd7ede33a335560d594e78f70499b</td>
+      <td>83829af919c82f52ae2a979182c900db</td>
+      <td>delivered</td>
+      <td>2018-04-24</td>
+      <td>41f28f024fc040a000297f55bd8c985a</td>
+      <td>17602</td>
+      <td>tupa</td>
+      <td>SP</td>
+      <td>1</td>
+      <td>152eb960a9b1698e3b8dcd50aa14b611</td>
+      <td>...</td>
+      <td>franca</td>
+      <td>SP</td>
+      <td>0425ce837817cd89c2bc5e6f005e9d8f</td>
+      <td>5</td>
+      <td>2018-05-03 00:00:00</td>
+      <td>2018-05-03 14:29:09</td>
+      <td>2018</td>
+      <td>4</td>
+      <td>2018-04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>108077</th>
+      <td>a6c258c89be1621b6e7c2bd85b4c866d</td>
+      <td>669a87ed9830ed7d79b3a22210a1a52d</td>
+      <td>delivered</td>
+      <td>2018-04-26</td>
+      <td>29eb806efe56d9cb4c9532edcc33ef15</td>
+      <td>13974</td>
+      <td>itapira</td>
+      <td>SP</td>
+      <td>1</td>
+      <td>5a68d72870a735b2e7ec0277013f7aa6</td>
+      <td>...</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>e59d582477716880d74d630e2e0fc6cb</td>
+      <td>4</td>
+      <td>2018-05-09 00:00:00</td>
+      <td>2018-05-10 10:36:39</td>
+      <td>2018</td>
+      <td>4</td>
+      <td>2018-04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>108078</th>
+      <td>80ba449ea98f8e879a829759b5a66294</td>
+      <td>0e07a801a6729369c02b88f4d38388cb</td>
+      <td>delivered</td>
+      <td>2018-02-25</td>
+      <td>34f2ec40e13a7f433b8ef0aa77426e77</td>
+      <td>72813</td>
+      <td>luziania</td>
+      <td>GO</td>
+      <td>1</td>
+      <td>cec29a60285cd686caa31318b3ad3671</td>
+      <td>...</td>
+      <td>curitiba</td>
+      <td>PR</td>
+      <td>4c3a0a71949616a4e151dc0b6cf46813</td>
+      <td>5</td>
+      <td>2018-03-13 00:00:00</td>
+      <td>2018-03-13 20:53:09</td>
+      <td>2018</td>
+      <td>2</td>
+      <td>2018-02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>108079</th>
+      <td>3c26cf501fd4bd60950753e8e1495ba9</td>
+      <td>20078a6dc1e4d69ba32ddfe6bbe8f768</td>
+      <td>delivered</td>
+      <td>2017-05-30</td>
+      <td>17cb19c8526583b203e7a3a6c828d3aa</td>
+      <td>52010</td>
+      <td>recife</td>
+      <td>PE</td>
+      <td>1</td>
+      <td>562f1e9b58672d3c016b72f43579d118</td>
+      <td>...</td>
+      <td>lagoa da prata</td>
+      <td>MG</td>
+      <td>0efb554ba2a7d1790edf41d94f9eeb16</td>
+      <td>5</td>
+      <td>2017-06-14 00:00:00</td>
+      <td>2017-06-16 14:59:57</td>
+      <td>2017</td>
+      <td>5</td>
+      <td>2017-05</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>9747 rows × 37 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-dbe5d624-c0f5-4b8a-8523-deca9cdf686e')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+<p>&lt;svg xmlns=&ldquo;
+<a href="http://www.w3.org/2000/svg%22" target="_blank" rel="noopener">http://www.w3.org/2000/svg"</a> height=&ldquo;24px&quot;viewBox=&ldquo;0 0 24 24&rdquo;
+width=&ldquo;24px&rdquo;&gt;
+<path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+</svg>
+</button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector('#df-dbe5d624-c0f5-4b8a-8523-deca9cdf686e button.colab-df-convert');
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+    async function convertToInteractive(key) {
+      const element = document.querySelector('#df-dbe5d624-c0f5-4b8a-8523-deca9cdf686e');
+      const dataTable =
+        await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                 [key], {});
+      if (!dataTable) return;
+
+      const docLinkHtml = 'Like what you see? Visit the ' +
+        '&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;'
+        + ' to learn more about interactive tables.';
+      element.innerHTML = '';
+      dataTable['output_type'] = 'display_data';
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement('div');
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    }
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+<p>This dataset does not have names of products, so we will deal with product_ids on macro-level</p>
+
+
+
+<h2 id="most-sold-out-product-from-health_beauty-category">Most sold out product from health_beauty category<a href="#most-sold-out-product-from-health_beauty-category"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h2>
+<pre><code class="language-python">orders_health_beauty.groupby('product_id').size().sort_values(ascending=False) #Most sold product
+</code></pre>
+<pre><code>product_id
+154e7e31ebfa092203795c972e5804a6    286
+2b4609f8948be18874494203496bc318    269
+7c1bd920dbdf22470b68bde975dd3ccf    230
+bb50f2e236e5eea0100680137654686c    209
+6cdd53843498f92890544667809f1595    155
+                                   ... 
+6f636bbfc940a89b20858b9080f4c091      1
+6f560724f3fa3fdb4940c4fd4996a359      1
+6f3aab861391bdb91a3899c05faac2c0      1
+6f2a4da2fb20abf7cfb17f4ccdba0fdb      1
+fff81cc3158d2725c0655ab9ba0f712c      1
+Length: 2390, dtype: int64
+</code></pre>
+
+
+
+<h2 id="which-product-from-health_beauty-has-undergone-the-most-price-changes-in-2018">Which product from health_beauty has undergone the most price changes in 2018?<a href="#which-product-from-health_beauty-has-undergone-the-most-price-changes-in-2018"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h2>
+<pre><code class="language-python"># Which product has the most pricing variating in health and beauty?
+
+orders_health_beauty = orders.loc[orders['category']=='health_beauty'].sort_values('product_id',ascending=False)
+top_price_variation_product = orders_health_beauty.groupby('product_id').agg({'price':pd.Series.nunique})
+top_price_variation_product.sort_values('price',ascending=False)
+</code></pre>
+  <div id="df-ecdbe839-73d1-4d9f-99f1-21b958cd5d93">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price</th>
+    </tr>
+    <tr>
+      <th>product_id</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>437c05a395e9e47f9762e677a7068ce7</th>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>921d31a1daa51460b7a95ea5f3ab64d5</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>8c292ca193d326152e335d77176746f0</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>af0a99476d96dcc1a1baa7c0d9ff6b9d</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>2fea0f2cec6b6324a277d4a61c2ed2c6</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>60c031bf1162848b7ee14f56f432285b</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>609c35bf8122d5ab8186ed7a6bfcd843</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>608f44934fbb70de5e05998ae59f4e46</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>607fc06d7055bbb7c7649810df3bc0fe</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>fff81cc3158d2725c0655ab9ba0f712c</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>2390 rows × 1 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-ecdbe839-73d1-4d9f-99f1-21b958cd5d93')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+<p>&lt;svg xmlns=&ldquo;
+<a href="http://www.w3.org/2000/svg%22" target="_blank" rel="noopener">http://www.w3.org/2000/svg"</a> height=&ldquo;24px&quot;viewBox=&ldquo;0 0 24 24&rdquo;
+width=&ldquo;24px&rdquo;&gt;
+<path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+</svg>
+</button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector('#df-ecdbe839-73d1-4d9f-99f1-21b958cd5d93 button.colab-df-convert');
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+    async function convertToInteractive(key) {
+      const element = document.querySelector('#df-ecdbe839-73d1-4d9f-99f1-21b958cd5d93');
+      const dataTable =
+        await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                 [key], {});
+      if (!dataTable) return;
+
+      const docLinkHtml = 'Like what you see? Visit the ' +
+        '&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;'
+        + ' to learn more about interactive tables.';
+      element.innerHTML = '';
+      dataTable['output_type'] = 'display_data';
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement('div');
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    }
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+<p><strong>Observations:</strong> The product &ldquo;437c05a395e9e47f9762e677a7068ce7&rdquo; has undergone price variation of 31 times so we&rsquo;ll work on it and find which price will be fit for next year</p>
+<pre><code class="language-python">product_1 = orders_health_beauty.loc[orders_health_beauty['product_id']=='437c05a395e9e47f9762e677a7068ce7']
+</code></pre>
+
+
+
+<h2 id="calculating-revenue-of-this-product-in-the-year-2018">Calculating revenue of this product in the year 2018<a href="#calculating-revenue-of-this-product-in-the-year-2018"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h2>
+<pre><code class="language-python">product_1['price'].mean()
+</code></pre>
+<pre><code>50.0378947368421
+</code></pre>
+<pre><code class="language-python">product_1['price'].count()
+</code></pre>
+<pre><code>152
+</code></pre>
+<p><strong>Observation:</strong> Last year, this product was sold for an average of $50.03789 and 152 units were sold</p>
+<pre><code class="language-python">revenue_of_product_2018 = product_1.groupby(['year']).agg({'price':&quot;mean&quot;,'product_id':&quot;count&quot;})
+revenue_of_product_2018 = revenue_of_product_2018.rename(columns={'product_id':'units_sold'})
+revenue_of_product_2018
+</code></pre>
+  <div id="df-53a6f99a-904b-45f6-ae42-f7420c03ac2b">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price</th>
+      <th>units_sold</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2018</th>
+      <td>50.037895</td>
+      <td>152</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-53a6f99a-904b-45f6-ae42-f7420c03ac2b')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+<p>&lt;svg xmlns=&ldquo;
+<a href="http://www.w3.org/2000/svg%22" target="_blank" rel="noopener">http://www.w3.org/2000/svg"</a> height=&ldquo;24px&quot;viewBox=&ldquo;0 0 24 24&rdquo;
+width=&ldquo;24px&rdquo;&gt;
+<path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+</svg>
+</button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector('#df-53a6f99a-904b-45f6-ae42-f7420c03ac2b button.colab-df-convert');
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+    async function convertToInteractive(key) {
+      const element = document.querySelector('#df-53a6f99a-904b-45f6-ae42-f7420c03ac2b');
+      const dataTable =
+        await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                 [key], {});
+      if (!dataTable) return;
+
+      const docLinkHtml = 'Like what you see? Visit the ' +
+        '&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;'
+        + ' to learn more about interactive tables.';
+      element.innerHTML = '';
+      dataTable['output_type'] = 'display_data';
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement('div');
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    }
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+<h1 id="modeling">Modeling<a href="#modeling"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h1>
+
+
+
+<h2 id="linear">Linear<a href="#linear"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h2>
+<pre><code class="language-python"># X = product_1.drop(,axis=1)
+X = product_1.iloc[: , 10:]
+X = X.drop(['seller_id','product_category_name','price','category','payment_type','seller_zip_code_prefix','seller_city','review_id','seller_state','review_creation_date','review_answer_timestamp','year_month'],axis=1)
+y = product_1['price']
+
+X.info()
+</code></pre>
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 152 entries, 52503 to 48148
+Data columns (total 15 columns):
+ #   Column                      Non-Null Count  Dtype  
+---  ------                      --------------  -----  
+ 0   freight_value               152 non-null    float64
+ 1   product_name_lenght         152 non-null    int64  
+ 2   product_description_lenght  152 non-null    int64  
+ 3   product_photos_qty          152 non-null    int64  
+ 4   product_weight_g            152 non-null    float64
+ 5   product_length_cm           152 non-null    float64
+ 6   product_height_cm           152 non-null    float64
+ 7   product_width_cm            152 non-null    float64
+ 8   payment_sequential          152 non-null    int64  
+ 9   payment_installments        152 non-null    int64  
+ 10  payment_value               152 non-null    float64
+ 11  review_score                152 non-null    int64  
+ 12  year                        152 non-null    int64  
+ 13  month                       152 non-null    int64  
+ 14  order_count                 152 non-null    int64  
+dtypes: float64(6), int64(9)
+memory usage: 19.0 KB
+</code></pre>
+<pre><code class="language-python">print(&quot;Shape of X is: &quot;,X.shape)
+print(&quot;Shape of y is: &quot;, y.shape)
+</code></pre>
+<pre><code>Shape of X is:  (152, 15)
+Shape of y is:  (152,)
+</code></pre>
+<pre><code class="language-python">X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.3, random_state=42)
+</code></pre>
+<pre><code class="language-python">scaler = StandardScaler()
+</code></pre>
+<pre><code class="language-python">X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+</code></pre>
+<pre><code class="language-python">model = LinearRegression()
+
+model.fit(X_train, y_train)
+
+pred = model.predict(X_test)
+</code></pre>
+<pre><code class="language-python">from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from math import sqrt
+mse=metrics.mean_squared_error(pred, y_test)
+print(&quot;RMSE: &quot;, (sqrt(mse)))
+print(&quot;R2 score: &quot;, (metrics.r2_score(pred, y_test)))
+</code></pre>
+<pre><code>RMSE:  2.793661844631041
+R2 score:  -6.389940229480358
+</code></pre>
+<pre><code class="language-python">sns.regplot(x=pred, y=y_test)
+plt.xlabel(&quot;Predicted Price&quot;)
+plt.ylabel('Actual Price')
+plt.title(&quot;Actual vs predicted price&quot;)
+plt.show()
+</code></pre>
+<p><img src="./Price_Optimization_109_0.png" alt="png"></p>
+
+
+
+<h2 id="ridge">Ridge<a href="#ridge"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h2>
+<pre><code class="language-python">feature_count=17
+ridge =Ridge()
+alphas =  {'alpha':[0.0001,0.001,0.01,0.1,1, 10]}
+ridge_model= GridSearchCV(ridge, alphas, scoring='neg_mean_squared_error',cv=feature_count)
+</code></pre>
+<pre><code class="language-python">ridge_model.fit(X_train,y_train)
+y_pred = ridge_model.predict(X_test)
+error = sqrt(mean_squared_error(y_test, y_pred))
+print(&quot;Ridge regression mse:{}&quot;.format(error))
+print(&quot;Best alpha value: &quot;,ridge_model.best_params_)
+best_ridge_model=ridge_model.best_estimator_
+
+</code></pre>
+<pre><code>Ridge regression mse:2.795574928396434
+Best alpha value:  {'alpha': 10}
+</code></pre>
+
+
+
+<h2 id="lasso">Lasso<a href="#lasso"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h2>
+<pre><code class="language-python">feature_count=17
+lasso =Lasso()
+alphas =  {'alpha':[0.00000001,0.0000001, 0.0000001,0.0000001,0.000001,0.00001,0.0001,0.001,0.01,0.1,110]}
+lasso_model= GridSearchCV(lasso, alphas, scoring='neg_mean_squared_error',cv=feature_count)
+    
+</code></pre>
+<pre><code class="language-python">lasso_model.fit(X_train,y_train)
+y_pred = lasso_model.predict(X_test)
+error = sqrt(mean_squared_error(y_test, y_pred))
+print(&quot;Lasso regression mse:{}&quot;.format(error))
+print(&quot;Best alpha value: &quot;,lasso_model.best_params_)
+best_lasso_model=lasso_model.best_estimator_
+</code></pre>
+<pre><code>Lasso regression mse:2.73726615958083
+Best alpha value:  {'alpha': 0.1}
+</code></pre>
+
+
+
+<h1 id="demand-curve">Demand curve<a href="#demand-curve"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h1>
+<pre><code class="language-python">product_1
+</code></pre>
+  <div id="df-a7d0dcf2-9e33-4c45-8eb8-40f8e4be4860">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>order_id</th>
+      <th>customer_id</th>
+      <th>order_status</th>
+      <th>order_purchase_timestamp</th>
+      <th>customer_unique_id</th>
+      <th>zip_code</th>
+      <th>customer_city</th>
+      <th>customer_state</th>
+      <th>order_item_id</th>
+      <th>product_id</th>
+      <th>...</th>
+      <th>seller_city</th>
+      <th>seller_state</th>
+      <th>review_id</th>
+      <th>review_score</th>
+      <th>review_creation_date</th>
+      <th>review_answer_timestamp</th>
+      <th>year</th>
+      <th>month</th>
+      <th>year_month</th>
+      <th>order_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>52503</th>
+      <td>03af60619b8abd880dd136ed837be800</td>
+      <td>a93bacd3a4ee650966803e7bbe89bc33</td>
+      <td>delivered</td>
+      <td>2018-03-19</td>
+      <td>174fbc0ca39715c4d36463f56af17b3c</td>
+      <td>26290</td>
+      <td>nova iguacu</td>
+      <td>RJ</td>
+      <td>1</td>
+      <td>437c05a395e9e47f9762e677a7068ce7</td>
+      <td>...</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>f1aadf4294fbbc13dd2453241041e574</td>
+      <td>1</td>
+      <td>2018-04-08 00:00:00</td>
+      <td>2018-04-08 04:16:35</td>
+      <td>2018</td>
+      <td>3</td>
+      <td>2018-03</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>52504</th>
+      <td>471af150dabb3b168af660f139fe01db</td>
+      <td>0cc966a6d82b632386cec199fba352a2</td>
+      <td>delivered</td>
+      <td>2018-02-24</td>
+      <td>6a76d73b5b2832fc05736775f2369bd5</td>
+      <td>1401</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>1</td>
+      <td>437c05a395e9e47f9762e677a7068ce7</td>
+      <td>...</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>076dca1f7483ab1f3628f7a7918313a9</td>
+      <td>5</td>
+      <td>2018-03-03 00:00:00</td>
+      <td>2018-03-06 07:46:09</td>
+      <td>2018</td>
+      <td>2</td>
+      <td>2018-02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>52505</th>
+      <td>e96a4c3bfb4afc0cb895a76f5ba0440b</td>
+      <td>09241c552e9fe2420997a6c535e9d408</td>
+      <td>delivered</td>
+      <td>2018-04-15</td>
+      <td>44e9a1246448bd68a2e3bf0f1966c57a</td>
+      <td>4537</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>1</td>
+      <td>437c05a395e9e47f9762e677a7068ce7</td>
+      <td>...</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>23a1b92553d61a6bb3fa11433439b563</td>
+      <td>5</td>
+      <td>2018-04-21 00:00:00</td>
+      <td>2018-04-22 00:16:26</td>
+      <td>2018</td>
+      <td>4</td>
+      <td>2018-04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>52506</th>
+      <td>c9d0741a7a1372f85dc44e9b73835240</td>
+      <td>424f86625efe107e467c2b741a786697</td>
+      <td>delivered</td>
+      <td>2018-04-23</td>
+      <td>0862d2d2c784b1b880b1848e10495b67</td>
+      <td>55150</td>
+      <td>belo jardim</td>
+      <td>PE</td>
+      <td>1</td>
+      <td>437c05a395e9e47f9762e677a7068ce7</td>
+      <td>...</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>18b61a9cf3a82600b8f8ca57087d8a0f</td>
+      <td>3</td>
+      <td>2018-05-19 00:00:00</td>
+      <td>2018-05-20 11:18:48</td>
+      <td>2018</td>
+      <td>4</td>
+      <td>2018-04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>52507</th>
+      <td>94988f535f661bb99df19830f8b0c85a</td>
+      <td>575c83fdc47cd734f5bcb15356b95284</td>
+      <td>delivered</td>
+      <td>2018-04-15</td>
+      <td>3442337a73c2faa75a6aa7ebcaa7a5a8</td>
+      <td>13211</td>
+      <td>jundiai</td>
+      <td>SP</td>
+      <td>1</td>
+      <td>437c05a395e9e47f9762e677a7068ce7</td>
+      <td>...</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>312e6a6bf10cef05441bfc8acd0ca07f</td>
+      <td>3</td>
+      <td>2018-04-25 00:00:00</td>
+      <td>2018-04-26 16:15:48</td>
+      <td>2018</td>
+      <td>4</td>
+      <td>2018-04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>48187</th>
+      <td>182680afbd9247820be311a34cafb4e9</td>
+      <td>4e59370bc614afb54393c2f03dda271d</td>
+      <td>delivered</td>
+      <td>2018-03-01</td>
+      <td>5aeb954efaab26e8df9dc937c322cbbd</td>
+      <td>12230</td>
+      <td>sao jose dos campos</td>
+      <td>SP</td>
+      <td>1</td>
+      <td>437c05a395e9e47f9762e677a7068ce7</td>
+      <td>...</td>
+      <td>indaiatuba</td>
+      <td>SP</td>
+      <td>31c4998921d34be6dea8dbb2aac4e4fa</td>
+      <td>4</td>
+      <td>2018-03-06 00:00:00</td>
+      <td>2018-03-07 11:10:18</td>
+      <td>2018</td>
+      <td>3</td>
+      <td>2018-03</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>48188</th>
+      <td>9710f69b6b9cfc910ad851334d8ba458</td>
+      <td>2caf8c04235c6582bab2c3960200bdaa</td>
+      <td>delivered</td>
+      <td>2018-03-21</td>
+      <td>b1f44bd81db24a10696e668dd607237c</td>
+      <td>45860</td>
+      <td>canavieiras</td>
+      <td>BA</td>
+      <td>1</td>
+      <td>437c05a395e9e47f9762e677a7068ce7</td>
+      <td>...</td>
+      <td>indaiatuba</td>
+      <td>SP</td>
+      <td>4693ff4f13c2c1e27371995670ab75e2</td>
+      <td>5</td>
+      <td>2018-04-11 00:00:00</td>
+      <td>2018-04-11 16:38:21</td>
+      <td>2018</td>
+      <td>3</td>
+      <td>2018-03</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>48171</th>
+      <td>c8ade02b622c1316fc0d05a427492f9c</td>
+      <td>59d07f9813c38cfee8291278d93831ff</td>
+      <td>delivered</td>
+      <td>2018-03-22</td>
+      <td>22d25d2c2d5870dca824f5cc6294bb1f</td>
+      <td>89940</td>
+      <td>guaruja do sul</td>
+      <td>SC</td>
+      <td>1</td>
+      <td>437c05a395e9e47f9762e677a7068ce7</td>
+      <td>...</td>
+      <td>indaiatuba</td>
+      <td>SP</td>
+      <td>b1a6235af6e9755f644ef97177478baa</td>
+      <td>1</td>
+      <td>2018-04-19 00:00:00</td>
+      <td>2018-04-20 00:11:20</td>
+      <td>2018</td>
+      <td>3</td>
+      <td>2018-03</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>48170</th>
+      <td>d45f0fa94e18d02dd78bde9483dda1a3</td>
+      <td>6b1bbbe60de76836af0b66f5cc3d4a76</td>
+      <td>delivered</td>
+      <td>2018-05-20</td>
+      <td>2103246b11bc46ce35756f3a3f32290b</td>
+      <td>2406</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+      <td>1</td>
+      <td>437c05a395e9e47f9762e677a7068ce7</td>
+      <td>...</td>
+      <td>indaiatuba</td>
+      <td>SP</td>
+      <td>9e1d3a569a865ad2ba763466874a7dca</td>
+      <td>5</td>
+      <td>2018-05-25 00:00:00</td>
+      <td>2018-05-25 16:06:33</td>
+      <td>2018</td>
+      <td>5</td>
+      <td>2018-05</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>48148</th>
+      <td>91021949691f50cf0608e62a2b5efb31</td>
+      <td>8a84ce464e8139c8a6a20ed9289b12a5</td>
+      <td>delivered</td>
+      <td>2018-05-10</td>
+      <td>b608532e04a3070b4b31178948f5c43b</td>
+      <td>9371</td>
+      <td>maua</td>
+      <td>SP</td>
+      <td>1</td>
+      <td>437c05a395e9e47f9762e677a7068ce7</td>
+      <td>...</td>
+      <td>indaiatuba</td>
+      <td>SP</td>
+      <td>fdbb77fd102c718cf8978c3fe1837821</td>
+      <td>5</td>
+      <td>2018-05-13 00:00:00</td>
+      <td>2018-05-13 23:45:21</td>
+      <td>2018</td>
+      <td>5</td>
+      <td>2018-05</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>152 rows × 37 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a7d0dcf2-9e33-4c45-8eb8-40f8e4be4860')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+<p>&lt;svg xmlns=&ldquo;
+<a href="http://www.w3.org/2000/svg%22" target="_blank" rel="noopener">http://www.w3.org/2000/svg"</a> height=&ldquo;24px&quot;viewBox=&ldquo;0 0 24 24&rdquo;
+width=&ldquo;24px&rdquo;&gt;
+<path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+</svg>
+</button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector('#df-a7d0dcf2-9e33-4c45-8eb8-40f8e4be4860 button.colab-df-convert');
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+    async function convertToInteractive(key) {
+      const element = document.querySelector('#df-a7d0dcf2-9e33-4c45-8eb8-40f8e4be4860');
+      const dataTable =
+        await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                 [key], {});
+      if (!dataTable) return;
+
+      const docLinkHtml = 'Like what you see? Visit the ' +
+        '&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;'
+        + ' to learn more about interactive tables.';
+      element.innerHTML = '';
+      dataTable['output_type'] = 'display_data';
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement('div');
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    }
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+<pre><code class="language-python">
+product_1_test = product_1.groupby(['price']).agg({'price':&quot;count&quot;}).rename(columns={'price':'quantity'}).reset_index()
+
+product_1_test
+</code></pre>
+  <div id="df-e6ead80b-77d8-4632-b861-df941d1e7c4a">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price</th>
+      <th>quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>44.98</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>45.36</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>45.83</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>46.33</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>47.21</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>47.61</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>47.65</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>47.91</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>48.90</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>48.99</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>49.83</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>49.89</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>49.90</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>49.98</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>49.99</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>50.21</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>50.70</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>50.75</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>51.89</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>52.30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>52.90</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>52.98</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>53.49</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>53.50</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>53.69</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>53.79</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>53.88</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>53.90</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>53.99</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>59.89</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>59.90</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-e6ead80b-77d8-4632-b861-df941d1e7c4a')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+<p>&lt;svg xmlns=&ldquo;
+<a href="http://www.w3.org/2000/svg%22" target="_blank" rel="noopener">http://www.w3.org/2000/svg"</a> height=&ldquo;24px&quot;viewBox=&ldquo;0 0 24 24&rdquo;
+width=&ldquo;24px&rdquo;&gt;
+<path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+</svg>
+</button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector('#df-e6ead80b-77d8-4632-b861-df941d1e7c4a button.colab-df-convert');
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+    async function convertToInteractive(key) {
+      const element = document.querySelector('#df-e6ead80b-77d8-4632-b861-df941d1e7c4a');
+      const dataTable =
+        await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                 [key], {});
+      if (!dataTable) return;
+
+      const docLinkHtml = 'Like what you see? Visit the ' +
+        '&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;'
+        + ' to learn more about interactive tables.';
+      element.innerHTML = '';
+      dataTable['output_type'] = 'display_data';
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement('div');
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    }
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+<p>Above 31 are prices that have occurred for this product in the last 1 year. This includes all discounts,promotions, fixed rates</p>
+<pre><code class="language-python">min_price = product_1_test['price'].min()
+max_price = product_1_test['price'].max()
+</code></pre>
+<pre><code class="language-python"># demand curve
+g=sns.lmplot(x = &quot;price&quot;, y = &quot;quantity&quot;,
+data = product_1_test)
+g.set(ylim=(0,20))
+</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x7f1ed74ad580&gt;
+</code></pre>
+<p><img src="./Price_Optimization_121_1.png" alt="png"></p>
+<p>Negative correlation</p>
+<pre><code class="language-python">#References: https://towardsdatascience.com/optimizing-product-price-using-regression-2c17688e65ea
+# profiy
+# # plugging regression coefficients
+# quantity = 827.3454655 - 8.07479507 * price # eq (5)
+# # the profit function in eq (3) becomes
+# profit = (827.3454655 - 8.07479507 * price) * price - cost # eq (6)
+</code></pre>
+<p><strong>Demand function &ndash;&gt;</strong> Used to find connection between demand and price</p>
+<p><strong>profit function &ndash;&gt;</strong> total revenue is based on units sold and price. For this project we are assuming the cost as 0</p>
+<p>Therefore our revised profit formula:</p>
+<p>profit = volume - cost * price</p>
+<pre><code class="language-python">model_demand = LinearRegression()
+
+
+x = product_1_test['price'] 
+x=x[:, None]
+
+y = product_1_test['quantity']
+y=y[:, None]
+
+model_demand.fit(x, y)
+slope=model_demand.coef_[0][0]
+intercept=model_demand.intercept_[0]
+
+</code></pre>
+<pre><code class="language-python">import random
+
+price_ranges = []
+
+for price_point in range(10):
+    price_ranges.append(round(random.uniform(min_price-100,max_price+100),2))
+price_ranges.sort()
+</code></pre>
+<pre><code class="language-python">Price = price_ranges
+# assuming a fixed cost
+cost = 0
+Revenue = []
+for i in Price:
+   quantity_demanded = intercept + slope * i
+   
+   # profit function
+   Revenue.append((i-cost) * quantity_demanded)
+# create data frame of price and revenue
+profit = pd.DataFrame({&quot;Price&quot;: Price, &quot;Revenue&quot;: Revenue})
+#plot revenue against price
+# plt.plot(profit[&quot;Price&quot;], profit[&quot;Revenue&quot;])
+
+###$
+plt.rcParams[&quot;figure.figsize&quot;] = [12, 5]
+plt.rcParams[&quot;figure.autolayout&quot;] = True
+fig = plt.figure()
+ax = fig.add_subplot(111)
+
+x = np.array(profit['Price'])
+y = np.array(profit['Revenue'])
+line, = ax.plot(x, y)
+
+xmax=x[np.argmax(y)]
+ymax=y.max()
+# xmax = x[xpos]
+text= &quot;Maximum profit: x={:.3f}, y={:.3f}&quot;.format(xmax,ymax)
+ax.annotate(text, xy=(xmax, ymax), xytext=(xmax, ymax + 5), arrowprops=dict(facecolor='black'),)
+
+
+plt.xlabel('Price points')
+plt.ylabel('Demand')
+plt.title('Demand Curve')
+plt.grid(True)
+  
+plt.show()
+</code></pre>
+<p><img src="./Price_Optimization_127_0.png" alt="png"></p>
+<p>From the demand curve, we can conclude that this sales margin oughts to increase if we reduce the price to $39.590 to be able to sell more than 300 units of this product. This is a staggering increase from 2018&rsquo;s mere 152 units sold. It is almost 45% increase in sales of this product</p>
+
+
+
+<h1 id="calculating-margin-percent-if-we-set-this-new-price">Calculating margin percent if we set this new price<a href="#calculating-margin-percent-if-we-set-this-new-price"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h1>
+<pre><code class="language-python">revenue_in_2018 = revenue_of_product_2018['price'] * revenue_of_product_2018['units_sold']
+revenue_predicted = xmax * ymax
+margin_percent = (revenue_predicted - revenue_in_2018)/revenue_in_2018*100
+margin_percent
+</code></pre>
+<pre><code>year
+2018    78.188228
+dtype: float64
+</code></pre>
+
+
+
+<h2 id="conclusion-if-the-demand-increases-by-45-then-the-revenue-of-this-product-will-increase-by-almost-78">Conclusion: If the demand increases by 45% then the revenue of this product will increase by almost 78%<a href="#conclusion-if-the-demand-increases-by-45-then-the-revenue-of-this-product-will-increase-by-almost-78"><svg class="anchor-symbol" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="currentColor"></path>
+<path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+</svg></a>
+</h2>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/recent/">recent</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://gaurichaudhari9.github.io/project/priceoptimizationofaproduct/price_optimization/&amp;text=Boosting%20sales%20margin%20of%20a%20product%20using%20data-driven%20price%20optimization" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://gaurichaudhari9.github.io/project/priceoptimizationofaproduct/price_optimization/&amp;t=Boosting%20sales%20margin%20of%20a%20product%20using%20data-driven%20price%20optimization" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Boosting%20sales%20margin%20of%20a%20product%20using%20data-driven%20price%20optimization&amp;body=https://gaurichaudhari9.github.io/project/priceoptimizationofaproduct/price_optimization/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://gaurichaudhari9.github.io/project/priceoptimizationofaproduct/price_optimization/&amp;title=Boosting%20sales%20margin%20of%20a%20product%20using%20data-driven%20price%20optimization" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/authors/maggie/avatar_hue8809023e63696ff023dae6b529de093_60602_270x270_fill_q90_lanczos_center.jpg" alt="Gauri Chaudhari">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="https://gaurichaudhari9.github.io/">Gauri Chaudhari</a></h5>
+        <h6 class="card-subtitle">MS in Data Science Student</h6>
+        <p class="card-text">My interests include machine learning, predictive modeling, natural language processing, statistical analysis and data visualization.</p>
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/gaurichaudhari9" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/gauri-chaudhari/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:gchaudh@iu.edu" >
+        <i class="fas fa-envelope-open-text"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="project-related-pages content-widget-hr">
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+    </div>
+  </div>
+</article>
+
+      
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.cd45a9c0bbdd3dfb1c126917c601c9f2.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+
+  <p class="powered-by">
+    © Gauri Chaudhari 2023 &middot; 
+
+    Made with <i class="far fa-heart" style="color: #a167c9"></i>, <a href="https://github.com/mamaggie" target="_blank" rel="noopener" style="color: #a167c9"><i class="fas fa-code-branch"></i></a>, the <a href="https://cran.r-project.org/" target="_blank" rel="noopener" style="color: #a167c9"><i class="fab fa-r-project"></i> </a><a href="https://github.com/rstudio/blogdown" target="_blank" rel="noopener" style="color: #a167c9">blogdown</a> package, and the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener" style="color: #a167c9">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener" style="color: #a167c9">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+<footer>
+ 
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+
+
+ 
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

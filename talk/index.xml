@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>All Talks &amp; Workshops | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/talk/</link>
+      <atom:link href="https://gaurichaudhari9.github.io/talk/index.xml" rel="self" type="application/rss+xml" />
+    <description>All Talks &amp; Workshops</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Gauri Chaudhari 2023</copyright>
+  </channel>
+</rss>

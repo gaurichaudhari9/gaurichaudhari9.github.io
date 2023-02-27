@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/tags/python/</link>
+      <atom:link href="https://gaurichaudhari9.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <description>python</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Gauri Chaudhari 2023</copyright><lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://gaurichaudhari9.github.io/img/sharing.png</url>
+      <title>python</title>
+      <link>https://gaurichaudhari9.github.io/tags/python/</link>
+    </image>
+    
+    <item>
+      <title>Access to Health Care Facilities in Ontario</title>
+      <link>https://gaurichaudhari9.github.io/project/healthcareaccessontario/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/healthcareaccessontario/</guid>
+      <description>
+
+
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Method I: Model Builder&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;modelbuilder.jpg&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Mothod II: Python&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Model builder is a great way to manage work flow and tasks in GIS. However, if we were to find populations within 5, 10, 20, and 30 min travel time to a hospital, model builder can become quite tedious and time consuming. &lt;strong&gt;This redundant task can be automated with Python to improve efficiency.&lt;/strong&gt; Python codes are provided below to automate this task:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## 10 min
+import arcpy
+... Hospitals = &amp;quot;Hospitals&amp;quot;
+... PopBlock2016 = &amp;quot;PopBlock2016&amp;quot;
+... LHIN = &amp;quot;LHIN&amp;quot;
+... PopBlock2016_ON = &amp;quot;C:\\yourfilepath.gdb\\PopBlock2016_ON&amp;quot;
+... arcpy.SpatialJoin_analysis(
+  Hospitals, PopBlock2016_ON, “Hospitals_10min”, &amp;quot;JOIN_ONE_TO_ONE&amp;quot;, &amp;quot;KEEP_COMMON&amp;quot;, 
+  &amp;quot;HOSP \&amp;quot;HOSP\&amp;quot; true true false 80 Text 0 0 ,First,#,Hospitals,HOSP,-1,-1;
+  DBpop_2016 \&amp;quot;DBpop_2016\&amp;quot; true true false 4 Long 0 0 ,
+  Sum,#,C:\\yourfilepath.gdb\\PopBlock2016_ON,DBpop_2016,-1,-1&amp;quot;, 
+  &amp;quot;WITHIN_A_DISTANCE&amp;quot;, &amp;quot;48 Kilometers&amp;quot;, &amp;quot;&amp;quot;)
+
+## 20 min
+import arcpy
+... Hospitals = &amp;quot;Hospitals&amp;quot;
+... PopBlock2016 = &amp;quot;PopBlock2016&amp;quot;
+... LHIN = &amp;quot;LHIN&amp;quot;
+... PopBlock2016_ON = &amp;quot;C:\\yourfilepath.gdb\\PopBlock2016_ON&amp;quot;
+... arcpy.SpatialJoin_analysis(
+  Hospitals, PopBlock2016_ON, &amp;quot;Hospitals_20min&amp;quot;, &amp;quot;JOIN_ONE_TO_ONE&amp;quot;, &amp;quot;KEEP_COMMON&amp;quot;, 
+  &amp;quot;HOSP \&amp;quot;HOSP\&amp;quot; true true false 80 Text 0 0 ,First,#,Hospitals,HOSP,-1,-1;
+  DBpop_2016 \&amp;quot;DBpop_2016\&amp;quot; true true false 4 Long 0 0 , 
+  Sum,#,C:\\yourfilepath.gdb\\PopBlock2016_ON,DBpop_2016,-1,-1&amp;quot;, 
+  &amp;quot;WITHIN_A_DISTANCE&amp;quot;, &amp;quot;96 Kilometers&amp;quot;, &amp;quot;&amp;quot;)
+
+## 30 min
+import arcpy
+... Hospitals = &amp;quot;Hospitals&amp;quot;
+... PopBlock2016 = &amp;quot;PopBlock2016&amp;quot;
+... LHIN = &amp;quot;LHIN&amp;quot;
+... PopBlock2016_ON = &amp;quot;C:\\yourfilepath.gdb\\PopBlock2016_ON&amp;quot;
+... arcpy.SpatialJoin_analysis(
+  Hospitals, PopBlock2016_ON, &amp;quot;Hospitals_30min&amp;quot;, &amp;quot;JOIN_ONE_TO_ONE&amp;quot;, &amp;quot;KEEP_COMMON&amp;quot;, 
+  &amp;quot;HOSP \&amp;quot;HOSP\&amp;quot; true true false 80 Text 0 0 ,First,#,Hospitals,HOSP,-1,-1;
+  DBpop_2016 \&amp;quot;DBpop_2016\&amp;quot; true true false 4 Long 0 0 ,
+  Sum,#,C:\\yourfilepath.gdb\\PopBlock2016_ON,DBpop_2016,-1,-1&amp;quot;, 
+  &amp;quot;WITHIN_A_DISTANCE&amp;quot;, &amp;quot;144 Kilometers&amp;quot;, &amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bym model | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/tags/bym-model/</link>
+      <atom:link href="https://gaurichaudhari9.github.io/tags/bym-model/index.xml" rel="self" type="application/rss+xml" />
+    <description>bym model</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Gauri Chaudhari 2023</copyright><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://gaurichaudhari9.github.io/img/sharing.png</url>
+      <title>bym model</title>
+      <link>https://gaurichaudhari9.github.io/tags/bym-model/</link>
+    </image>
+    
+    <item>
+      <title>Does exposure to ambient air pollution make individuals more susceptible to COVID-19?</title>
+      <link>https://gaurichaudhari9.github.io/project/airpollutionengland/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/airpollutionengland/</guid>
+      <description>
+&lt;script src=&#34;https://gaurichaudhari9.github.io/project/airpollutionengland/index_files/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://gaurichaudhari9.github.io/project/airpollutionengland/index_files/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;Many academic research projects have been dedicated to COVID-19 since the onset of global pandemic in early 2020. One study suggests a positive correlation between COVID-19 in areas with high unemployment, as such areas tend to have high deprivation and low access to health care. Moreover, many studies have documented that COVID-19 is more prevalent in areas with many ethnic minorities. Some hypotheses suggest this is because ethnic minorities are more likely to live in large, multi-generational households, work in high-risk occupations, and structural racism making access to health care harder.&lt;/p&gt;
+&lt;div id=&#34;the-research-question-of-interest-involves-whether-exposure-to-ambient-air-pollution-makes-individuals-more-susceptible-to-covid-19.-it-is-hypothesized-that-there-are-more-cases-where-air-pollution-is-high-because-air-pollution-puts-stress-on-the-lungs-and-respiratory-tract.-building-on-existing-research-and-hypotheses-we-will-also-use-factors-such-as-ethnicity-and-unemployment-rate-to-account-for-covid-19-in-addition-to-air-pollution-values.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;em&gt;The research question of interest involves whether exposure to ambient air pollution makes individuals more susceptible to COVID-19. It is hypothesized that there are more cases where air pollution is high because air pollution puts stress on the lungs and respiratory tract. Building on existing research and hypotheses, we will also use factors such as ethnicity and unemployment rate to account for COVID-19, in addition to air pollution values.&lt;/em&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;methods&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Methods&lt;/h1&gt;
+&lt;p&gt;In order to fit a statistically robust model that quantifies the problem, air pollution measurement data collected on public health region level in England, as provided internally by colleagues and collaborators, were used to analyze the research question of interest.&lt;br /&gt;
+As we are interested in examining whether exposure to ambient air pollution makes individuals more susceptible to COVID-19 in England, a bayesian spatial model BYM with poisson distribution was fitted to the data, as shown below:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# bym model with weakly informed priors, encouraging data to tell the story
+englandRes= diseasemapping::bym(
+  cases ~ offset(logExpected) + Ethnicity + modelledpm25 + Unemployment,
+  prior = list(sd = c(0.5, 0.05), propSpatial = c(0.99, 0.01)),
+  family = &amp;#39;poisson&amp;#39;,
+  data = UK2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{aligned}
+Y_{i} \sim &amp;amp; \text{Poisson}(E_{i}\lambda_{i})\\
+\text{log}(\lambda_i) = &amp;amp; \mu + \boldsymbol{X_{i}\beta} + U_i\\
+U_i \sim&amp;amp; BYM(\sigma^2, \tau^2)\\
+\theta_1 = &amp;amp; \sqrt(\sigma^2 + \tau^2)\\
+\theta_2 = &amp;amp; \sigma/\sqrt(\sigma^2 + \tau^2)\\
+\end{aligned}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(Y_i\)&lt;/span&gt;, following a poisson distribution, represents the COVID-19 case count in health region i. &lt;span class=&#34;math inline&#34;&gt;\(E_i\)&lt;/span&gt; is the expected case count, as computed from population data and known incidence rates. &lt;span class=&#34;math inline&#34;&gt;\(\lambda_i\)&lt;/span&gt; represents the risk in health region i. Because risk &lt;span class=&#34;math inline&#34;&gt;\(\lambda_i\)&lt;/span&gt; needs to be positive, we have log of &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; so that it can be treated as Gaussian with intercept &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;, covariates &lt;span class=&#34;math inline&#34;&gt;\(X_i\beta\)&lt;/span&gt;, and spatial random effect &lt;span class=&#34;math inline&#34;&gt;\(U_i\)&lt;/span&gt; which consists of 2 standard deviation parameters: &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2\)&lt;/span&gt; for spatial and &lt;span class=&#34;math inline&#34;&gt;\(\tau^2\)&lt;/span&gt; for independent. &lt;span class=&#34;math inline&#34;&gt;\(\theta_1\)&lt;/span&gt; is the total variance of &lt;span class=&#34;math inline&#34;&gt;\(U\)&lt;/span&gt; at region i. &lt;span class=&#34;math inline&#34;&gt;\(\theta_2\)&lt;/span&gt; is the spatial proportion explaining total variation.&lt;/p&gt;
+&lt;p&gt;As for &lt;span class=&#34;math inline&#34;&gt;\(X_i\beta\)&lt;/span&gt;, it is a vector of covariates including the log of expected case count (logExpected), percent of individuals who are ethnic minorities (Ethnicity), percent of individuals who are unemployed (Employment), and concentrations of fine particulate matter PM2.5 in the health authority (pm25modelled). In an effort to scale the model of mean, the expected case count was included as an offset term with a log link because of the suspected proportional correlation between expected and actual case count.&lt;/p&gt;
+&lt;p&gt;Penalized complexity priors were chosen for both &lt;span class=&#34;math inline&#34;&gt;\(\theta_1\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\theta_2\)&lt;/span&gt;. For the total variation of &lt;span class=&#34;math inline&#34;&gt;\(U\)&lt;/span&gt; sd, the prior is c(0.5, 0.05), meaning that the probability of standard deviation is bigger than 0.5 is 5%. As for the spatial proportion, the prior is set to be c(0.99, 0.01), meaning that the probability of the spatial proportion is bigger than 99% is 1%. Prior for &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; was left at INLA default. &lt;strong&gt;We chose the above prior distribution to encourage the model to be boring and surface to be flat; by doing so, we can learn truly from the data whether there is anything significantly correlated.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Results&lt;/h1&gt;
+&lt;div id=&#34;table-of-parameters&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Table of Parameters&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# log relative risk (logged odds ratios) table
+temp &amp;lt;- englandRes$parameters$summary[,c(1,3,5)]
+temp %&amp;gt;%
+  kableExtra::kbl(
+    caption = &amp;quot;Parameter Posterior Means and 95% Credible Intervals
+    (Log Odds)&amp;quot;, booktabs = T, digits = 3) %&amp;gt;%
+  kableExtra::kable_classic(full_width = F, html_font = &amp;quot;Cambria&amp;quot;) %&amp;gt;%
+  kableExtra::kable_styling(latex_options = c(&amp;quot;HOLD_position&amp;quot;, &amp;quot;striped&amp;quot;),
+                            position = &amp;#39;float_right&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34; lightable-classic table&#34; style=&#34;font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto; float: right; margin-left: 10px;&#34;&gt;
+&lt;caption&gt;
+&lt;span id=&#34;tab:q2tables&#34;&gt;Table 1: &lt;/span&gt;Parameter Posterior Means and 95% Credible Intervals
+(Log Odds)
+&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+mean
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+0.025quant
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+0.975quant
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+(Intercept)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1.012
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1.527
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-0.499
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Ethnicity
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.012
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.008
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.016
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+modelledpm25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.056
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-0.004
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.117
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Unemployment
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.113
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.058
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.168
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+sd
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.293
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.258
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.335
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+propSpatial
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.900
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.773
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.976
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Table 1 displays the parameter posterior means and 95% credible intervals in logged odds ratios. This table provides valuable information on the significance of variables. &lt;strong&gt;If the mean is equal to, or the credible interval includes, 0, the corresponding variable is not significant.&lt;/strong&gt; In particular, if sd &lt;span class=&#34;math inline&#34;&gt;\(\theta_1\)&lt;/span&gt; is 0, there is nothing significant, if propSpatial &lt;span class=&#34;math inline&#34;&gt;\(\theta2\)&lt;/span&gt; is 0, nothing significant is spatial.&lt;/p&gt;
+&lt;p&gt;From this table, we can conclude that &lt;strong&gt;a higher proportion of unemployment rate and a higher proportion of ethnic minorities can each lead to more individuals susceptible to COVID-19 within the same health region.&lt;/strong&gt; Unemployment rate has a more significant effect than ethnic origins. The overall standard deviation is 0.29, meaning the covariates explain the variation in a statistically significant manner and about 90% of the variance is explained by spatial random effect. However, we do not seem to find significance in whether exposure to PM2.5 will increase the person’s risk to COVID-19. The 95% credible interval includes 0, which means exposure to PM2.5 in England could lead to either an increase or decrease in the person’s risk to COVID-19.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# odds ratios table
+logOddsMat2 = englandRes$parameters$summary[,c(4,3,5)]
+oddsMat2 = exp(logOddsMat2)
+oddsMat2[1,] = oddsMat2[1,]/(1 + oddsMat2[1, ])
+rownames(oddsMat2)[1] = &amp;#39;Baseline prob&amp;#39;
+oddsMat2 %&amp;gt;%
+  kableExtra::kbl(
+    caption = &amp;quot;BYM Model Results From Voting Data (Odds Ratio)&amp;quot;,
+    booktabs = T, digits = 3) %&amp;gt;%
+  kableExtra::kable_classic(full_width = F, html_font = &amp;quot;Cambria&amp;quot;) %&amp;gt;%
+  kableExtra::kable_styling(latex_options = c(&amp;quot;HOLD_position&amp;quot;, &amp;quot;striped&amp;quot;),
+                            position = &amp;#39;float_right&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34; lightable-classic table&#34; style=&#34;font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto; float: right; margin-left: 10px;&#34;&gt;
+&lt;caption&gt;
+&lt;span id=&#34;tab:table2&#34;&gt;Table 2: &lt;/span&gt;BYM Model Results From Voting Data (Odds Ratio)
+&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+0.5quant
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+0.025quant
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+0.975quant
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Baseline prob
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.267
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.179
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.378
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Ethnicity
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.012
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.008
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.016
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+modelledpm25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.058
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.996
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.124
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Unemployment
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.120
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.060
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.184
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+sd
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.339
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.294
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.398
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+propSpatial
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.483
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.166
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.654
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Table 2 is the interquartile range (IQR) version of table 1, displaying the parameters in odds ratio. We can conclude that &lt;strong&gt;a 1% increase in the proportion of ethnic minorities in a region results in a 1.01% increase in risk for COVID-19, and a 1% increase in the proportion of unemployment residents in an area results in a 1.12% increase in risk for COVID-19.&lt;/strong&gt; We do not find the variable PM2.5 significance because the 95% confidence interval overlaps value 1.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;prior-and-posterior-density-distributions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Prior and Posterior Density Distributions&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# prior and posteriors for SD
+plot(englandRes$parameters$sd$posterior, type = &amp;#39;l&amp;#39;, xlim = c(0,1), xlab = &amp;#39;sd&amp;#39;,
+     ylab = &amp;#39;dens&amp;#39;, cex.main = 0.6,
+     main = &amp;#39;Figure 1. Prior and Posterior Distribution for Standard Deviation&amp;#39;)
+lines(englandRes$parameters$sd$prior, col = &amp;#39;grey&amp;#39;)
+legend(&amp;#39;topright&amp;#39;, lty = 1, col = c(&amp;#39;black&amp;#39;, &amp;#39;grey&amp;#39;),
+       legend = c(&amp;#39;post&amp;#39;, &amp;#39;prior&amp;#39;), bty = &amp;#39;n&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://gaurichaudhari9.github.io/project/airpollutionengland/index_files/figure-html/q2priorandposterior-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# prior and posterior for spatial proportion
+plot(englandRes$parameters$propSpatial$posterior, type = &amp;#39;l&amp;#39;, xlim = c(0,2.5),
+     xlab = &amp;#39;prop spatial&amp;#39;, ylab = &amp;#39;dens&amp;#39;, cex.main = 0.6,
+     main = &amp;#39;Figure 2. Prior and Posterior Distribution for Spatial Proportion&amp;#39;)
+lines(englandRes$parameters$propSpatial$prior, col = &amp;#39;red&amp;#39;)
+legend(&amp;#39;topright&amp;#39;, lty = 1, col = c(&amp;#39;black&amp;#39;, &amp;#39;red&amp;#39;),
+       legend = c(&amp;#39;post&amp;#39;, &amp;#39;prior&amp;#39;), bty = &amp;#39;n&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://gaurichaudhari9.github.io/project/airpollutionengland/index_files/figure-html/q2priorandposterior-2.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;maps&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Maps&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# maps set up
+casesCol = mapmisc::colourScale(UK2$cases, dec = -3, breaks = 12,
+                                col = &amp;quot;Spectral&amp;quot;, style = &amp;quot;quantile&amp;quot;, rev = TRUE)
+Ecol = mapmisc::colourScale(UK2$E, breaks = casesCol$breaks,
+                            col = casesCol$col, style = &amp;quot;fixed&amp;quot;)
+pmCol = mapmisc::colourScale(UK2$modelledpm25, breaks = 9,
+                             dec = 0, style = &amp;quot;quantile&amp;quot;)
+ethCol = mapmisc::colourScale(UK2$Ethnicity, breaks = 9,
+                              digits = 1, style = &amp;quot;quantile&amp;quot;)
+uCol = mapmisc::colourScale(UK2$Unemployment, breaks = 12,
+                            dec = 0, style = &amp;quot;quantile&amp;quot;)
+rCol = mapmisc::colourScale(englandRes$data$random.mean, breaks = 12,
+                            dec = -log10(0.25), style = &amp;quot;quantile&amp;quot;)
+fCol = mapmisc::colourScale(englandRes$data$fitted.exp, breaks = 9,
+                            dec = 1, style = &amp;quot;quantile&amp;quot;)
+insetEngland1 = mapmisc::openmap(UK2, zoom = 3, fact = 4, path = &amp;quot;waze&amp;quot;,
+                                 crs = CRS(&amp;quot;+init=epsg:3035&amp;quot;))
+
+# England raster reference file
+insetEngland = raster::crop(insetEngland1, extend(extent(insetEngland1),
+                                              -c(25, 7, 4, 9.5) * 100 * 1000))
+
+# construct maps
+par(mfrow = c(3,3))
+mapmisc::map.new(UK2)
+mapmisc::insetMap(UK_shp, &amp;quot;topright&amp;quot;, insetEngland, width = 0.4)
+plot(UK2, col = casesCol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, casesCol, bty = &amp;quot;n&amp;quot;)
+
+mapmisc::map.new(UK2)
+plot(UK2, col = Ecol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, casesCol, bty = &amp;quot;n&amp;quot;)
+
+mapmisc::map.new(UK2)
+plot(UK2, col = pmCol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, pmCol, bty = &amp;quot;n&amp;quot;)
+
+mapmisc::map.new(UK2)
+plot(UK2, col = ethCol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, ethCol, bty = &amp;quot;n&amp;quot;)
+
+mapmisc::map.new(UK2)
+plot(UK2, col = uCol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, uCol, bty = &amp;quot;n&amp;quot;)
+
+mapmisc::map.new(UK2)
+plot(UK2, col = rCol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, rCol, bty = &amp;quot;n&amp;quot;)
+
+mapmisc::map.new(UK2)
+plot(UK2, col = fCol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, fCol, bty = &amp;quot;n&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;maps.jpg&#34; /&gt;&lt;br /&gt;
+The figure above is a series of maps visualizing the predicted outcome for each covariate, the dependent variable, and random effects. Map (a) represents COVID-19 cases in England by health region, we see that most severely impacted health regions are in the northwest and southeast corners of the country. According the independent and spatial random effect maps (f and g), we can conclude that most of the variations in the northeast corner can be explained by covariates and the spatial random effect. However, due to possible lack of data, we’re unsure of the variation in southern England. Since pm2.5 (c) is not a significant predictor variable, there are other significant factors which are not included in the current model. Last but not least, an exceedance map pr(&lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt;(s) &amp;gt; 1.1|Y) could show us which health regions exist COVID-19 excess cases of 10% or more.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;discussion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Discussion&lt;/h1&gt;
+&lt;p&gt;In conclusion, we do not find that exposure to ambient air pollution makes individuals more susceptible to COVID-19 in our study area, England. However, we successfully confirmed the hypotheses from existing research that an area with high unemployment or an area with many ethnic minorities have more COVID-19 case count. This can be explained by previous research&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;high unemployment areas tend to have high deprivation and low access to health care&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;ethnic minorities are more likely to live in large, multi-generational households, and work in high-risk occupations&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;structural racism making access to health care harder.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We also found strong spatial random effect in predicting the case count of COVID; health regions closer in proximity of each other are more likely to have similar COVID case count than those further apart.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gis | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/tags/gis/</link>
+      <atom:link href="https://gaurichaudhari9.github.io/tags/gis/index.xml" rel="self" type="application/rss+xml" />
+    <description>gis</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Gauri Chaudhari 2023</copyright><lastBuildDate>Fri, 10 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://gaurichaudhari9.github.io/img/sharing.png</url>
+      <title>gis</title>
+      <link>https://gaurichaudhari9.github.io/tags/gis/</link>
+    </image>
+    
+    <item>
+      <title>Understanding Toronto&#39;s Ethnic Enclaves</title>
+      <link>https://gaurichaudhari9.github.io/project/ethnic-enclaves/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/ethnic-enclaves/</guid>
+      <description>&lt;iframe src=&#34;https://storymaps.arcgis.com/stories/b52d4bf9bb0342a09b2f459154817452&#34; width=&#34;100%&#34; height=&#34;500px&#34; frameborder=&#34;0&#34; allowfullscreen allow=&#34;geolocation&#34;&gt;&lt;/iframe&gt;
+
+&lt;a href=&#34;https://storymaps.arcgis.com/stories/b52d4bf9bb0342a09b2f459154817452&#34; target=&#34;_blank&#34;&gt;View Larger Story Map&lt;/a&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Toronto Vegetation Index Analysis</title>
+      <link>https://gaurichaudhari9.github.io/project/torontondvi/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/torontondvi/</guid>
+      <description>
+
+
+&lt;p&gt;This project was performed as part of an advanced GIS course during first semester of my junior year in university. The purpose of this assignment was to learn how to perform various types of raster analysis, including variety map, buffer map, and zonal area map. Using Toronto as the study area, NDVI values were calculated and mapped. Moreover, the densest vegetation areas in Toronto were identified and areas calculated, along with the perimeter of green spaces in the urban environment.&lt;/p&gt;
+&lt;div id=&#34;methods&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Methods&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;modelbuilder.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;map-i-ndvi-classification-maps&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Map I: NDVI Classification Maps&lt;/h2&gt;
+&lt;p&gt;NDVI values were calculated by subtracting the difference in infrared and red bands value divided by the sum of both values. In order to create a map with NDVI value for Toronto, Raster Calculator function was used with the expression “(Float(&lt;em&gt;%nir%&lt;/em&gt;) - Float(&lt;em&gt;%red%&lt;/em&gt;)) / (Float(&lt;em&gt;%nir%&lt;/em&gt;) + Float(&lt;em&gt;%red%&lt;/em&gt;))”. It is essential to use Float expression because the output values vary from -1 to 1 and will require decimals to be included in order to present the proper NDVI values. Since we do not wish to include water for further analysis, I used &lt;strong&gt;Extract by Mask function&lt;/strong&gt; with the NDVI map just created and land_use.shp given to assign NoData value to water. Lastly, I used &lt;strong&gt;Reclassify tool&lt;/strong&gt; to classify NDVI values into six quantiles.&lt;/p&gt;
+&lt;p&gt;Above steps generated figure1.1 below. For the second map of the first question (figure1.2), I used &lt;strong&gt;focal statistics tool&lt;/strong&gt; on figure1.1 with neighborhood setting 3*3 and statistics type- VARIETY to generate the variety map, the rest was left at default. Variety option in focal statistics calculates the number of unique values of the cells in the neighborhood. Since figure1.1 is an integer raster dataset, it can be used as an input for variety type. In this case, it shows how many different types of cell values in the neighborhood; or in other words, diversity among NDVI values in Toronto.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;featured.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;map-ii-distance-from-ndvi-edge-to-interior-map&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Map II: Distance from NDVI Edge to Interior Map&lt;/h2&gt;
+&lt;p&gt;For the second part of this project, I first used a &lt;strong&gt;reclassify tool&lt;/strong&gt; on figure 1.1 to combine classes 5 and 6 together into one value. I generated figure 2.1 as a result of this step. In order to create a buffer map showing distances from the edge of this new combined class to the interior, I used the tools &lt;strong&gt;Reclasssify&lt;/strong&gt; and &lt;strong&gt;Euclidean Distance&lt;/strong&gt;. Reclassify tool was used to reverse cell values; specifically, I assigned value 5 to NoData, and the rest to 100. This step enables to measure distance from edge into interior using Euclidean Distance tool. I used the default setting for all optional parameters in Euclidean Distance. To group the distances into 3 classes, I used the Reclassify tool again with values reclassified into three natural breaks (figure 2.4).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;maps2.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mapiii-dense-vegetation-area-maps&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;MapIII: Dense Vegetation Area Maps&lt;/h2&gt;
+&lt;p&gt;Figure 3.1 was created to generalize the six-class NDVI map. Figure 3.2 was created to fill in the missing NoData regions (except for Lake Ontario). Figure 3.3 was created to identify dense vegetation area (class 5 and 6) by assigning NoData to the rest of the values. Figure 3.4 was created to convert region to zones to prepare data for zonal analysis. Figure 3.5 was created to extract only bigger dense vegetation zones. Figure 3.6 was the final result showing the numeric area value for each big dense vegetation zones in the study area.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;maps3.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Access to Health Care Facilities in Ontario</title>
+      <link>https://gaurichaudhari9.github.io/project/healthcareaccessontario/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/healthcareaccessontario/</guid>
+      <description>
+
+
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Method I: Model Builder&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;modelbuilder.jpg&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Mothod II: Python&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Model builder is a great way to manage work flow and tasks in GIS. However, if we were to find populations within 5, 10, 20, and 30 min travel time to a hospital, model builder can become quite tedious and time consuming. &lt;strong&gt;This redundant task can be automated with Python to improve efficiency.&lt;/strong&gt; Python codes are provided below to automate this task:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## 10 min
+import arcpy
+... Hospitals = &amp;quot;Hospitals&amp;quot;
+... PopBlock2016 = &amp;quot;PopBlock2016&amp;quot;
+... LHIN = &amp;quot;LHIN&amp;quot;
+... PopBlock2016_ON = &amp;quot;C:\\yourfilepath.gdb\\PopBlock2016_ON&amp;quot;
+... arcpy.SpatialJoin_analysis(
+  Hospitals, PopBlock2016_ON, “Hospitals_10min”, &amp;quot;JOIN_ONE_TO_ONE&amp;quot;, &amp;quot;KEEP_COMMON&amp;quot;, 
+  &amp;quot;HOSP \&amp;quot;HOSP\&amp;quot; true true false 80 Text 0 0 ,First,#,Hospitals,HOSP,-1,-1;
+  DBpop_2016 \&amp;quot;DBpop_2016\&amp;quot; true true false 4 Long 0 0 ,
+  Sum,#,C:\\yourfilepath.gdb\\PopBlock2016_ON,DBpop_2016,-1,-1&amp;quot;, 
+  &amp;quot;WITHIN_A_DISTANCE&amp;quot;, &amp;quot;48 Kilometers&amp;quot;, &amp;quot;&amp;quot;)
+
+## 20 min
+import arcpy
+... Hospitals = &amp;quot;Hospitals&amp;quot;
+... PopBlock2016 = &amp;quot;PopBlock2016&amp;quot;
+... LHIN = &amp;quot;LHIN&amp;quot;
+... PopBlock2016_ON = &amp;quot;C:\\yourfilepath.gdb\\PopBlock2016_ON&amp;quot;
+... arcpy.SpatialJoin_analysis(
+  Hospitals, PopBlock2016_ON, &amp;quot;Hospitals_20min&amp;quot;, &amp;quot;JOIN_ONE_TO_ONE&amp;quot;, &amp;quot;KEEP_COMMON&amp;quot;, 
+  &amp;quot;HOSP \&amp;quot;HOSP\&amp;quot; true true false 80 Text 0 0 ,First,#,Hospitals,HOSP,-1,-1;
+  DBpop_2016 \&amp;quot;DBpop_2016\&amp;quot; true true false 4 Long 0 0 , 
+  Sum,#,C:\\yourfilepath.gdb\\PopBlock2016_ON,DBpop_2016,-1,-1&amp;quot;, 
+  &amp;quot;WITHIN_A_DISTANCE&amp;quot;, &amp;quot;96 Kilometers&amp;quot;, &amp;quot;&amp;quot;)
+
+## 30 min
+import arcpy
+... Hospitals = &amp;quot;Hospitals&amp;quot;
+... PopBlock2016 = &amp;quot;PopBlock2016&amp;quot;
+... LHIN = &amp;quot;LHIN&amp;quot;
+... PopBlock2016_ON = &amp;quot;C:\\yourfilepath.gdb\\PopBlock2016_ON&amp;quot;
+... arcpy.SpatialJoin_analysis(
+  Hospitals, PopBlock2016_ON, &amp;quot;Hospitals_30min&amp;quot;, &amp;quot;JOIN_ONE_TO_ONE&amp;quot;, &amp;quot;KEEP_COMMON&amp;quot;, 
+  &amp;quot;HOSP \&amp;quot;HOSP\&amp;quot; true true false 80 Text 0 0 ,First,#,Hospitals,HOSP,-1,-1;
+  DBpop_2016 \&amp;quot;DBpop_2016\&amp;quot; true true false 4 Long 0 0 ,
+  Sum,#,C:\\yourfilepath.gdb\\PopBlock2016_ON,DBpop_2016,-1,-1&amp;quot;, 
+  &amp;quot;WITHIN_A_DISTANCE&amp;quot;, &amp;quot;144 Kilometers&amp;quot;, &amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

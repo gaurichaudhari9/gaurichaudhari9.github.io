@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>covid | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/tags/covid/</link>
+      <atom:link href="https://gaurichaudhari9.github.io/tags/covid/index.xml" rel="self" type="application/rss+xml" />
+    <description>covid</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Gauri Chaudhari 2023</copyright><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://gaurichaudhari9.github.io/img/sharing.png</url>
+      <title>covid</title>
+      <link>https://gaurichaudhari9.github.io/tags/covid/</link>
+    </image>
+    
+    <item>
+      <title>Does exposure to ambient air pollution make individuals more susceptible to COVID-19?</title>
+      <link>https://gaurichaudhari9.github.io/project/airpollutionengland/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/airpollutionengland/</guid>
+      <description>
+&lt;script src=&#34;https://gaurichaudhari9.github.io/project/airpollutionengland/index_files/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://gaurichaudhari9.github.io/project/airpollutionengland/index_files/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;Many academic research projects have been dedicated to COVID-19 since the onset of global pandemic in early 2020. One study suggests a positive correlation between COVID-19 in areas with high unemployment, as such areas tend to have high deprivation and low access to health care. Moreover, many studies have documented that COVID-19 is more prevalent in areas with many ethnic minorities. Some hypotheses suggest this is because ethnic minorities are more likely to live in large, multi-generational households, work in high-risk occupations, and structural racism making access to health care harder.&lt;/p&gt;
+&lt;div id=&#34;the-research-question-of-interest-involves-whether-exposure-to-ambient-air-pollution-makes-individuals-more-susceptible-to-covid-19.-it-is-hypothesized-that-there-are-more-cases-where-air-pollution-is-high-because-air-pollution-puts-stress-on-the-lungs-and-respiratory-tract.-building-on-existing-research-and-hypotheses-we-will-also-use-factors-such-as-ethnicity-and-unemployment-rate-to-account-for-covid-19-in-addition-to-air-pollution-values.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;em&gt;The research question of interest involves whether exposure to ambient air pollution makes individuals more susceptible to COVID-19. It is hypothesized that there are more cases where air pollution is high because air pollution puts stress on the lungs and respiratory tract. Building on existing research and hypotheses, we will also use factors such as ethnicity and unemployment rate to account for COVID-19, in addition to air pollution values.&lt;/em&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;methods&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Methods&lt;/h1&gt;
+&lt;p&gt;In order to fit a statistically robust model that quantifies the problem, air pollution measurement data collected on public health region level in England, as provided internally by colleagues and collaborators, were used to analyze the research question of interest.&lt;br /&gt;
+As we are interested in examining whether exposure to ambient air pollution makes individuals more susceptible to COVID-19 in England, a bayesian spatial model BYM with poisson distribution was fitted to the data, as shown below:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# bym model with weakly informed priors, encouraging data to tell the story
+englandRes= diseasemapping::bym(
+  cases ~ offset(logExpected) + Ethnicity + modelledpm25 + Unemployment,
+  prior = list(sd = c(0.5, 0.05), propSpatial = c(0.99, 0.01)),
+  family = &amp;#39;poisson&amp;#39;,
+  data = UK2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{aligned}
+Y_{i} \sim &amp;amp; \text{Poisson}(E_{i}\lambda_{i})\\
+\text{log}(\lambda_i) = &amp;amp; \mu + \boldsymbol{X_{i}\beta} + U_i\\
+U_i \sim&amp;amp; BYM(\sigma^2, \tau^2)\\
+\theta_1 = &amp;amp; \sqrt(\sigma^2 + \tau^2)\\
+\theta_2 = &amp;amp; \sigma/\sqrt(\sigma^2 + \tau^2)\\
+\end{aligned}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(Y_i\)&lt;/span&gt;, following a poisson distribution, represents the COVID-19 case count in health region i. &lt;span class=&#34;math inline&#34;&gt;\(E_i\)&lt;/span&gt; is the expected case count, as computed from population data and known incidence rates. &lt;span class=&#34;math inline&#34;&gt;\(\lambda_i\)&lt;/span&gt; represents the risk in health region i. Because risk &lt;span class=&#34;math inline&#34;&gt;\(\lambda_i\)&lt;/span&gt; needs to be positive, we have log of &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; so that it can be treated as Gaussian with intercept &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;, covariates &lt;span class=&#34;math inline&#34;&gt;\(X_i\beta\)&lt;/span&gt;, and spatial random effect &lt;span class=&#34;math inline&#34;&gt;\(U_i\)&lt;/span&gt; which consists of 2 standard deviation parameters: &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2\)&lt;/span&gt; for spatial and &lt;span class=&#34;math inline&#34;&gt;\(\tau^2\)&lt;/span&gt; for independent. &lt;span class=&#34;math inline&#34;&gt;\(\theta_1\)&lt;/span&gt; is the total variance of &lt;span class=&#34;math inline&#34;&gt;\(U\)&lt;/span&gt; at region i. &lt;span class=&#34;math inline&#34;&gt;\(\theta_2\)&lt;/span&gt; is the spatial proportion explaining total variation.&lt;/p&gt;
+&lt;p&gt;As for &lt;span class=&#34;math inline&#34;&gt;\(X_i\beta\)&lt;/span&gt;, it is a vector of covariates including the log of expected case count (logExpected), percent of individuals who are ethnic minorities (Ethnicity), percent of individuals who are unemployed (Employment), and concentrations of fine particulate matter PM2.5 in the health authority (pm25modelled). In an effort to scale the model of mean, the expected case count was included as an offset term with a log link because of the suspected proportional correlation between expected and actual case count.&lt;/p&gt;
+&lt;p&gt;Penalized complexity priors were chosen for both &lt;span class=&#34;math inline&#34;&gt;\(\theta_1\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\theta_2\)&lt;/span&gt;. For the total variation of &lt;span class=&#34;math inline&#34;&gt;\(U\)&lt;/span&gt; sd, the prior is c(0.5, 0.05), meaning that the probability of standard deviation is bigger than 0.5 is 5%. As for the spatial proportion, the prior is set to be c(0.99, 0.01), meaning that the probability of the spatial proportion is bigger than 99% is 1%. Prior for &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; was left at INLA default. &lt;strong&gt;We chose the above prior distribution to encourage the model to be boring and surface to be flat; by doing so, we can learn truly from the data whether there is anything significantly correlated.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Results&lt;/h1&gt;
+&lt;div id=&#34;table-of-parameters&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Table of Parameters&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# log relative risk (logged odds ratios) table
+temp &amp;lt;- englandRes$parameters$summary[,c(1,3,5)]
+temp %&amp;gt;%
+  kableExtra::kbl(
+    caption = &amp;quot;Parameter Posterior Means and 95% Credible Intervals
+    (Log Odds)&amp;quot;, booktabs = T, digits = 3) %&amp;gt;%
+  kableExtra::kable_classic(full_width = F, html_font = &amp;quot;Cambria&amp;quot;) %&amp;gt;%
+  kableExtra::kable_styling(latex_options = c(&amp;quot;HOLD_position&amp;quot;, &amp;quot;striped&amp;quot;),
+                            position = &amp;#39;float_right&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34; lightable-classic table&#34; style=&#34;font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto; float: right; margin-left: 10px;&#34;&gt;
+&lt;caption&gt;
+&lt;span id=&#34;tab:q2tables&#34;&gt;Table 1: &lt;/span&gt;Parameter Posterior Means and 95% Credible Intervals
+(Log Odds)
+&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+mean
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+0.025quant
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+0.975quant
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+(Intercept)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1.012
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1.527
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-0.499
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Ethnicity
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.012
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.008
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.016
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+modelledpm25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.056
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-0.004
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.117
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Unemployment
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.113
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.058
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.168
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+sd
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.293
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.258
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.335
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+propSpatial
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.900
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.773
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.976
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Table 1 displays the parameter posterior means and 95% credible intervals in logged odds ratios. This table provides valuable information on the significance of variables. &lt;strong&gt;If the mean is equal to, or the credible interval includes, 0, the corresponding variable is not significant.&lt;/strong&gt; In particular, if sd &lt;span class=&#34;math inline&#34;&gt;\(\theta_1\)&lt;/span&gt; is 0, there is nothing significant, if propSpatial &lt;span class=&#34;math inline&#34;&gt;\(\theta2\)&lt;/span&gt; is 0, nothing significant is spatial.&lt;/p&gt;
+&lt;p&gt;From this table, we can conclude that &lt;strong&gt;a higher proportion of unemployment rate and a higher proportion of ethnic minorities can each lead to more individuals susceptible to COVID-19 within the same health region.&lt;/strong&gt; Unemployment rate has a more significant effect than ethnic origins. The overall standard deviation is 0.29, meaning the covariates explain the variation in a statistically significant manner and about 90% of the variance is explained by spatial random effect. However, we do not seem to find significance in whether exposure to PM2.5 will increase the person’s risk to COVID-19. The 95% credible interval includes 0, which means exposure to PM2.5 in England could lead to either an increase or decrease in the person’s risk to COVID-19.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# odds ratios table
+logOddsMat2 = englandRes$parameters$summary[,c(4,3,5)]
+oddsMat2 = exp(logOddsMat2)
+oddsMat2[1,] = oddsMat2[1,]/(1 + oddsMat2[1, ])
+rownames(oddsMat2)[1] = &amp;#39;Baseline prob&amp;#39;
+oddsMat2 %&amp;gt;%
+  kableExtra::kbl(
+    caption = &amp;quot;BYM Model Results From Voting Data (Odds Ratio)&amp;quot;,
+    booktabs = T, digits = 3) %&amp;gt;%
+  kableExtra::kable_classic(full_width = F, html_font = &amp;quot;Cambria&amp;quot;) %&amp;gt;%
+  kableExtra::kable_styling(latex_options = c(&amp;quot;HOLD_position&amp;quot;, &amp;quot;striped&amp;quot;),
+                            position = &amp;#39;float_right&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34; lightable-classic table&#34; style=&#34;font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto; float: right; margin-left: 10px;&#34;&gt;
+&lt;caption&gt;
+&lt;span id=&#34;tab:table2&#34;&gt;Table 2: &lt;/span&gt;BYM Model Results From Voting Data (Odds Ratio)
+&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+0.5quant
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+0.025quant
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+0.975quant
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Baseline prob
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.267
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.179
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.378
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Ethnicity
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.012
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.008
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.016
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+modelledpm25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.058
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.996
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.124
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Unemployment
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.120
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.060
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.184
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+sd
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.339
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.294
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.398
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+propSpatial
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.483
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.166
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.654
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Table 2 is the interquartile range (IQR) version of table 1, displaying the parameters in odds ratio. We can conclude that &lt;strong&gt;a 1% increase in the proportion of ethnic minorities in a region results in a 1.01% increase in risk for COVID-19, and a 1% increase in the proportion of unemployment residents in an area results in a 1.12% increase in risk for COVID-19.&lt;/strong&gt; We do not find the variable PM2.5 significance because the 95% confidence interval overlaps value 1.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;prior-and-posterior-density-distributions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Prior and Posterior Density Distributions&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# prior and posteriors for SD
+plot(englandRes$parameters$sd$posterior, type = &amp;#39;l&amp;#39;, xlim = c(0,1), xlab = &amp;#39;sd&amp;#39;,
+     ylab = &amp;#39;dens&amp;#39;, cex.main = 0.6,
+     main = &amp;#39;Figure 1. Prior and Posterior Distribution for Standard Deviation&amp;#39;)
+lines(englandRes$parameters$sd$prior, col = &amp;#39;grey&amp;#39;)
+legend(&amp;#39;topright&amp;#39;, lty = 1, col = c(&amp;#39;black&amp;#39;, &amp;#39;grey&amp;#39;),
+       legend = c(&amp;#39;post&amp;#39;, &amp;#39;prior&amp;#39;), bty = &amp;#39;n&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://gaurichaudhari9.github.io/project/airpollutionengland/index_files/figure-html/q2priorandposterior-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# prior and posterior for spatial proportion
+plot(englandRes$parameters$propSpatial$posterior, type = &amp;#39;l&amp;#39;, xlim = c(0,2.5),
+     xlab = &amp;#39;prop spatial&amp;#39;, ylab = &amp;#39;dens&amp;#39;, cex.main = 0.6,
+     main = &amp;#39;Figure 2. Prior and Posterior Distribution for Spatial Proportion&amp;#39;)
+lines(englandRes$parameters$propSpatial$prior, col = &amp;#39;red&amp;#39;)
+legend(&amp;#39;topright&amp;#39;, lty = 1, col = c(&amp;#39;black&amp;#39;, &amp;#39;red&amp;#39;),
+       legend = c(&amp;#39;post&amp;#39;, &amp;#39;prior&amp;#39;), bty = &amp;#39;n&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://gaurichaudhari9.github.io/project/airpollutionengland/index_files/figure-html/q2priorandposterior-2.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;maps&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Maps&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# maps set up
+casesCol = mapmisc::colourScale(UK2$cases, dec = -3, breaks = 12,
+                                col = &amp;quot;Spectral&amp;quot;, style = &amp;quot;quantile&amp;quot;, rev = TRUE)
+Ecol = mapmisc::colourScale(UK2$E, breaks = casesCol$breaks,
+                            col = casesCol$col, style = &amp;quot;fixed&amp;quot;)
+pmCol = mapmisc::colourScale(UK2$modelledpm25, breaks = 9,
+                             dec = 0, style = &amp;quot;quantile&amp;quot;)
+ethCol = mapmisc::colourScale(UK2$Ethnicity, breaks = 9,
+                              digits = 1, style = &amp;quot;quantile&amp;quot;)
+uCol = mapmisc::colourScale(UK2$Unemployment, breaks = 12,
+                            dec = 0, style = &amp;quot;quantile&amp;quot;)
+rCol = mapmisc::colourScale(englandRes$data$random.mean, breaks = 12,
+                            dec = -log10(0.25), style = &amp;quot;quantile&amp;quot;)
+fCol = mapmisc::colourScale(englandRes$data$fitted.exp, breaks = 9,
+                            dec = 1, style = &amp;quot;quantile&amp;quot;)
+insetEngland1 = mapmisc::openmap(UK2, zoom = 3, fact = 4, path = &amp;quot;waze&amp;quot;,
+                                 crs = CRS(&amp;quot;+init=epsg:3035&amp;quot;))
+
+# England raster reference file
+insetEngland = raster::crop(insetEngland1, extend(extent(insetEngland1),
+                                              -c(25, 7, 4, 9.5) * 100 * 1000))
+
+# construct maps
+par(mfrow = c(3,3))
+mapmisc::map.new(UK2)
+mapmisc::insetMap(UK_shp, &amp;quot;topright&amp;quot;, insetEngland, width = 0.4)
+plot(UK2, col = casesCol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, casesCol, bty = &amp;quot;n&amp;quot;)
+
+mapmisc::map.new(UK2)
+plot(UK2, col = Ecol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, casesCol, bty = &amp;quot;n&amp;quot;)
+
+mapmisc::map.new(UK2)
+plot(UK2, col = pmCol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, pmCol, bty = &amp;quot;n&amp;quot;)
+
+mapmisc::map.new(UK2)
+plot(UK2, col = ethCol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, ethCol, bty = &amp;quot;n&amp;quot;)
+
+mapmisc::map.new(UK2)
+plot(UK2, col = uCol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, uCol, bty = &amp;quot;n&amp;quot;)
+
+mapmisc::map.new(UK2)
+plot(UK2, col = rCol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, rCol, bty = &amp;quot;n&amp;quot;)
+
+mapmisc::map.new(UK2)
+plot(UK2, col = fCol$plot, add = TRUE, lwd = 0.2)
+mapmisc::legendBreaks(&amp;quot;left&amp;quot;, fCol, bty = &amp;quot;n&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;maps.jpg&#34; /&gt;&lt;br /&gt;
+The figure above is a series of maps visualizing the predicted outcome for each covariate, the dependent variable, and random effects. Map (a) represents COVID-19 cases in England by health region, we see that most severely impacted health regions are in the northwest and southeast corners of the country. According the independent and spatial random effect maps (f and g), we can conclude that most of the variations in the northeast corner can be explained by covariates and the spatial random effect. However, due to possible lack of data, we’re unsure of the variation in southern England. Since pm2.5 (c) is not a significant predictor variable, there are other significant factors which are not included in the current model. Last but not least, an exceedance map pr(&lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt;(s) &amp;gt; 1.1|Y) could show us which health regions exist COVID-19 excess cases of 10% or more.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;discussion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Discussion&lt;/h1&gt;
+&lt;p&gt;In conclusion, we do not find that exposure to ambient air pollution makes individuals more susceptible to COVID-19 in our study area, England. However, we successfully confirmed the hypotheses from existing research that an area with high unemployment or an area with many ethnic minorities have more COVID-19 case count. This can be explained by previous research&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;high unemployment areas tend to have high deprivation and low access to health care&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;ethnic minorities are more likely to live in large, multi-generational households, and work in high-risk occupations&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;structural racism making access to health care harder.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We also found strong spatial random effect in predicting the case count of COVID; health regions closer in proximity of each other are more likely to have similar COVID case count than those further apart.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Statistical Proof COVID-19 is NOT &#39;just like the flu&#39;</title>
+      <link>https://gaurichaudhari9.github.io/project/covid-excess-mortality-quebec/</link>
+      <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/covid-excess-mortality-quebec/</guid>
+      <description>
+
+
+&lt;p&gt;&lt;img src=&#34;graphs.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The COVID-19 global pandemic reached Canada in early March. Provinces across Canada have all been impacted in various ways, with Ontario and Québec having the highest number of people infected. This research focuses on the daily mortality counts in Québec as it has only been made available recently.&lt;/p&gt;
+&lt;p&gt;The research question of interest involves how COVID infected different age groups at various time periods. There are two main hypotheses for this research project:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;It is hypothesized that during the first wave (March-May, 2020), the epidemic primarily affected the elderly,&lt;/strong&gt; in particular over age of 70, as seen from the weekly mortality counts. This hypothesis is based on two evidence: 1) people of older age are one of the most vulnerable groups to COVID-19, and 2) nursing home was one of the hardest hit places in Canada.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;The second part of the hypothesis states that the second wave (September-October 21, date this analysis was conducted) was mainly caused by young people acting irresponsibly,&lt;/strong&gt; as there is an increase in deaths in the under 50s in most recent death data whereas the over 70’s have no more deaths than would be expected pre-covid.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div id=&#34;methods&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Methods&lt;/h1&gt;
+&lt;p&gt;In order to fit a statistically robust model that quantifies the problem, weekly mortality data (2010-2020) released from the government of Québec was used to analyze the excess deaths in different age groups at various time periods of the pandemic. &lt;em&gt;Unfortunately, as of January 2021, the raw data set is no longer available to the public; however, you can view analysis of this data released by Institut de la statistique Québec &lt;a href=&#34;https://statistique.quebec.ca/en/produit/figure/weekly-deaths-by-age-group-quebec-2010-2020&#34;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Since the Poisson family is commonly used for positive and discrete data, we used &lt;strong&gt;Bayesian inference with semi-parametric smoothed time trend to fit a Poisson model&lt;/strong&gt; to the data. This analysis involved two main steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;We first used the data prior to March 1st as pre-COVID data to predict mortality what would have otherwise been without COVID in the recent months taking seasonal variations into consideration.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We then took 100 random posteriors samples and calculated excess deaths by comparing predicted mortality numbers with actual numbers.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This model was ran once for deaths of people aged 70 and above, and once for people aged 50 and under, in order to examine the hypothesis that the first wave of COVID-19 primary affected the elderly (70+) and second wave primarily affected younger people (&amp;lt;50). The model is shown below:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{aligned}
+Y_{i} &amp;amp; \sim Poisson(O_i \lambda_i)\\
+log(\lambda_i) &amp;amp; = X_i\beta + U_i + V_i\\
+U_i &amp;amp; \sim RW2(\sigma^2)\\
+V_i &amp;amp; \sim N(0, \tau^2)\\
+X_{i1} &amp;amp; = cos(2\pi t_i/365.25)\\
+X_{i2} &amp;amp; = sin(2\pi t_i/365.25)\\
+X_{i3} &amp;amp; = cos(2\pi t_i/182.625)\\
+X_{i4} &amp;amp; = sin(2\pi t_i/182.625)\\
+\end{aligned}\]&lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# R code
+INLA::inla(dead ~ sin12 + sin6 + cos12 + cos6 +
+             f(timeIid, prior=&amp;#39;pc.prec&amp;#39;, param= c(log(1.2), 0.5)) +
+             f(timeForInla, model = &amp;#39;rw2&amp;#39;, prior=&amp;#39;pc.prec&amp;#39;, param= c(0.01, 0.5)),
+           data=xForInlaTotal,
+           control.predictor = list(compute=TRUE, link=1),
+           control.compute = list(config=TRUE), family=&amp;#39;poisson&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;In this model, the number of deaths &lt;span class=&#34;math inline&#34;&gt;\(Y_{i}\)&lt;/span&gt; follows a Poisson distribution.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;In order to capture the seasonal variation of deaths, four sinusoidal basis functions &lt;span class=&#34;math inline&#34;&gt;\(X_i\)&lt;/span&gt;s were used to capture a wide range of seasonal effects using 12 month and a 6 month frequency cycles.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(U_i\)&lt;/span&gt; follows the second random walk - random slope, and answers the question ‘how much does slope change from one year to the next’.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; is in rate per year, with an exponential prior &lt;span class=&#34;math inline&#34;&gt;\(param=c(0.1, 0.5)\)&lt;/span&gt; indicating a median of 0.01. It is a small number because we anticipate the slope change from one year to the next by 0.01.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(V_i\)&lt;/span&gt; is the independent time variation for over-dispersion and follows a exponential prior of &lt;span class=&#34;math inline&#34;&gt;\(param=c(log(1.2), 0.5)\)&lt;/span&gt;, indicating a prior median &lt;span class=&#34;math inline&#34;&gt;\(\tau\)&lt;/span&gt; of log(1.2). This prior was chosen based on our assumption that there will be 20% more deaths and with COVID pandemic, this is a reasonable guess.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Results&lt;/h1&gt;
+&lt;div id=&#34;excess-mortality-what-would-mortality-numbers-look-like-in-québec-if-covid-19-never-happend&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1. Excess Mortality: What would mortality numbers look like in Québec if COVID-19 never happend?&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;graphs.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;When examining COVID related questions, it is important first to recognize the severity of COVID and that COVID-19 is indeed more deadly than the common flu. &lt;strong&gt;Figure 1 shows the predicted number of deaths in a world without COVID and the actual deaths during COVID months. Similarly, figure 2 represents deaths generated from 100 posterior samples in a COVID-free world, overlayed with actual data on top.&lt;/strong&gt; March 1st was determined as the day COVID hit Canada, therefore the cut off point for data used for predictions. It is easily observed from the figure that excess death was created as a result of COVID, especially around April (first wave) and recent months (second wave).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;histogram.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Indeed, the median of excess deaths from posterior samples suggest that the total number of excess death in Québec, most likely caused by COVID, from March 1st to October 21st is around &lt;strong&gt;6000&lt;/strong&gt;, as suggested in Figure 3.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;seniors-were-the-most-vulnerable-group-during-first-wave-94-of-total-excess-deaths.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2. Seniors were the most vulnerable group during first wave (94% of total excess deaths).&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# total
+### calculate excess deaths
+xPostCovidTotal = xPostCovid[xPostCovid$age == &amp;quot;Total&amp;quot;, ]
+xPostCovidForecast = sampleDeaths[match(xPostCovidTotal$time, xForInlaTotal$time), ]
+excessDeaths = xPostCovidTotal$dead - xPostCovidForecast
+
+### Total excess deaths march-may inclusive
+excessDeathsSub = excessDeaths[xPostCovidTotal$time &amp;gt; as.Date(&amp;quot;2020/03/01&amp;quot;) &amp;amp; xPostCovidTotal$time &amp;lt; as.Date(&amp;quot;2020/06/01&amp;quot;), ]
+excessDeathsInPeriod = apply(excessDeathsSub, 2, sum)
+wave1_total &amp;lt;- round(quantile(excessDeathsInPeriod))
+
+# 70+
+### fit a model for 70+ yo deaths in INLA
+xForInlaTotal70= xForInla[xForInla$age == &amp;#39;70 years old and over&amp;#39;, ]
+### model
+res70 = inla(dead ~ sin12 + sin6 + cos12 + cos6 +
+             f(timeIid, prior=&amp;#39;pc.prec&amp;#39;, param= c(log(1.2), 0.5)) +
+             f(timeForInla, model = &amp;#39;rw2&amp;#39;, prior=&amp;#39;pc.prec&amp;#39;, param= c(0.01, 0.5)),
+           data=xForInlaTotal70,
+           control.predictor = list(compute=TRUE, link=1),
+           control.compute = list(config=TRUE), family=&amp;#39;poisson&amp;#39;)
+### Take posterior samples of the intensity
+sampleList = INLA::inla.posterior.sample(100, res70, selection = list(Predictor = 0))
+sampleIntensity = exp(do.call(cbind, Biobase::subListExtract(sampleList, &amp;quot;latent&amp;quot;)))
+sampleDeaths = matrix(rpois(length(sampleIntensity), sampleIntensity),
+                      nrow(sampleIntensity), ncol(sampleIntensity))
+### calculate excess deaths
+xPostCovidTotal = xPostCovid[xPostCovid$age == &amp;quot;70 years old and over&amp;quot;, ]
+xPostCovidForecast = sampleDeaths[match(xPostCovidTotal$time, xForInlaTotal$time), ]
+excessDeaths = xPostCovidTotal$dead - xPostCovidForecast
+### Total excess deaths march-may inclusive
+excessDeathsSub = excessDeaths[xPostCovidTotal$time &amp;gt; as.Date(&amp;quot;2020/03/01&amp;quot;) &amp;amp;
+                                 xPostCovidTotal$time &amp;lt; as.Date(&amp;quot;2020/06/01&amp;quot;), ]
+excessDeathsInPeriod = apply(excessDeathsSub, 2, sum)
+wave1_70 &amp;lt;- round(quantile(excessDeathsInPeriod))
+
+# table
+c &amp;lt;- cbind(wave1_70, wave1_total)
+c %&amp;gt;%
+  knitr::kable(caption = &amp;quot;Quantiles of Posterior Sample Excess Deaths,
+               March 1st - May 31st, 2020&amp;quot; , booktabs = T, digits = 6,
+               col.names = c(&amp;#39;70+ Years of Age&amp;#39;, &amp;#39;Total&amp;#39;)) %&amp;gt;%
+  kableExtra::kable_classic(full_width = F, html_font = &amp;quot;Cambria&amp;quot;) %&amp;gt;%
+  kableExtra::kable_styling(latex_options = c(&amp;quot;HOLD_position&amp;quot;, &amp;quot;striped&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;hypothesis1.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The first part of our hypothesis is that the first wave of COVID, from March to May, primarily affected older people. Table 3 shows the quantile of posterior sample excess deaths, from March 1st to May 31st, for the age group 70 and above and all age groups. Excess deaths for all population is around 4700 deaths for this time period, while excess deaths for 70+ age group is around 4400, making up 94% of all deaths. This confirms our first hypothesis that first wave of COVID affected primarily older people.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;senior-age-group-displayed-high-vulnerability-again-during-the-second-wave.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;3. Senior age group displayed high vulnerability again during the second wave.&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 70+
+### Take posterior samples of the intensity
+sampleList = INLA::inla.posterior.sample(100, res70, selection = list(Predictor = 0))
+sampleIntensity = exp(do.call(cbind, Biobase::subListExtract(sampleList, &amp;quot;latent&amp;quot;)))
+sampleDeaths = matrix(rpois(length(sampleIntensity),
+                            sampleIntensity), nrow(sampleIntensity),
+                      ncol(sampleIntensity))
+#### calculate excess deaths
+xPostCovidTotal = xPostCovid[xPostCovid$age == &amp;quot;70 years old and over&amp;quot;, ]
+xPostCovidTotal = xPostCovidTotal[xPostCovidTotal$time &amp;gt; as.Date(&amp;quot;2020/09/01&amp;quot;) &amp;amp; xPostCovidTotal$time &amp;lt; as.Date(&amp;quot;2020/10/21&amp;quot;),]
+xPostCovidForecast = sampleDeaths[match(xPostCovidTotal$time, xForInlaTotal70$time), ]
+excessDeaths = xPostCovidTotal$dead - xPostCovidForecast
+#### plot samples of excess deaths
+temp70 &amp;lt;- round(quantile(excessDeaths))
+matplot(xPostCovidTotal$time, excessDeaths, type = &amp;quot;l&amp;quot;, lty = 1, col = &amp;quot;#00000030&amp;quot;,
+        main = &amp;#39;Figure 4.: Posterior Sample Excess Deaths Among 70+ yo&amp;#39;,
+        xlab = &amp;#39;Time&amp;#39;, ylab = &amp;#39;Excess Death&amp;#39;, cex.main = 0.7)
+
+# &amp;lt; 50
+### fit a model for 70+ yo deaths in INLA
+xForInlaTotal50= xForInla[xForInla$age == &amp;#39;0-49 years old&amp;#39;, ]
+### model
+res50 = inla(dead ~ sin12 + sin6 + cos12 + cos6 +
+             f(timeIid, prior=&amp;#39;pc.prec&amp;#39;, param= c(log(1.2), 0.5)) +
+             f(timeForInla, model = &amp;#39;rw2&amp;#39;, prior=&amp;#39;pc.prec&amp;#39;, param= c(0.01, 0.5)),
+           data=xForInlaTotal50,
+           control.predictor = list(compute=TRUE, link=1),
+           control.compute = list(config=TRUE), family=&amp;#39;poisson&amp;#39;)
+### Take posterior samples of the intensity
+sampleList = INLA::inla.posterior.sample(100, res50, selection = list(Predictor = 0))
+sampleIntensity = exp(do.call(cbind, Biobase::subListExtract(sampleList, &amp;quot;latent&amp;quot;)))
+sampleDeaths = matrix(rpois(length(sampleIntensity),
+                            sampleIntensity), nrow(sampleIntensity),
+                      ncol(sampleIntensity))
+### calculate excess deaths
+xPostCovidTotal = xPostCovid[xPostCovid$age == &amp;quot;0-49 years old&amp;quot;, ]
+xPostCovidTotal = xPostCovidTotal[xPostCovidTotal$time &amp;gt; as.Date(&amp;quot;2020/09/01&amp;quot;) &amp;amp; xPostCovidTotal$time &amp;lt; as.Date(&amp;quot;2020/10/21&amp;quot;),]
+xPostCovidForecast = sampleDeaths[match(xPostCovidTotal$time, xForInlaTotal50$time), ]
+excessDeaths = xPostCovidTotal$dead - xPostCovidForecast
+### plot samples of excess deaths
+temp50 &amp;lt;- round(quantile(excessDeaths))
+matplot(xPostCovidTotal$time, excessDeaths, type = &amp;quot;l&amp;quot;, lty = 1, col = &amp;quot;#00000030&amp;quot;,
+        main = &amp;#39;Figure 5.: Posterior Sample Excess Deaths Among 0-49 yo&amp;#39;,
+        xlab = &amp;#39;Time&amp;#39;, ylab = &amp;#39;Excess Death&amp;#39;, cex.main = 0.7)
+
+# table combined
+d&amp;lt;- cbind(temp70, temp50)
+d %&amp;gt;%
+  knitr::kable(caption = &amp;quot;Quantile of Posterior Sample Excess Deaths,
+               Sep 1st - Oct 21st, 2020&amp;quot; , booktabs = T, digits = 6,
+               col.names = c(&amp;#39;70+ Year of Age&amp;#39;, &amp;#39;0-49 Years of Age&amp;#39;)) %&amp;gt;%
+  kableExtra::kable_classic(full_width = F, html_font = &amp;quot;Cambria&amp;quot;) %&amp;gt;%
+  kableExtra::kable_styling(latex_options = c(&amp;quot;HOLD_position&amp;quot;, &amp;quot;striped&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;hypothesis2.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As for our second hypothesis, we calculated excess deaths among 70+ year old age group (as shown in figure 4) and among 0-49 year old age group (as shown in figure 5) during both first and second wave of COVID-19. We define first wave as the time between March 1st and May 31st. We define the second wave as the time between September 1st and the most recent data, during the week of October 21st. As seen from table 4, the older population is again, similarly to the first wave, most vulnerable to COVID-19, as the excess deaths is around 110, whereas the excess death for 0-49 year-old is around 12.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;discussion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Discussion&lt;/h1&gt;
+&lt;p&gt;COVID-19 is more serious than the seasonal flu and has caused great number of excess deaths. Although many may believe the second wave was caused by irresponsible young people, we conclude that young people are not the most vulnerable population from such infectious disease. In fact, excess deaths are highest among people aged 70 and above, during both first and second wave of the pandemic. &lt;strong&gt;Further investigation is needed on infection data in order to draw conclusion on whether it was mostly young people who were involved in the spreading of COVID-19 during second wave.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

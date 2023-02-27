@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/tags/javascript/</link>
+      <atom:link href="https://gaurichaudhari9.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <description>javascript</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Gauri Chaudhari 2023</copyright><lastBuildDate>Fri, 10 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://gaurichaudhari9.github.io/img/sharing.png</url>
+      <title>javascript</title>
+      <link>https://gaurichaudhari9.github.io/tags/javascript/</link>
+    </image>
+    
+    <item>
+      <title>Health Canada Air Pollution Data Availability Visualization</title>
+      <link>https://gaurichaudhari9.github.io/project/airpollutionvisualization/</link>
+      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/airpollutionvisualization/</guid>
+      <description>
+&lt;iframe src=&#34;https://mamaggie.github.io/pollutionnumbers.html&#34; style=&#34;width:106%; height:600px;&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This map was developed for internal use and thus is less intuitive than the others.
+  The purpose of this map is for researchers in the office at St. Michael&#39;s Hospital
+to understand where pollution data exists across Canada. &lt;/p&gt;
+
+&lt;h3&gt;Problem At Hand&lt;/h3&gt;
+&lt;p&gt;Researchers and statisticians in the office were tasked to run complex spatial prediction models
+on pollution levels in different cities. These models are extremely time-consuming and could take up to 7 days to run
+for one city. Unfortunately, data collection efforts over the past 20 years were inconsistent,
+highly dependent on locations, and varied greatly by pollutants. The result of a model is less useful
+if insufficient data were collected to train the odels. In order to help statisticians conduct research efficiently and
+prioritize cities with the richest amount of data, this visualization was born.&lt;/p&gt;
+
+&lt;h3&gt;Functionalities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Red dots are Health Canada air pollution stations. Locations of stations vary by year&lt;/li&gt;
+&lt;li&gt;Tags across the bottom panel allows you to zoom to a new city without knowledge of Canadian geographies.&lt;/li&gt;
+&lt;li&gt;Time slider on the top left hand corner allows you to view data availability across the years.&lt;/li&gt;
+&lt;li&gt;Pollutant on the top right hand corner allows you to check data avialbility for each pollutant.
+  The number represents aggregated pollutant measurement in a given year, enabling users to gain
+  a basic understanding of severity of pollution for each pollutant at any station.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>COVID-19 Daily Cases Visualization</title>
+      <link>https://gaurichaudhari9.github.io/project/2020-05-13-covid-19-daily-cases-visualization/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/2020-05-13-covid-19-daily-cases-visualization/</guid>
+      <description>
+&lt;iframe src=&#34;https://mamaggie.github.io/covid_toronto.html&#34; style=&#34;width:100%; height:500px;&#34;&gt;&lt;/iframe&gt;
+
+&lt;h1&gt;Story Behind This Map&lt;/h1&gt;
+
+&lt;p&gt;I was lucky to have worked as a geospatial researcher at a hospital summer of 2020 when the first wave of COVID was in full-swing.
+I received the most accurate COVID-19 information working in an office busy with multiple COVID-19 projects and prediction models.
+Having seen first hand COVID-19 data and understanding their impacts; speaking with friends and family,
+I realized the data wasn’t clear to everyone and some wouldn’t know where to find details of it. &lt;/p&gt;
+
+&lt;p&gt;That is when the idea for this passion project was born.
+A publicly accessible dashboard that displays COVID-19 daily cases over time at Toronto’s neighborhood level to help combat misinformation by providing interpretable data fundamental in informing smart choices.
+This simple interactive map answers questions such as, ‘How did COVID-19 spread in the City of Toronto?’ or ‘Have there been a lot of new cases in my area in the past days or weeks?’&lt;/p&gt;
+
+&lt;p&gt; This project, along with a Bayesian COVID-19 prediction model, was awarded the COVID-19 Engagement Award by the University of Toronto. The Bayesian COVID-19 prediction model is not included here. &lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>regression | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/tags/regression/</link>
+      <atom:link href="https://gaurichaudhari9.github.io/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+    <description>regression</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Gauri Chaudhari 2023</copyright><lastBuildDate>Fri, 10 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://gaurichaudhari9.github.io/img/sharing.png</url>
+      <title>regression</title>
+      <link>https://gaurichaudhari9.github.io/tags/regression/</link>
+    </image>
+    
+    <item>
+      <title>Understanding Toronto&#39;s Ethnic Enclaves</title>
+      <link>https://gaurichaudhari9.github.io/project/ethnic-enclaves/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/ethnic-enclaves/</guid>
+      <description>&lt;iframe src=&#34;https://storymaps.arcgis.com/stories/b52d4bf9bb0342a09b2f459154817452&#34; width=&#34;100%&#34; height=&#34;500px&#34; frameborder=&#34;0&#34; allowfullscreen allow=&#34;geolocation&#34;&gt;&lt;/iframe&gt;
+
+&lt;a href=&#34;https://storymaps.arcgis.com/stories/b52d4bf9bb0342a09b2f459154817452&#34; target=&#34;_blank&#34;&gt;View Larger Story Map&lt;/a&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

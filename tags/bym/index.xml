@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bym | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/tags/bym/</link>
+      <atom:link href="https://gaurichaudhari9.github.io/tags/bym/index.xml" rel="self" type="application/rss+xml" />
+    <description>bym</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Gauri Chaudhari 2023</copyright><lastBuildDate>Sun, 26 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://gaurichaudhari9.github.io/img/sharing.png</url>
+      <title>bym</title>
+      <link>https://gaurichaudhari9.github.io/tags/bym/</link>
+    </image>
+    
+    <item>
+      <title>Analyzing Internation Debt</title>
+      <link>https://gaurichaudhari9.github.io/project/analyzing_international_debt_statistics/notebook/</link>
+      <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/analyzing_international_debt_statistics/notebook/</guid>
+      <description>
+
+
+&lt;h2 id=&#34;1-the-world-banks-international-debt-data&#34;&gt;1. The World Bank&amp;rsquo;s international debt data&lt;a href=&#34;#1-the-world-banks-international-debt-data&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+&lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+&lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+&lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;It&#39;s not that we humans only take debts to manage our necessities. A country may also take debt to manage its economy. For example, infrastructure spending is one costly ingredient required for a country&#39;s citizens to lead comfortable lives. &lt;a href=&#34;https://www.worldbank.org&#34;&gt;The World Bank&lt;/a&gt; is the organization that provides debt to countries.&lt;/p&gt;
+&lt;p&gt;In this notebook, we are going to analyze international debt data collected by The World Bank. The dataset contains information about the amount of debt (in USD) owed by developing countries across several categories. We are going to find the answers to questions like: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What is the total amount of debt that is owed by the countries listed in the dataset?&lt;/li&gt;
+&lt;li&gt;Which country owns the maximum amount of debt and what does that amount look like?&lt;/li&gt;
+&lt;li&gt;What is the average amount of debt owed by countries across different debt indicators?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://assets.datacamp.com/production/project_754/img/image.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The first line of code connects us to the &lt;code&gt;international_debt&lt;/code&gt; database where the table &lt;code&gt;international_debt&lt;/code&gt; is residing. Let&#39;s first &lt;code&gt;SELECT&lt;/code&gt; &lt;em&gt;all&lt;/em&gt; of the columns from the &lt;code&gt;international_debt&lt;/code&gt; table. Also, we&#39;ll limit the output to the first ten rows to keep the output clean.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;%%sql
+postgresql:///international_debt
+SELECT * FROM international_debt LIMIT 10
+    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;10 rows affected.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;country_name&lt;/th&gt;
+        &lt;th&gt;country_code&lt;/th&gt;
+        &lt;th&gt;indicator_name&lt;/th&gt;
+        &lt;th&gt;indicator_code&lt;/th&gt;
+        &lt;th&gt;debt&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Afghanistan&lt;/td&gt;
+        &lt;td&gt;AFG&lt;/td&gt;
+        &lt;td&gt;Disbursements on external debt, long-term (DIS, current US$)&lt;/td&gt;
+        &lt;td&gt;DT.DIS.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;72894453.700000003&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Afghanistan&lt;/td&gt;
+        &lt;td&gt;AFG&lt;/td&gt;
+        &lt;td&gt;Interest payments on external debt, long-term (INT, current US$)&lt;/td&gt;
+        &lt;td&gt;DT.INT.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;53239440.100000001&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Afghanistan&lt;/td&gt;
+        &lt;td&gt;AFG&lt;/td&gt;
+        &lt;td&gt;PPG, bilateral (AMT, current US$)&lt;/td&gt;
+        &lt;td&gt;DT.AMT.BLAT.CD&lt;/td&gt;
+        &lt;td&gt;61739336.899999999&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Afghanistan&lt;/td&gt;
+        &lt;td&gt;AFG&lt;/td&gt;
+        &lt;td&gt;PPG, bilateral (DIS, current US$)&lt;/td&gt;
+        &lt;td&gt;DT.DIS.BLAT.CD&lt;/td&gt;
+        &lt;td&gt;49114729.399999999&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Afghanistan&lt;/td&gt;
+        &lt;td&gt;AFG&lt;/td&gt;
+        &lt;td&gt;PPG, bilateral (INT, current US$)&lt;/td&gt;
+        &lt;td&gt;DT.INT.BLAT.CD&lt;/td&gt;
+        &lt;td&gt;39903620.100000001&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Afghanistan&lt;/td&gt;
+        &lt;td&gt;AFG&lt;/td&gt;
+        &lt;td&gt;PPG, multilateral (AMT, current US$)&lt;/td&gt;
+        &lt;td&gt;DT.AMT.MLAT.CD&lt;/td&gt;
+        &lt;td&gt;39107845&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Afghanistan&lt;/td&gt;
+        &lt;td&gt;AFG&lt;/td&gt;
+        &lt;td&gt;PPG, multilateral (DIS, current US$)&lt;/td&gt;
+        &lt;td&gt;DT.DIS.MLAT.CD&lt;/td&gt;
+        &lt;td&gt;23779724.300000001&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Afghanistan&lt;/td&gt;
+        &lt;td&gt;AFG&lt;/td&gt;
+        &lt;td&gt;PPG, multilateral (INT, current US$)&lt;/td&gt;
+        &lt;td&gt;DT.INT.MLAT.CD&lt;/td&gt;
+        &lt;td&gt;13335820&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Afghanistan&lt;/td&gt;
+        &lt;td&gt;AFG&lt;/td&gt;
+        &lt;td&gt;PPG, official creditors (AMT, current US$)&lt;/td&gt;
+        &lt;td&gt;DT.AMT.OFFT.CD&lt;/td&gt;
+        &lt;td&gt;100847181.900000006&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Afghanistan&lt;/td&gt;
+        &lt;td&gt;AFG&lt;/td&gt;
+        &lt;td&gt;PPG, official creditors (DIS, current US$)&lt;/td&gt;
+        &lt;td&gt;DT.DIS.OFFT.CD&lt;/td&gt;
+        &lt;td&gt;72894453.700000003&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+&lt;h2 id=&#34;2-finding-the-number-of-distinct-countries&#34;&gt;2. Finding the number of distinct countries&lt;a href=&#34;#2-finding-the-number-of-distinct-countries&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+&lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+&lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+&lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;From the first ten rows, we can see the amount of debt owed by &lt;em&gt;Afghanistan&lt;/em&gt; in the different debt indicators. But we do not know the number of different countries we have on the table. There are repetitions in the country names because a country is most likely to have debt in more than one debt indicator. &lt;/p&gt;
+&lt;p&gt;Without a count of unique countries, we will not be able to perform our statistical analyses holistically. In this section, we are going to extract the number of unique countries present in the table. &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;%%sql
+SELECT
+     COUNT(DISTINCT country_name) AS total_distinct_countries
+FROM international_debt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt; * postgresql:///international_debt
+1 rows affected.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;total_distinct_countries&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;124&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+&lt;h2 id=&#34;3-finding-out-the-distinct-debt-indicators&#34;&gt;3. Finding out the distinct debt indicators&lt;a href=&#34;#3-finding-out-the-distinct-debt-indicators&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+&lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+&lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+&lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;We can see there are a total of 124 countries present on the table. As we saw in the first section, there is a column called &lt;code&gt;indicator_name&lt;/code&gt; that briefly specifies the purpose of taking the debt. Just beside that column, there is another column called &lt;code&gt;indicator_code&lt;/code&gt; which symbolizes the category of these debts. Knowing about these various debt indicators will help us to understand the areas in which a country can possibly be indebted to. &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;%%sql
+SELECT
+    DISTINCT indicator_code AS distinct_debt_indicators
+FROM international_debt
+ORDER BY indicator_code
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt; * postgresql:///international_debt
+25 rows affected.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;distinct_debt_indicators&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.BLAT.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.DLXF.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.DPNG.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.MLAT.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.OFFT.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.PBND.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.PCBK.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.PROP.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.PRVT.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.BLAT.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.DLXF.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.MLAT.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.OFFT.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.PCBK.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.PROP.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.PRVT.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.BLAT.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.DLXF.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.DPNG.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.MLAT.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.OFFT.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.PBND.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.PCBK.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.PROP.CD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.PRVT.CD&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+&lt;h2 id=&#34;4-totaling-the-amount-of-debt-owed-by-the-countries&#34;&gt;4. Totaling the amount of debt owed by the countries&lt;a href=&#34;#4-totaling-the-amount-of-debt-owed-by-the-countries&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+&lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+&lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+&lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;As mentioned earlier, the financial debt of a particular country represents its economic state. But if we were to project this on an overall global scale, how we will approach it?&lt;/p&gt;
+&lt;p&gt;Let&#39;s switch gears from the debt indicators now and find out the total amount of debt (in USD) that is owed by the different countries. This will give us a sense of how the overall economy of the entire world is holding up.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;%%sql
+SELECT 
+    ROUND(SUM(debt)/1000000, 2) AS total_debt
+FROM international_debt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt; * postgresql:///international_debt
+1 rows affected.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;total_dept&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;3079734.49&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+&lt;h2 id=&#34;5-country-with-the-highest-debt&#34;&gt;5. Country with the highest debt&lt;a href=&#34;#5-country-with-the-highest-debt&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+&lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+&lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+&lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;&#34;Human beings cannot comprehend very large or very small numbers. It would be useful for us to acknowledge that fact.&#34; - &lt;a href=&#34;https://en.wikipedia.org/wiki/Daniel_Kahneman&#34;&gt;Daniel Kahneman&lt;/a&gt;. That is more than &lt;em&gt;3 million &lt;strong&gt;million&lt;/strong&gt;&lt;/em&gt; USD, an amount which is really hard for us to fathom. &lt;/p&gt;
+&lt;p&gt;Now that we have the exact total of the amounts of debt owed by several countries, let&#39;s now find out the country that owns the highest amount of debt along with the amount. &lt;strong&gt;Note&lt;/strong&gt; that this debt is the sum of different debts owed by a country across several categories. This will help to understand more about the country in terms of its socio-economic scenarios. We can also find out the category in which the country owns its highest debt. But we will leave that for now. &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;%%sql
+SELECT 
+    country_name, 
+    SUM(debt) AS total_debt
+FROM international_debt
+GROUP BY country_name
+ORDER BY total_debt DESC
+LIMIT 1;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt; * postgresql:///international_debt
+1 rows affected.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;country_name&lt;/th&gt;
+        &lt;th&gt;total_debt&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;China&lt;/td&gt;
+        &lt;td&gt;285793494734.200001568&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+&lt;h2 id=&#34;6-average-amount-of-debt-across-indicators&#34;&gt;6. Average amount of debt across indicators&lt;a href=&#34;#6-average-amount-of-debt-across-indicators&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+&lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+&lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+&lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;So, it was &lt;em&gt;China&lt;/em&gt;. A more in-depth breakdown of China&#39;s debts can be found &lt;a href=&#34;https://datatopics.worldbank.org/debt/ids/country/CHN&#34;&gt;here&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;We now have a brief overview of the dataset and a few of its summary statistics. We already have an idea of the different debt indicators in which the countries owe their debts. We can dig even further to find out on an average how much debt a country owes? This will give us a better sense of the distribution of the amount of debt across different indicators.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;%%sql
+SELECT 
+    indicator_code AS debt_indicator,
+    indicator_name,
+    AVG(debt) AS average_debt
+FROM international_debt
+GROUP BY debt_indicator, indicator_name
+ORDER BY average_debt DESC
+LIMIT 10;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt; * postgresql:///international_debt
+10 rows affected.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;debt_indicator&lt;/th&gt;
+        &lt;th&gt;indicator_name&lt;/th&gt;
+        &lt;th&gt;average_debt&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;Principal repayments on external debt, long-term (AMT, current US$)&lt;/td&gt;
+        &lt;td&gt;5904868401.499193612&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.DPNG.CD&lt;/td&gt;
+        &lt;td&gt;Principal repayments on external debt, private nonguaranteed (PNG) (AMT, current US$)&lt;/td&gt;
+        &lt;td&gt;5161194333.812658349&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;Disbursements on external debt, long-term (DIS, current US$)&lt;/td&gt;
+        &lt;td&gt;2152041216.890243888&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.OFFT.CD&lt;/td&gt;
+        &lt;td&gt;PPG, official creditors (DIS, current US$)&lt;/td&gt;
+        &lt;td&gt;1958983452.859836046&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.PRVT.CD&lt;/td&gt;
+        &lt;td&gt;PPG, private creditors (AMT, current US$)&lt;/td&gt;
+        &lt;td&gt;1803694101.963265321&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;Interest payments on external debt, long-term (INT, current US$)&lt;/td&gt;
+        &lt;td&gt;1644024067.650806481&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.BLAT.CD&lt;/td&gt;
+        &lt;td&gt;PPG, bilateral (DIS, current US$)&lt;/td&gt;
+        &lt;td&gt;1223139290.398230108&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.DPNG.CD&lt;/td&gt;
+        &lt;td&gt;Interest payments on external debt, private nonguaranteed (PNG) (INT, current US$)&lt;/td&gt;
+        &lt;td&gt;1220410844.421518983&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.OFFT.CD&lt;/td&gt;
+        &lt;td&gt;PPG, official creditors (AMT, current US$)&lt;/td&gt;
+        &lt;td&gt;1191187963.083064523&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.PBND.CD&lt;/td&gt;
+        &lt;td&gt;PPG, bonds (AMT, current US$)&lt;/td&gt;
+        &lt;td&gt;1082623947.653623188&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+&lt;h2 id=&#34;7-the-highest-amount-of-principal-repayments&#34;&gt;7. The highest amount of principal repayments&lt;a href=&#34;#7-the-highest-amount-of-principal-repayments&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+&lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+&lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+&lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;We can see that the indicator &lt;code&gt;DT.AMT.DLXF.CD&lt;/code&gt; tops the chart of average debt. This category includes repayment of long term debts. Countries take on long-term debt to acquire immediate capital. More information about this category can be found &lt;a href=&#34;https://datacatalog.worldbank.org/principal-repayments-external-debt-long-term-amt-current-us-0&#34;&gt;here&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;An interesting observation in the above finding is that there is a huge difference in the amounts of the indicators after the second one. This indicates that the first two indicators might be the most severe categories in which the countries owe their debts.&lt;/p&gt;
+&lt;p&gt;We can investigate this a bit more so as to find out which country owes the highest amount of debt in the category of long term debts (&lt;code&gt;DT.AMT.DLXF.CD&lt;/code&gt;). Since not all the countries suffer from the same kind of economic disturbances, this finding will allow us to understand that particular country&#39;s economic condition a bit more specifically. &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;%%sql
+SELECT 
+    country_name, 
+    indicator_name
+FROM international_debt
+WHERE debt = (SELECT 
+                 MAX(debt)
+             FROM international_debt
+             WHERE indicator_code = &#39;DT.AMT.DLXF.CD&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt; * postgresql:///international_debt
+1 rows affected.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;country_name&lt;/th&gt;
+        &lt;th&gt;indicator_name&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;China&lt;/td&gt;
+        &lt;td&gt;Principal repayments on external debt, long-term (AMT, current US$)&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+&lt;h2 id=&#34;8-the-most-common-debt-indicator&#34;&gt;8. The most common debt indicator&lt;a href=&#34;#8-the-most-common-debt-indicator&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+&lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+&lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+&lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;China has the highest amount of debt in the long-term debt (&lt;code&gt;DT.AMT.DLXF.CD&lt;/code&gt;) category. This is verified by &lt;a href=&#34;https://data.worldbank.org/indicator/DT.AMT.DLXF.CD?end=2018&amp;most_recent_value_desc=true&#34;&gt;The World Bank&lt;/a&gt;. It is often a good idea to verify our analyses like this since it validates that our investigations are correct. &lt;/p&gt;
+&lt;p&gt;We saw that long-term debt is the topmost category when it comes to the average amount of debt. But is it the most common indicator in which the countries owe their debt? Let&#39;s find that out. &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;%%sql
+SELECT 
+    indicator_code, 
+    COUNT(indicator_code) AS indicator_count
+FROM international_debt
+GROUP BY indicator_code
+ORDER BY indicator_count DESC, indicator_code DESC
+LIMIT 20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt; * postgresql:///international_debt
+20 rows affected.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;indicator_code&lt;/th&gt;
+        &lt;th&gt;indicator_count&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.OFFT.CD&lt;/td&gt;
+        &lt;td&gt;124&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.MLAT.CD&lt;/td&gt;
+        &lt;td&gt;124&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;124&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.OFFT.CD&lt;/td&gt;
+        &lt;td&gt;124&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.MLAT.CD&lt;/td&gt;
+        &lt;td&gt;124&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;124&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;123&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.BLAT.CD&lt;/td&gt;
+        &lt;td&gt;122&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.OFFT.CD&lt;/td&gt;
+        &lt;td&gt;122&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.BLAT.CD&lt;/td&gt;
+        &lt;td&gt;122&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.MLAT.CD&lt;/td&gt;
+        &lt;td&gt;120&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.DIS.BLAT.CD&lt;/td&gt;
+        &lt;td&gt;113&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.PRVT.CD&lt;/td&gt;
+        &lt;td&gt;98&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.PRVT.CD&lt;/td&gt;
+        &lt;td&gt;98&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.PCBK.CD&lt;/td&gt;
+        &lt;td&gt;84&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.PCBK.CD&lt;/td&gt;
+        &lt;td&gt;84&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.DPNG.CD&lt;/td&gt;
+        &lt;td&gt;79&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.DPNG.CD&lt;/td&gt;
+        &lt;td&gt;79&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.INT.PBND.CD&lt;/td&gt;
+        &lt;td&gt;69&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;DT.AMT.PBND.CD&lt;/td&gt;
+        &lt;td&gt;69&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+&lt;h2 id=&#34;9-other-viable-debt-issues-and-conclusion&#34;&gt;9. Other viable debt issues and conclusion&lt;a href=&#34;#9-other-viable-debt-issues-and-conclusion&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+&lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+&lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+&lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;There are a total of six debt indicators in which all the countries listed in our dataset have taken debt. The indicator &lt;code&gt;DT.AMT.DLXF.CD&lt;/code&gt; is also there in the list. So, this gives us a clue that all these countries are suffering from a common economic issue. But that is not the end of the story, a part of the story rather. &lt;/p&gt;
+&lt;p&gt;Let&#39;s change tracks from &lt;code&gt;debt_indicator&lt;/code&gt;s now and focus on the amount of debt again. Let&#39;s find out the maximum amount of debt across the indicators along with the respective country names. With this, we will be in a position to identify the other plausible economic issues a country might be going through. By the end of this section, we will have found out the debt indicators in which a country owes its highest debt. &lt;/p&gt;
+&lt;p&gt;In this notebook, we took a look at debt owed by countries across the globe. We extracted a few summary statistics from the data and unraveled some interesting facts and figures. We also validated our findings to make sure the investigations are correct.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;%%sql
+SELECT 
+    country_name,
+    indicator_code,
+    MAX(debt) AS maximum_debt
+FROM international_debt
+GROUP BY country_name, indicator_code
+ORDER BY maximum_debt DESC
+LIMIT 10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt; * postgresql:///international_debt
+10 rows affected.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;country_name&lt;/th&gt;
+        &lt;th&gt;indicator_code&lt;/th&gt;
+        &lt;th&gt;maximum_debt&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;China&lt;/td&gt;
+        &lt;td&gt;DT.AMT.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;96218620835.699996948&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Brazil&lt;/td&gt;
+        &lt;td&gt;DT.AMT.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;90041840304.100006104&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;China&lt;/td&gt;
+        &lt;td&gt;DT.AMT.DPNG.CD&lt;/td&gt;
+        &lt;td&gt;72392986213.800003052&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Russian Federation&lt;/td&gt;
+        &lt;td&gt;DT.AMT.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;66589761833.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Turkey&lt;/td&gt;
+        &lt;td&gt;DT.AMT.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;51555031005.800003052&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;South Asia&lt;/td&gt;
+        &lt;td&gt;DT.AMT.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;48756295898.199996948&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Brazil&lt;/td&gt;
+        &lt;td&gt;DT.AMT.PRVT.CD&lt;/td&gt;
+        &lt;td&gt;43598697498.599998474&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Russian Federation&lt;/td&gt;
+        &lt;td&gt;DT.AMT.DPNG.CD&lt;/td&gt;
+        &lt;td&gt;42800154974.900001526&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Brazil&lt;/td&gt;
+        &lt;td&gt;DT.AMT.DPNG.CD&lt;/td&gt;
+        &lt;td&gt;41831444053.300003052&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Least developed countries: UN classification&lt;/td&gt;
+        &lt;td&gt;DT.DIS.DLXF.CD&lt;/td&gt;
+        &lt;td&gt;40160766261.599998474&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

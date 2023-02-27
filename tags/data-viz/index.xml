@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data viz | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/tags/data-viz/</link>
+      <atom:link href="https://gaurichaudhari9.github.io/tags/data-viz/index.xml" rel="self" type="application/rss+xml" />
+    <description>data viz</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Gauri Chaudhari 2023</copyright><lastBuildDate>Fri, 05 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://gaurichaudhari9.github.io/img/sharing.png</url>
+      <title>data viz</title>
+      <link>https://gaurichaudhari9.github.io/tags/data-viz/</link>
+    </image>
+    
+    <item>
+      <title>Movies Critics Loved, But Audience Really Didn&#39;t</title>
+      <link>https://gaurichaudhari9.github.io/project/2021-02-05-movies-critics-loved-but-audience-really-didn-t/</link>
+      <pubDate>Fri, 05 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/2021-02-05-movies-critics-loved-but-audience-really-didn-t/</guid>
+      <description>
+
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/mamaggie/maggiema.rbind.io/main/content/project/2021-02-05-movies-critics-loved-but-audience-really-didn-t/featured.jpg&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;main-takeaway&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Main Takeaway&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;This visualization is a passion project that aims to show the discrepancy between critic’s opinions and audience’s opinions on the same movies, generated from a list of movies filmed in Toronto.&lt;/strong&gt; Data were scraped from Wikipedia, IMDb, Metacritics, and Rotten Tomatoes website. The visualization uses three main scores:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.imdb.com/?ref=ft_ds&#34;&gt;IMDb ratings&lt;/a&gt;, voted by the general audience;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.rottentomatoes.com&#34;&gt;Rotten Tomatoes scores&lt;/a&gt;, voted by critics;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;and &lt;a href=&#34;https://www.metacritic.com&#34;&gt;Metacritic scores&lt;/a&gt;, voted also by critics but the scores are weighted based on the reputation of critics, therefore more reputable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The graph also depicts the number of nominations through the area of the circles.&lt;br /&gt;
+Movies that are loved by critics but disliked by the audience (on the left side of the graph), receive more nominations than movies which are loved by audience and disliked by critics. Titles of movies on the extreme sides of the scale were also provided for reference.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mini-tutorial&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Mini Tutorial&lt;/h1&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data&lt;/h3&gt;
+&lt;p&gt;Data were scraped from multiple sources. Scraped raw data can be found &lt;a href=&#34;https://github.com/mamaggie/maggiema.rbind.io/blob/main/content/project/2021-02-05-movies-critics-loved-but-audience-really-didn-t/moviesTO_raw.csv&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After some data wrangling, prepared data ready to go for this analysis can be found &lt;a href=&#34;https://github.com/mamaggie/maggiema.rbind.io/blob/main/content/project/2021-02-05-movies-critics-loved-but-audience-really-didn-t/moviesTO.csv&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We need three packages: &lt;strong&gt;ggplot2&lt;/strong&gt; to build the graph, &lt;strong&gt;ggrepel&lt;/strong&gt; for labels, and &lt;strong&gt;ggthemes&lt;/strong&gt; for overall aesthetics.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+library(ggrepel)
+library(ggthemes)
+head(movies, 5)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   imdb_rating metascore tomato                             title year viewLOVE
+## 1          56        NA     38                               .45 2006       18
+## 2          69        45     72         Adventures in Babysitting 1987       -3
+## 3          38        12      4      The Adventures of Pluto Nash 2002       34
+## 4          53        36     12                 Against the Ropes 2004       41
+## 5          53        NA     56 American Pie Presents: Beta House 2007       -3
+##      meta                   award nomination
+## 1      na                     N/A         NA
+## 2 average 2 wins &amp;amp; 4 nominations.          4
+## 3     bad 1 win &amp;amp; 12 nominations.         12
+## 4     bad          2 nominations.          2
+## 5      na                     N/A         NA&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;code&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Code&lt;/h3&gt;
+&lt;p&gt;Here is what you need to do to make the visualization happen:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Get rid of NAs in data
+for (i in 1:nrow(movies)) {
+  if (is.na(movies$nomination[i]) == TRUE) {
+    movies$nomination[i] = 0
+  }
+
+}
+
+# Create Annotations
+annotation &amp;lt;- data.frame(
+  x = c(-35, 50), #x-axis location
+  y = c(1976, 1976), #y-axis location
+  label = c(&amp;#39;Critics Loves&amp;#39;, &amp;#39;Audience Loves&amp;#39;)
+)
+annotation2 &amp;lt;- data.frame(
+  x = c(-29.5, 50),
+  y = c(1974, 1974),
+  label = c(&amp;#39;(Higher Rotten Tomato Score)&amp;#39;, &amp;#39;(Higher IMDb Score) &amp;#39;)
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Plot!
+ggplot(movies, aes(x = viewLOVE, y = year)) + #refer to data
+  geom_point(aes(ol = meta, size = nomination),
+             alpha = 0.7, #transparency
+             position = &amp;#39;jitter&amp;#39;) +
+  # label name of movies with more than 100 nominations and a big discrepancy in critics vs. audience scores
+  geom_label_repel(
+    data = subset(movies, nomination &amp;gt; 100 | viewLOVE &amp;lt; -25 | viewLOVE &amp;gt; 50),
+    aes(label = title), nudge_y = 0.7) +
+  scale_color_manual(values = c(&amp;#39;#D3BA68&amp;#39;, &amp;#39;#D5695D&amp;#39;, &amp;#39;#65A478&amp;#39;, &amp;#39;darkgrey&amp;#39;),
+                     name = &amp;#39;Metacritic Score&amp;#39;) +
+  # pre-set plot theme: Wall Street Journal Style
+  theme_wsj() +
+  scale_size(range = c(2, 25), name = &amp;#39;Nominations&amp;#39;) +
+  labs(title = &amp;#39;Movies Critics Loved, But Audiences Really Didn\&amp;#39;t&amp;#39;,
+       subtitle = &amp;#39;Discrepency in audience IMDb rating &amp;amp; critics Rotten Tomatoes score&amp;#39;,
+       caption = &amp;#39;Data source: Wikipedia, Rotten Tomatoes, IMDb, Metacritic&amp;#39;) +
+  geom_vline(xintercept = 0) +
+  # add x-axis labels
+  geom_text(data = annotation, aes(x = x, y = y, label = label),
+            color = &amp;#39;orange&amp;#39;, size = 5, fontface = &amp;#39;bold&amp;#39;) +
+  geom_text(data = annotation2, aes(x = x, y = y, label = label),
+            color = &amp;#39;orange&amp;#39;, size = 5, fontface = &amp;#39;bold&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/mamaggie/maggiema.rbind.io/main/content/project/2021-02-05-movies-critics-loved-but-audience-really-didn-t/featured.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Health Canada Air Pollution Data Availability Visualization</title>
+      <link>https://gaurichaudhari9.github.io/project/airpollutionvisualization/</link>
+      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/airpollutionvisualization/</guid>
+      <description>
+&lt;iframe src=&#34;https://mamaggie.github.io/pollutionnumbers.html&#34; style=&#34;width:106%; height:600px;&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This map was developed for internal use and thus is less intuitive than the others.
+  The purpose of this map is for researchers in the office at St. Michael&#39;s Hospital
+to understand where pollution data exists across Canada. &lt;/p&gt;
+
+&lt;h3&gt;Problem At Hand&lt;/h3&gt;
+&lt;p&gt;Researchers and statisticians in the office were tasked to run complex spatial prediction models
+on pollution levels in different cities. These models are extremely time-consuming and could take up to 7 days to run
+for one city. Unfortunately, data collection efforts over the past 20 years were inconsistent,
+highly dependent on locations, and varied greatly by pollutants. The result of a model is less useful
+if insufficient data were collected to train the odels. In order to help statisticians conduct research efficiently and
+prioritize cities with the richest amount of data, this visualization was born.&lt;/p&gt;
+
+&lt;h3&gt;Functionalities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Red dots are Health Canada air pollution stations. Locations of stations vary by year&lt;/li&gt;
+&lt;li&gt;Tags across the bottom panel allows you to zoom to a new city without knowledge of Canadian geographies.&lt;/li&gt;
+&lt;li&gt;Time slider on the top left hand corner allows you to view data availability across the years.&lt;/li&gt;
+&lt;li&gt;Pollutant on the top right hand corner allows you to check data avialbility for each pollutant.
+  The number represents aggregated pollutant measurement in a given year, enabling users to gain
+  a basic understanding of severity of pollution for each pollutant at any station.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>COVID-19 Daily Cases Visualization</title>
+      <link>https://gaurichaudhari9.github.io/project/2020-05-13-covid-19-daily-cases-visualization/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/2020-05-13-covid-19-daily-cases-visualization/</guid>
+      <description>
+&lt;iframe src=&#34;https://mamaggie.github.io/covid_toronto.html&#34; style=&#34;width:100%; height:500px;&#34;&gt;&lt;/iframe&gt;
+
+&lt;h1&gt;Story Behind This Map&lt;/h1&gt;
+
+&lt;p&gt;I was lucky to have worked as a geospatial researcher at a hospital summer of 2020 when the first wave of COVID was in full-swing.
+I received the most accurate COVID-19 information working in an office busy with multiple COVID-19 projects and prediction models.
+Having seen first hand COVID-19 data and understanding their impacts; speaking with friends and family,
+I realized the data wasn’t clear to everyone and some wouldn’t know where to find details of it. &lt;/p&gt;
+
+&lt;p&gt;That is when the idea for this passion project was born.
+A publicly accessible dashboard that displays COVID-19 daily cases over time at Toronto’s neighborhood level to help combat misinformation by providing interpretable data fundamental in informing smart choices.
+This simple interactive map answers questions such as, ‘How did COVID-19 spread in the City of Toronto?’ or ‘Have there been a lot of new cases in my area in the past days or weeks?’&lt;/p&gt;
+
+&lt;p&gt; This project, along with a Bayesian COVID-19 prediction model, was awarded the COVID-19 Engagement Award by the University of Toronto. The Bayesian COVID-19 prediction model is not included here. &lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

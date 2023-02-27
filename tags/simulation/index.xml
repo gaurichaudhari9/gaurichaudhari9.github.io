@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>simulation | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/tags/simulation/</link>
+      <atom:link href="https://gaurichaudhari9.github.io/tags/simulation/index.xml" rel="self" type="application/rss+xml" />
+    <description>simulation</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Gauri Chaudhari 2023</copyright><lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://gaurichaudhari9.github.io/img/sharing.png</url>
+      <title>simulation</title>
+      <link>https://gaurichaudhari9.github.io/tags/simulation/</link>
+    </image>
+    
+    <item>
+      <title>Measuring the Effects of Key Factors Influencing the Success of Retail Businesses</title>
+      <link>https://gaurichaudhari9.github.io/project/cobwebsimulation/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/cobwebsimulation/</guid>
+      <description>
+
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/mamaggie/maggiema.rbind.io/main/content/project/COBWEBsimulation/retail.png&#34; /&gt;
+As online shopping continues to grow, 75,000 stores are forecasted to be closed by 2026 in the United
+States alone. Some experts refer to the catastrophic damage expected to the retail sector as “retail
+apocalypse” on the verge of an industry-wide permanent restructuring. Whether it is a large retail chain
+corporation planning on expansion or a small business looking to enter the market, it has become
+more critical than ever for the decision makers to understand what the key factors are in the complex
+location decision-making process that could drive the company forward with long-term profitability and
+sustainability.&lt;/p&gt;
+&lt;p&gt;Research shows that the six most influential sub-criteria, including &lt;strong&gt;volume of passing
+trade&lt;/strong&gt; (17.44%), &lt;strong&gt;visibility&lt;/strong&gt; (14.62%), &lt;strong&gt;distance to competition&lt;/strong&gt; (14.49%), &lt;strong&gt;size of potential market (9.75%)&lt;/strong&gt;, &lt;strong&gt;accessibility by car&lt;/strong&gt; (9.71%), and &lt;strong&gt;accessibility by foot&lt;/strong&gt; (9.17%) explain more than 75% of the success of a retail store. As a result, location and competition are the two most critical factors to the success of a retail business.&lt;/p&gt;
+&lt;div id=&#34;in-my-research-i-am-interested-in-exploring-the-key-factors-influencing-the-success-of-retail-businesses-more-specifically-in-the-format-of-physical-retail-stores.-using-cobweb-my-goal-is-to-simulate-the-retail-environment-and-emphasize-the-role-of-location-to-the-success-of-retail-businesses.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;em&gt;In my research, I am interested in exploring the key factors influencing the success of retail businesses, more specifically in the format of physical retail stores. Using COBWEB, my goal is to simulate the retail environment and emphasize the role of location to the success of retail businesses.&lt;/em&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;methods&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Methods&lt;/h2&gt;
+&lt;p&gt;COBWEB, aka Complexity and Organized Behavior Within Environment Bounds, is an agent-based simulation modeling software used to construct simulation models in this research. COBWEB, developed by Dr. &lt;a href=&#34;http://www.ourpolesourplanet.org/toronto.html&#34;&gt;Brad Bass&lt;/a&gt;, is a computer simulation software that allows users to execute experiments and simulate different systems. Research topics within a wide range of disciplines in which COBWEB can be applied to include simulating environmental changes, examining population growths, and analyzing complex behavioral patterns. COBWEB has many features that allow users to simulate different systems. Among which, simulations function critically and almost entirely on the movement and consumption of agents and the available resources.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Results&lt;/h2&gt;
+&lt;p&gt;The agents in the model represent customers. The islands represent physical landscapes of retail environments. By varying multiple parameters in COBWEB, such as altering the size of retail stores, varying distance from competition, and creating physical barriers around the stores, I am able to simulate whether each criteria indeed plays a vital role in the success or failure of retail businesses.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Model #1: Baseline model. Two identical retail environments with identical source of customers.
+This is to test whether my model works.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/mamaggie/maggiema.rbind.io/main/content/project/COBWEBsimulation/baseline.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Model #2: Competition model. Three identical retail environments with one being isolated and
+other two closer to each other, both generating foot traffic and creating competition.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/mamaggie/maggiema.rbind.io/main/content/project/COBWEBsimulation/competition.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Model #3: Size model. Two retail environments with one having more sales square footage.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/mamaggie/maggiema.rbind.io/main/content/project/COBWEBsimulation/size.png&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;discussion&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Discussion&lt;/h2&gt;
+&lt;p&gt;The simulation of success factors of retail stores was successfully modeled. My simulation validates the
+hypothesis that location, competition, and the establishment itself are all critical contributing factors for
+the success of physical retail stores. Similar retail businesses located closer to each other have a higher
+probability of success than a stand-alone business. As for similar businesses close to each other, having
+more sales square footage will more likely to be successful than a smaller sized store.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;growth&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Growth&lt;/h2&gt;
+&lt;p&gt;This research was conducted for a third year year-long research course. Prior to this course, I had little exposure to conducting my original research from start to finish under the supervision of a faculty supervisor. Needless to say, my research skills improved significantly through this experience. I also gained the understanding that research is an iterative process, especially with regards to simulation models, as it involves a significant amount of trail and error. Last but not least, I have gained valuable mentorship experience helping high school students learn COBWEB.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Read full report &lt;a href=&#34;../../pdf/retail-business-report.pdf&#34;&gt;here&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
