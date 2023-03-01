@@ -956,9 +956,10 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       docLink.innerHTML = docLinkHtml;
       element.appendChild(docLink);
     }
+    
   &amp;lt;/script&amp;gt;
-&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
   &lt;/div&gt;
 
 
@@ -1698,7 +1699,8 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       fill: #FFFFFF;
     }
   &lt;/style&gt;
-&lt;pre&gt;&lt;code&gt;  &amp;lt;script&amp;gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!--
+&amp;lt;script&amp;gt;
     const buttonEl =
       document.querySelector(&#39;#df-7e43f5f9-2509-4baf-bdd8-3fd2b8646ff4 button.colab-df-convert&#39;);
     buttonEl.style.display =
@@ -1721,7 +1723,7 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       docLink.innerHTML = docLinkHtml;
       element.appendChild(docLink);
     }
-  &amp;lt;/script&amp;gt;
+  &amp;lt;/script&amp;gt; --&amp;gt;
 &amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
