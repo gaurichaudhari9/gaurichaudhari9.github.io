@@ -5,7 +5,7 @@
     <link>https://gaurichaudhari9.github.io/</link>
       <atom:link href="https://gaurichaudhari9.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Gauri Chaudhari</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Gauri Chaudhari 2023</copyright><lastBuildDate>Sun, 26 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Gauri Chaudhari 2023</copyright><lastBuildDate>Mon, 13 Feb 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://gaurichaudhari9.github.io/img/sharing.png</url>
       <title>Gauri Chaudhari</title>
@@ -13,9 +13,9 @@
     </image>
     
     <item>
-      <title>Analyzing Internation Debt</title>
+      <title>Analyzing International Debt data</title>
       <link>https://gaurichaudhari9.github.io/project/analyzing_international_debt_statistics/</link>
-      <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate>
       <guid>https://gaurichaudhari9.github.io/project/analyzing_international_debt_statistics/</guid>
       <description>
 
@@ -611,16 +611,16 @@ LIMIT 10
     <item>
       <title>Boosting sales margin of a product using data-driven price optimization</title>
       <link>https://gaurichaudhari9.github.io/project/priceoptimizationofaproduct/</link>
-      <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate>
       <guid>https://gaurichaudhari9.github.io/project/priceoptimizationofaproduct/</guid>
       <description>
 
 
-&lt;h1 id=&#34;title-boosting-sales-margin-of-a-product-using-data-driven-price-optimization-for-e-commerce-platform&#34;&gt;Title: Boosting sales margin of a product using data-driven price optimization for E-commerce platform&lt;a href=&#34;#title-boosting-sales-margin-of-a-product-using-data-driven-price-optimization-for-e-commerce-platform&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+&lt;h4 id=&#34;this-project-was-part-of-my-the-capstone-requirement-for-completing-masters-in-data-science-course-data-mining-csci-b-565&#34;&gt;This project was part of my the capstone requirement for completing Masters in Data Science Course Data Mining CSCI-B 565.&lt;a href=&#34;#this-project-was-part-of-my-the-capstone-requirement-for-completing-masters-in-data-science-course-data-mining-csci-b-565&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
 &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
 &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
 &lt;/svg&gt;&lt;/a&gt;
-&lt;/h1&gt;
+&lt;/h4&gt;
 
 
 
@@ -933,32 +933,33 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       fill: #FFFFFF;
     }
   &lt;/style&gt;
-&lt;pre&gt;&lt;code&gt;  &amp;lt;script&amp;gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-50f83cd2-05e5-4a77-9c87-a5a36f36ec4b button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+  &lt;!--
+  
+      &lt;script&gt;
+        const buttonEl =
+          document.querySelector(&#39;#df-50f83cd2-05e5-4a77-9c87-a5a36f36ec4b button.colab-df-convert&#39;);
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
 
-    async function convertToInteractive(key) {
-      const element = document.querySelector(&#39;#df-50f83cd2-05e5-4a77-9c87-a5a36f36ec4b&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], {});
-      if (!dataTable) return;
+        async function convertToInteractive(key) {
+          const element = document.querySelector(&#39;#df-50f83cd2-05e5-4a77-9c87-a5a36f36ec4b&#39;);
+          const dataTable =
+            await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                     [key], {});
+          if (!dataTable) return;
 
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&amp;gt;data table notebook&amp;lt;/a&amp;gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    }
-    
-  &amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+          const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+            &#39;&lt;a target=&#34;_blank&#34; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+            + &#39; to learn more about interactive tables.&#39;;
+          element.innerHTML = &#39;&#39;;
+          dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement(&#39;div&#39;);
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+        
+      &lt;/script&gt; --&gt;
   &lt;/div&gt;
   &lt;/div&gt;
 
@@ -1699,32 +1700,33 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       fill: #FFFFFF;
     }
   &lt;/style&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!--
-&amp;lt;script&amp;gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-7e43f5f9-2509-4baf-bdd8-3fd2b8646ff4 button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+&lt;!--
+    
+    &lt;script&gt;
+        const buttonEl =
+          document.querySelector(&#39;#df-7e43f5f9-2509-4baf-bdd8-3fd2b8646ff4 button.colab-df-convert&#39;);
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
 
-    async function convertToInteractive(key) {
-      const element = document.querySelector(&#39;#df-7e43f5f9-2509-4baf-bdd8-3fd2b8646ff4&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], {});
-      if (!dataTable) return;
+        async function convertToInteractive(key) {
+          const element = document.querySelector(&#39;#df-7e43f5f9-2509-4baf-bdd8-3fd2b8646ff4&#39;);
+          const dataTable =
+            await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                     [key], {});
+          if (!dataTable) return;
 
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&amp;gt;data table notebook&amp;lt;/a&amp;gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    }
-  &amp;lt;/script&amp;gt; --&amp;gt;
-&amp;lt;/div&amp;gt;
+          const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+            &#39;&lt;a target=&#34;_blank&#34; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+            + &#39; to learn more about interactive tables.&#39;;
+          element.innerHTML = &#39;&#39;;
+          dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement(&#39;div&#39;);
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      &lt;/script&gt; --&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
 
@@ -2161,31 +2163,32 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       fill: #FFFFFF;
     }
   &lt;/style&gt;
-&lt;pre&gt;&lt;code&gt;  &amp;lt;script&amp;gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-a77741ba-1ceb-4a7a-a1b5-036ef77c014f button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+&lt;!--
+      &lt;script&gt;
+        const buttonEl =
+          document.querySelector(&#39;#df-a77741ba-1ceb-4a7a-a1b5-036ef77c014f button.colab-df-convert&#39;);
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
 
-    async function convertToInteractive(key) {
-      const element = document.querySelector(&#39;#df-a77741ba-1ceb-4a7a-a1b5-036ef77c014f&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], {});
-      if (!dataTable) return;
+        async function convertToInteractive(key) {
+          const element = document.querySelector(&#39;#df-a77741ba-1ceb-4a7a-a1b5-036ef77c014f&#39;);
+          const dataTable =
+            await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                     [key], {});
+          if (!dataTable) return;
 
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&amp;gt;data table notebook&amp;lt;/a&amp;gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    }
-  &amp;lt;/script&amp;gt;
-&amp;lt;/div&amp;gt;
+          const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+            &#39;&lt;a target=&#34;_blank&#34; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+            + &#39; to learn more about interactive tables.&#39;;
+          element.innerHTML = &#39;&#39;;
+          dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement(&#39;div&#39;);
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      &lt;/script&gt; --&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;var_ratio = pca.explained_variance_ratio_
@@ -2500,31 +2503,32 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       fill: #FFFFFF;
     }
   &lt;/style&gt;
-&lt;pre&gt;&lt;code&gt;  &amp;lt;script&amp;gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-3a7aea78-9f8f-4605-adc8-39c3bae71337 button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+&lt;!--
+      &lt;script&gt;
+        const buttonEl =
+          document.querySelector(&#39;#df-3a7aea78-9f8f-4605-adc8-39c3bae71337 button.colab-df-convert&#39;);
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
 
-    async function convertToInteractive(key) {
-      const element = document.querySelector(&#39;#df-3a7aea78-9f8f-4605-adc8-39c3bae71337&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], {});
-      if (!dataTable) return;
+        async function convertToInteractive(key) {
+          const element = document.querySelector(&#39;#df-3a7aea78-9f8f-4605-adc8-39c3bae71337&#39;);
+          const dataTable =
+            await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                     [key], {});
+          if (!dataTable) return;
 
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&amp;gt;data table notebook&amp;lt;/a&amp;gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    }
-  &amp;lt;/script&amp;gt;
-&amp;lt;/div&amp;gt;
+          const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+            &#39;&lt;a target=&#34;_blank&#34; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+            + &#39; to learn more about interactive tables.&#39;;
+          element.innerHTML = &#39;&#39;;
+          dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement(&#39;div&#39;);
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      &lt;/script&gt; --&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Reference: https://medium.com/hamoye-blogs/unraveling-brazilian-e-commerce-dataset-e78463d77340
@@ -2660,31 +2664,33 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       fill: #FFFFFF;
     }
   &lt;/style&gt;
-&lt;pre&gt;&lt;code&gt;  &amp;lt;script&amp;gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-b3a3b0f5-1f7d-419f-a2db-1264b5c79e79 button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+  &lt;!--
 
-    async function convertToInteractive(key) {
-      const element = document.querySelector(&#39;#df-b3a3b0f5-1f7d-419f-a2db-1264b5c79e79&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], {});
-      if (!dataTable) return;
+      &lt;script&gt;
+        const buttonEl =
+          document.querySelector(&#39;#df-b3a3b0f5-1f7d-419f-a2db-1264b5c79e79 button.colab-df-convert&#39;);
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
 
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&amp;gt;data table notebook&amp;lt;/a&amp;gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    }
-  &amp;lt;/script&amp;gt;
-&amp;lt;/div&amp;gt;
+        async function convertToInteractive(key) {
+          const element = document.querySelector(&#39;#df-b3a3b0f5-1f7d-419f-a2db-1264b5c79e79&#39;);
+          const dataTable =
+            await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+            &#39;&lt;a target=&#34;_blank&#34; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+            + &#39; to learn more about interactive tables.&#39;;
+          element.innerHTML = &#39;&#39;;
+          dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement(&#39;div&#39;);
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      &lt;/script&gt; --&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;category = revenue_2018[&#39;category&#39;].to_list()
@@ -3195,31 +3201,32 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       fill: #FFFFFF;
     }
   &lt;/style&gt;
-&lt;pre&gt;&lt;code&gt;  &amp;lt;script&amp;gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-dbe5d624-c0f5-4b8a-8523-deca9cdf686e button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+&lt;!--
+      &lt;script&gt;
+        const buttonEl =
+          document.querySelector(&#39;#df-dbe5d624-c0f5-4b8a-8523-deca9cdf686e button.colab-df-convert&#39;);
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
 
-    async function convertToInteractive(key) {
-      const element = document.querySelector(&#39;#df-dbe5d624-c0f5-4b8a-8523-deca9cdf686e&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], {});
-      if (!dataTable) return;
+        async function convertToInteractive(key) {
+          const element = document.querySelector(&#39;#df-dbe5d624-c0f5-4b8a-8523-deca9cdf686e&#39;);
+          const dataTable =
+            await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                     [key], {});
+          if (!dataTable) return;
 
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&amp;gt;data table notebook&amp;lt;/a&amp;gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    }
-  &amp;lt;/script&amp;gt;
-&amp;lt;/div&amp;gt;
+          const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+            &#39;&lt;a target=&#34;_blank&#34; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+            + &#39; to learn more about interactive tables.&#39;;
+          element.innerHTML = &#39;&#39;;
+          dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement(&#39;div&#39;);
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      &lt;/script&gt; --&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
 &lt;p&gt;This dataset does not have names of products, so we will deal with product_ids on macro-level&lt;/p&gt;
@@ -3384,31 +3391,32 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       fill: #FFFFFF;
     }
   &lt;/style&gt;
-&lt;pre&gt;&lt;code&gt;  &amp;lt;script&amp;gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-ecdbe839-73d1-4d9f-99f1-21b958cd5d93 button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+&lt;!--
+      &lt;script&gt;
+        const buttonEl =
+          document.querySelector(&#39;#df-ecdbe839-73d1-4d9f-99f1-21b958cd5d93 button.colab-df-convert&#39;);
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
 
-    async function convertToInteractive(key) {
-      const element = document.querySelector(&#39;#df-ecdbe839-73d1-4d9f-99f1-21b958cd5d93&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], {});
-      if (!dataTable) return;
+        async function convertToInteractive(key) {
+          const element = document.querySelector(&#39;#df-ecdbe839-73d1-4d9f-99f1-21b958cd5d93&#39;);
+          const dataTable =
+            await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                     [key], {});
+          if (!dataTable) return;
 
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&amp;gt;data table notebook&amp;lt;/a&amp;gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    }
-  &amp;lt;/script&amp;gt;
-&amp;lt;/div&amp;gt;
+          const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+            &#39;&lt;a target=&#34;_blank&#34; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+            + &#39; to learn more about interactive tables.&#39;;
+          element.innerHTML = &#39;&#39;;
+          dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement(&#39;div&#39;);
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      &lt;/script&gt; --&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Observations:&lt;/strong&gt; The product &amp;ldquo;437c05a395e9e47f9762e677a7068ce7&amp;rdquo; has undergone price variation of 31 times so we&amp;rsquo;ll work on it and find which price will be fit for next year&lt;/p&gt;
@@ -3520,31 +3528,32 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       fill: #FFFFFF;
     }
   &lt;/style&gt;
-&lt;pre&gt;&lt;code&gt;  &amp;lt;script&amp;gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-53a6f99a-904b-45f6-ae42-f7420c03ac2b button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+&lt;!--
+      &lt;script&gt;
+        const buttonEl =
+          document.querySelector(&#39;#df-53a6f99a-904b-45f6-ae42-f7420c03ac2b button.colab-df-convert&#39;);
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
 
-    async function convertToInteractive(key) {
-      const element = document.querySelector(&#39;#df-53a6f99a-904b-45f6-ae42-f7420c03ac2b&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], {});
-      if (!dataTable) return;
+        async function convertToInteractive(key) {
+          const element = document.querySelector(&#39;#df-53a6f99a-904b-45f6-ae42-f7420c03ac2b&#39;);
+          const dataTable =
+            await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                     [key], {});
+          if (!dataTable) return;
 
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&amp;gt;data table notebook&amp;lt;/a&amp;gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    }
-  &amp;lt;/script&amp;gt;
-&amp;lt;/div&amp;gt;
+          const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+            &#39;&lt;a target=&#34;_blank&#34; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+            + &#39; to learn more about interactive tables.&#39;;
+          element.innerHTML = &#39;&#39;;
+          dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement(&#39;div&#39;);
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      &lt;/script&gt; --&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
 
@@ -4045,31 +4054,32 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       fill: #FFFFFF;
     }
   &lt;/style&gt;
-&lt;pre&gt;&lt;code&gt;  &amp;lt;script&amp;gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-a7d0dcf2-9e33-4c45-8eb8-40f8e4be4860 button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+&lt;!--
+      &lt;script&gt;
+        const buttonEl =
+          document.querySelector(&#39;#df-a7d0dcf2-9e33-4c45-8eb8-40f8e4be4860 button.colab-df-convert&#39;);
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
 
-    async function convertToInteractive(key) {
-      const element = document.querySelector(&#39;#df-a7d0dcf2-9e33-4c45-8eb8-40f8e4be4860&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], {});
-      if (!dataTable) return;
+        async function convertToInteractive(key) {
+          const element = document.querySelector(&#39;#df-a7d0dcf2-9e33-4c45-8eb8-40f8e4be4860&#39;);
+          const dataTable =
+            await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                     [key], {});
+          if (!dataTable) return;
 
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&amp;gt;data table notebook&amp;lt;/a&amp;gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    }
-  &amp;lt;/script&amp;gt;
-&amp;lt;/div&amp;gt;
+          const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+            &#39;&lt;a target=&#34;_blank&#34; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+            + &#39; to learn more about interactive tables.&#39;;
+          element.innerHTML = &#39;&#39;;
+          dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement(&#39;div&#39;);
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      &lt;/script&gt; --&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
@@ -4307,31 +4317,32 @@ width=&amp;ldquo;24px&amp;rdquo;&amp;gt;
       fill: #FFFFFF;
     }
   &lt;/style&gt;
-&lt;pre&gt;&lt;code&gt;  &amp;lt;script&amp;gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-e6ead80b-77d8-4632-b861-df941d1e7c4a button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+&lt;!--
+      &lt;script&gt;
+        const buttonEl =
+          document.querySelector(&#39;#df-e6ead80b-77d8-4632-b861-df941d1e7c4a button.colab-df-convert&#39;);
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
 
-    async function convertToInteractive(key) {
-      const element = document.querySelector(&#39;#df-e6ead80b-77d8-4632-b861-df941d1e7c4a&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], {});
-      if (!dataTable) return;
+        async function convertToInteractive(key) {
+          const element = document.querySelector(&#39;#df-e6ead80b-77d8-4632-b861-df941d1e7c4a&#39;);
+          const dataTable =
+            await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                     [key], {});
+          if (!dataTable) return;
 
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&amp;gt;data table notebook&amp;lt;/a&amp;gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    }
-  &amp;lt;/script&amp;gt;
-&amp;lt;/div&amp;gt;
+          const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+            &#39;&lt;a target=&#34;_blank&#34; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+            + &#39; to learn more about interactive tables.&#39;;
+          element.innerHTML = &#39;&#39;;
+          dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement(&#39;div&#39;);
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      &lt;/script&gt; --&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
 &lt;p&gt;Above 31 are prices that have occurred for this product in the last 1 year. This includes all discounts,promotions, fixed rates&lt;/p&gt;
