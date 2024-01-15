@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>notes | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/tags/notes.html</link>
+      <atom:link href="https://gaurichaudhari9.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <description>notes</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>notes</title>
+      <link>https://gaurichaudhari9.github.io/tags/notes.html</link>
+    </image>
+    
+    <item>
+      <title>A brief primer on scientific and mathematical notations</title>
+      <link>https://gaurichaudhari9.github.io/post/2020-12-01-primer-scientific.html</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/post/2020-12-01-primer-scientific.html</guid>
+      <description>
+
+
+&lt;p&gt;As I finished writing the final draft of my first first author paper, &lt;a href=&#34;https://www.biorxiv.org/content/10.1101/2020.05.11.084798v1&#34;&gt;survClust&lt;/a&gt;, there were a lot of other firsts! In my opinion writing the methods and a crisp conclusion and discussion were the difficult parts.&lt;/p&gt;
+&lt;p&gt;Below, I share my notes that really came in handy while I was writing the methods section of my manuscript.&lt;/p&gt;
+&lt;div id=&#34;what-this-is&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What this is?&lt;/h2&gt;
+&lt;p&gt;Notes on how to describe a statistical methodology. Some basic rules and notations that you should keep in mind.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;scientific-notations&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Scientific notations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Random variables are usually written in uppercase roman letters: &lt;span class=&#34;math inline&#34;&gt;\(X,Y\)&lt;/span&gt;, etc.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Probability density functions (pdfs) and probability mass functions are denoted by lowercase letters, e.g. &lt;span class=&#34;math inline&#34;&gt;\(f_{(x)}\)&lt;/span&gt;, or &lt;span class=&#34;math inline&#34;&gt;\(f_{X}(x)\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Cumulative distribution functions (cdfs) are denoted by uppercase letters, e.g. &lt;span class=&#34;math inline&#34;&gt;\(F(x)\)&lt;/span&gt;, or &lt;span class=&#34;math inline&#34;&gt;\(F_{X}(x)\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let&#39;s summarize the above three points with an example -&lt;/p&gt;
+&lt;p&gt;A random variable &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; has density &lt;span class=&#34;math inline&#34;&gt;\(f_{X}\)&lt;/span&gt; as follows -&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ Pr[a\leq X\leq b]=\int _{a}^{b}f_{X}(x)\,dx\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Hence, if &lt;span class=&#34;math inline&#34;&gt;\(F_{X}\)&lt;/span&gt; is the cumulative distribution function of &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; then:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[F_{X}(x)=\int _{-\infty }^{x}f_{X}(u)\,du,\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;and&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[f_{X}(x)={\frac {d}{dx}}F_{X}(x).\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now, let&#39;s go over some quick statistical nitty-gritties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Greek letters &lt;span class=&#34;math inline&#34;&gt;\(\theta, \beta\)&lt;/span&gt; are commonly used to denote unknown parameters.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Placing a hat, or caret, over a true parameter denotes an estimator of it, e.g., &lt;span class=&#34;math inline&#34;&gt;\(\widehat {\theta }\)&lt;/span&gt; is an estimator for &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; .&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Building on the above point the &lt;strong&gt;sample&lt;/strong&gt; mean, variance and correlation coefficient are denoted as &lt;span class=&#34;math inline&#34;&gt;\(\bar{x}, s^2, r\)&lt;/span&gt; respectively. On the other hand &lt;strong&gt;population&lt;/strong&gt; parameters are represented as follows - population mean &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;, population variance &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2\)&lt;/span&gt;, and population correlation as &lt;span class=&#34;math inline&#34;&gt;\(\rho\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Finally most of the time you will need to know the following writing notions while drafting the methods section of your manuscript&lt;/strong&gt; -&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Input or independent variables are denoted by &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;, output or dependent variables are denoted by &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt;, and qualitative outputs by &lt;span class=&#34;math inline&#34;&gt;\(G\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; is a vector, annotate its values by subscripts &lt;span class=&#34;math inline&#34;&gt;\(X_j\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Observed values are written in lowercase; hence the &lt;span class=&#34;math inline&#34;&gt;\(i^{th}\)&lt;/span&gt; observed value of &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; is written as &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; is a scalar or vector.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Matrices are represented by bold uppercase letters; for example a matrix &lt;span class=&#34;math inline&#34;&gt;\(\textbf{X}\)&lt;/span&gt;, with dimensions &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt; x &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; i.e a set of &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt; input &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;-vectors. In general, vectors will not be bold, except when they have &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt; components; Note that all vectors are assumed to be column vectors.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let&#39;s break it down with an example -&lt;/p&gt;
+&lt;p&gt;Given a vector of inputs &lt;span class=&#34;math inline&#34;&gt;\(\textbf{X}^T = (X_1,X_2,...,X_p)\)&lt;/span&gt;, we predict the output &lt;span class=&#34;math inline&#34;&gt;\(\textbf{Y}\)&lt;/span&gt; via a simple linear regression -&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\hat{\textbf{Y}} = \hat\beta_0 + \sum_{n=1}^{p} \textbf{X}_{j}\hat\beta_{j}\]&lt;/span&gt; Or writing this in a vector form as an inner product - &lt;span class=&#34;math inline&#34;&gt;\(\hat{\textbf{Y}} = \textbf{X}^T\hat\beta\)&lt;/span&gt; To solve this we need to estimate a value of &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; such that it minimizes the Residual Sum of Squares or RSS as follows -&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[RSS(\beta) =  \sum_{i=1}^{N} (y_i - x_{i}^T\beta)^2\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Or in matrix notation we can write it as,&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[RSS(\beta) =  (\textbf{y} - \textbf{X}\beta)^T(\textbf{y} - \textbf{X}\beta)\]&lt;/span&gt; where &lt;span class=&#34;math inline&#34;&gt;\(\textbf{X}\)&lt;/span&gt; is an &lt;span class=&#34;math inline&#34;&gt;\(N × p\)&lt;/span&gt; matrix with each row an input vector, and &lt;span class=&#34;math inline&#34;&gt;\(\textbf{y}\)&lt;/span&gt; is an &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;-vector of the outputs. See how &lt;span class=&#34;math inline&#34;&gt;\(\textbf{y}\)&lt;/span&gt; is in bold in the above question.&lt;/p&gt;
+&lt;p&gt;Or take one of your favorite papers, and try to go over its methods section to iron and figure out other key details!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Talks and Seminar | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/talk.html</link>
+      <atom:link href="https://gaurichaudhari9.github.io/talk/index.xml" rel="self" type="application/rss+xml" />
+    <description>Talks and Seminar</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Wed, 30 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Talks and Seminar</title>
+      <link>https://gaurichaudhari9.github.io/talk.html</link>
+    </image>
+    
+    <item>
+      <title>panelmap at WSDS, 2020</title>
+      <link>https://gaurichaudhari9.github.io/talk/wsds2020.html</link>
+      <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/talk/wsds2020.html</guid>
+      <description>&lt;p&gt;Analysis of clusters in a population is one of the ways to understand the heterogeneity within a cohort. We introduce, panelmap, a data visualization tool for viewing grouped data and its differentiated features in a single and multi-panel layout. panelmap t is a visual aid for understanding associations and trends in data at a glance instead of tabular representation or trying to infer multiple plots. It provides rich source of functions to annotate, perform statistical tests and other descriptive summaries to understand distribution of features across clusters. It can automate legend, annotate missingness and allows various customizations to the user for generating rich and publication quality visualizations.
+A multi-panel layout function, circomap, for more than one cohort is also available. circomap, arranges more than one panelmaps in a circular layout, conveying information across various datasets.
+panelmap is written in R and is available on GitHub at 
+&lt;a href=&#34;https://github.com/arorarshi/panelmap&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/arorarshi/panelmap&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>BIRSBIO 2020 Hackathon</title>
+      <link>https://gaurichaudhari9.github.io/talk/birs2020.html</link>
+      <pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/talk/birs2020.html</guid>
+      <description>&lt;p&gt;scNMT seq data encompasses rich information across the transcriptome and epigenome avenues capturing the stages of mouse gastrulation. This data set was challenging in terms of missingness and integration across various data types like RNA transcripts, DNA accessibility and DNA methylation, to understand their role independently and as a cross play with each other defining biological functions.&lt;/p&gt;
+&lt;p&gt;We wish to address the problem of identifying localized molecular signatures with respect to an outcome of interest, like stage and lineage. This poses an interesting challenge as in to understand heterogeneity in a population by not unsupervised clustering followed by hypothesis testing, but in a more targeted fashion where the cluster solutions are more meaningful and driven by outcome of interest&lt;/p&gt;
+&lt;p&gt;MOSAIC, or Multi Omic Supervised Integrative Clustering, is a supervised clustering algorithm, inspired from survClust. The primary advantage of such a supervised or weighted approach is that the final clusters are robust and more meaningful in terms of outcome of interest. Our approach downplays the unrelated features and only keeps the contribution from associated features, making it resistant to noise from other data trends. It also provides a novel approach to deal with samples that have missing data across data types, where in most cases the analysis would be reduced to samples with complete data. MOSAIC on the other hand can handle missing data and tries to retain maximum number of samples.&lt;/p&gt;
+&lt;p&gt;MOSAIC analysis results can be found here - 
+&lt;a href=&#34;https://github.com/arorarshi/scNMT_seq_MOSAIC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/arorarshi/scNMT_seq_MOSAIC&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MS Comp Bio Lightning Talk, CMU</title>
+      <link>https://gaurichaudhari9.github.io/talk/cmu_lightning_2020.html</link>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/talk/cmu_lightning_2020.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ISMCO (2019)</title>
+      <link>https://gaurichaudhari9.github.io/talk/ismco_2019.html</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/talk/ismco_2019.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>survClust poster TCGA Legacy: Multi-Omics studies in cancer  (2018)</title>
+      <link>https://gaurichaudhari9.github.io/talk/tcga_symposium_2018.html</link>
+      <pubDate>Thu, 27 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/talk/tcga_symposium_2018.html</guid>
+      <description>&lt;p&gt;Integrated molecular classification has led to the discovery of new classification systems in individual cancer types, as well as pan-cancer patterns driven by cell-of-origin or shared molecular alterations across cancer types. In order to consider clinical outcomes (such as treatment response and survival) simultaneously in tumor classification, we developed a new algorithm called SurvClust for supervised clustering. The algorithm learns a weighted distance matrix from each molecular data type with effect sizes as weights. To facilitate integration, quantile normalization is utilized to standardize the distance vectors. Multidimensional scaling (MDS) is then used to map the subjects into an n-dimensional space that preserves between-subject distances for clustering. Application to the TCGA pan-cancer datasets revealed survival associations driven by mutation burden and specific mutation and co- mutation patterns of cancer driving genes. We will further demonstrate SurvClust’s utility by integrating treatment responses and toxicity profiles in immunotherapy-treated lung, melanoma, and bladder cancer cohorts.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

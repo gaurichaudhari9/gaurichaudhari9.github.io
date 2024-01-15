@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Visualization | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/tags/data-visualization.html</link>
+      <atom:link href="https://gaurichaudhari9.github.io/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    <description>Data Visualization</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Data Visualization</title>
+      <link>https://gaurichaudhari9.github.io/tags/data-visualization.html</link>
+    </image>
+    
+    <item>
+      <title>panelmap</title>
+      <link>https://gaurichaudhari9.github.io/project/panelmap.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/panelmap.html</guid>
+      <description>&lt;p&gt;Visualizing discrete and continuous data for known groups.
+panelmap creates panels for summarizing binary data, categorical data (more than 2 categories) and continuous data for known groups. One can visualize missing data, summarize tables along with appropriate tests and do various customizations.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

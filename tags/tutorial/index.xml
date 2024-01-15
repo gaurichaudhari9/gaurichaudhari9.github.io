@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tutorial | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/tags/tutorial.html</link>
+      <atom:link href="https://gaurichaudhari9.github.io/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <description>tutorial</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Tue, 12 May 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>tutorial</title>
+      <link>https://gaurichaudhari9.github.io/tags/tutorial.html</link>
+    </image>
+    
+    <item>
+      <title>Academic Hugo Theme via Blogdown: Few more details and deployment (part 2)</title>
+      <link>https://gaurichaudhari9.github.io/post/2020-05-12-academic-hugo-part2.html</link>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/post/2020-05-12-academic-hugo-part2.html</guid>
+      <description>
+
+
+&lt;p&gt;This is in continuation to a post I wrote - &lt;a href=&#34;https://arorarshi.rbind.io/post/2020-04-24-academic-hugo-tutorial.html&#34;&gt;Academic Hugo Theme via Blogdown: Where to start?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After setting up a basic website with &lt;code&gt;About&lt;/code&gt;, &lt;code&gt;Skills&lt;/code&gt; and &lt;code&gt;Experience&lt;/code&gt; pages. You are now ready to deploy it and implement some cool customization!&lt;/p&gt;
+&lt;div id=&#34;deployment&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Deployment&lt;/h1&gt;
+&lt;p&gt;I am deploying my site, the one you are reading this post on :), on &lt;strong&gt;Netlify&lt;/strong&gt; and then using a free subdomain with &lt;a href=&#34;https://github.com/rbind/support&#34;&gt;&lt;code&gt;rbind.io&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;whats-the-difference&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What’s the difference?&lt;/h2&gt;
+&lt;p&gt;Generally you need to buy a domain to host web pages, but with &lt;a href=&#34;https://www.netlify.com/&#34;&gt;Netlify&lt;/a&gt; you can use their web hosting service, with their domain and be live on the internet! It is free, however you can choose your own subdomain.&lt;/p&gt;
+&lt;p&gt;Setting up on &lt;strong&gt;Netlify&lt;/strong&gt; is super easy -&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;log in to Netlify via GitHub and select the repository where you have all the website files
+&lt;ul&gt;
+&lt;li&gt;Netlify deployment works on both private and public repositories&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Set up the &lt;code&gt;HUGO_VERSION&lt;/code&gt; accordingly. Check the version you are using in Rstudio via &lt;code&gt;blogdown::hugo_version()&lt;/code&gt; command.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Once you deploy, Netlify will assign a random subdomain ending in &lt;code&gt;netlify.app&lt;/code&gt; or &lt;code&gt;netlify.com&lt;/code&gt;, for instance I got &lt;code&gt;infallible-poitras-1234-netlify.app&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The &lt;strong&gt;IMPORTANT&lt;/strong&gt; bit, after you have deployed your website on Netlify, change the &lt;code&gt;baseurl&lt;/code&gt; parameter in &lt;code&gt;config.toml&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;You can change the subdomain and keep the &lt;code&gt;netlify.app&lt;/code&gt;. Or you can apply for a &lt;code&gt;rbind.io&lt;/code&gt; domain name.
+&lt;ul&gt;
+&lt;li&gt;Just open an issue on their &lt;a href=&#34;https://github.com/rbind/support&#34;&gt;GitHub repository&lt;/a&gt;, and fill their template form. They are quick and will get back to you soon!&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, everytime you commit to GitHub, Netlify will trigger a deploy. However, you can change this automatic trigger. &lt;strong&gt;ALSO&lt;/strong&gt;, remember to run &lt;code&gt;blogdown::build_site()&lt;/code&gt; before each commit, as this updates the &lt;code&gt;public&lt;/code&gt; folder, which is used by Netlify to publish.&lt;/p&gt;
+&lt;p&gt;For step by step instructions to Netlify, check this post &lt;a href=&#34;https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://gaurichaudhari9.github.io/img/post2_fig1.png&#34; alt=&#34;Psst.. what do you mean by domain and subdomain&#34; id=&#34;id&#34; class=&#34;class&#34; style=&#34;width:60.0%&#34; style=&#34;height:60.0%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Psst.. what do you mean by domain and subdomain&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;redirects&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Redirects&lt;/h2&gt;
+&lt;p&gt;To redirect all HTTP traffic to HTTPs, use a redirects file. I placed a file called &lt;code&gt;_redirects&lt;/code&gt; here -&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;static
+  |=== _redirects &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It contains this -&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://arorarshi.rbind.io/*&#34; class=&#34;uri&#34;&gt;http://arorarshi.rbind.io/*&lt;/a&gt; &lt;a href=&#34;https://arorarshi.rbind.io/:splat&#34; class=&#34;uri&#34;&gt;https://arorarshi.rbind.io/:splat&lt;/a&gt; 301!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Also explained &lt;a href=&#34;https://yihui.org/en/2017/11/301-redirect/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now moving on to the cool stuff with customization!😎&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;customizations&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Customizations&lt;/h1&gt;
+&lt;div id=&#34;favicon&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Favicon&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;favicon&lt;/code&gt; is a website icon or a tab icon on the left hand side in a tab. For example mine is a sun :). To get one for yourself, just select &lt;code&gt;favicon&lt;/code&gt; image of your choice and place it here -&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;assets
+  |=== images 
+    |=== filename.png&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;color-and-fonts&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Color and Fonts&lt;/h2&gt;
+&lt;p&gt;Academic template is really good and it already comes with great inbuilt &lt;a href=&#34;https://sourcethemes.com/academic/themes/&#34;&gt;themes&lt;/a&gt; like - &lt;em&gt;Apogee, Minimal, Forest, Rose&lt;/em&gt; etc. Themes can be specified here -&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;config
+  |=== params.toml &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;with the variable &lt;code&gt;theme&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If you want to create your own color and font template, use any of the the existing themes and open the file here -&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;themes
+  |=== hugo-academic 
+    |=== data
+      |=== themes &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Each theme has its own &lt;code&gt;.toml&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;The colors are specified as &lt;code&gt;HTML&lt;/code&gt; codes for &lt;code&gt;Primary&lt;/code&gt;, &lt;code&gt;Menu&lt;/code&gt; sections and so on. I used &lt;a href=&#34;https://htmlcolorcodes.com/color-picker/&#34;&gt;this&lt;/a&gt; to pick colors!&lt;/p&gt;
+&lt;p&gt;Towards the end of the &lt;code&gt;.toml&lt;/code&gt; file, there will be a &lt;code&gt;font&lt;/code&gt; parameter. Font &lt;code&gt;.toml&lt;/code&gt; files are present here -&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;themes
+  |=== hugo-academic 
+    |=== data
+      |=== fonts &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I used Google fonts and you can specify them as they appear in their web address. Check out other &lt;code&gt;.toml&lt;/code&gt; files to get a hang of it!&lt;/p&gt;
+&lt;p&gt;As always &lt;strong&gt;Rinse and Repeat&lt;/strong&gt; Or restart the R session and &lt;code&gt;blogdown::build_site()&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;References&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href=&#34;https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/&#34; class=&#34;uri&#34;&gt;https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/&lt;/a&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://getemoji.com/&#34; class=&#34;uri&#34;&gt;https://getemoji.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Academic Hugo Theme via Blogdown: Where to start?</title>
+      <link>https://gaurichaudhari9.github.io/post/2020-04-24-academic-hugo-tutorial.html</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/post/2020-04-24-academic-hugo-tutorial.html</guid>
+      <description>
+
+
+&lt;p&gt;Setting up a personal website is fun and a great way to reach visibility. Whether its your work, skills, or other hobbies, they all can reach the light of day in one platform!&lt;/p&gt;
+&lt;p&gt;I will go over building websites via &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt; with &lt;a href=&#34;https://themes.gohugo.io/academic/&#34;&gt;Hugo’s Acadmeic&lt;/a&gt; theme as a template. Though Yihui’s blogdown tutorial is the ultimate Holy Grail. I wanted to write a simple tutorial about getting started with a quick and easy website without getting overwhelmed :)&lt;/p&gt;
+&lt;div id=&#34;getting-started&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;0. Getting Started&lt;/h1&gt;
+&lt;p&gt;By running the following commands in R:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#set up
+install.packages(&amp;#39;blogdown&amp;#39;) 
+library(&amp;quot;blogdown&amp;quot;)
+blogdown::install_hugo()
+#start creating a website by new_site()!
+blogdown::new_site(theme = &amp;quot;gcushen/hugo-academic&amp;quot;)
+#I have passed the academic theme above
+
+#view your website locally
+blogdown::build_site()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;OK. This created a bunch of files in your directory, and created a static website, something like &lt;a href=&#34;https://themes.gohugo.io/theme/academic/&#34;&gt;this&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is an exhaustive overview of how the Academic template looks like. We don’t need all of these functionalities, and we can only retain what we like.&lt;/p&gt;
+&lt;p&gt;If you mess up something, original GitHub code is available &lt;a href=&#34;https://github.com/gcushen/hugo-academic/tree/master/exampleSite&#34;&gt;here&lt;/a&gt; for your reference.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;whats-going-on&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;1. What’s going on?&lt;/h1&gt;
+&lt;p&gt;A lot!&lt;/p&gt;
+&lt;p&gt;First place I would recommend trying is getting familiar with &lt;code&gt;.md&lt;/code&gt; files present here &lt;code&gt;your website folder &amp;gt; content &amp;gt; home&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://gaurichaudhari9.github.io/img/post1_fig1.png&#34; alt=&#34;We are looking at this&#34; id=&#34;id&#34; class=&#34;class&#34; style=&#34;width:60.0%&#34; style=&#34;height:60.0%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;We are looking at this&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Each .md file here is a functionality/widget of the Academic theme. For example, if you see the skills section of the website has icons in rows, experience section is in a bullet-timeline format, and so on. They are all controlled by the files here, and are displayed by logical &lt;code&gt;active=true/false&lt;/code&gt; as follows-&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# About widget.
+widget = &amp;quot;about&amp;quot;  # See https://sourcethemes.com/academic/docs/page-builder/
+headless = true  # This file represents a page section.
+active = true  # Activate this widget? true/false
+#&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If &lt;code&gt;active=FALSE&lt;/code&gt; widget is suppressed and displayed if &lt;code&gt;TRUE&lt;/code&gt;. Start by turning everything &lt;code&gt;FALSE&lt;/code&gt; except -&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;about.md&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;skills.md&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;experience.md&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Also, note the &lt;code&gt;weight&lt;/code&gt; section in the &lt;code&gt;.md&lt;/code&gt; script. This is the order in which widgets will get displayed on your website. For example, the bubbles image background at the very top has &lt;code&gt;weight=1&lt;/code&gt; as seen in &lt;code&gt;slider.md&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;getting-the-hang-of-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;2. Getting the hang of it?&lt;/h1&gt;
+&lt;p&gt;After turning off all the widgets, except &lt;code&gt;about.md, skills.md&lt;/code&gt; and &lt;code&gt;experience.md&lt;/code&gt; (you don’t have to delete others, and might want to store them for later). You will have the bare bones of your website.&lt;/p&gt;
+&lt;p&gt;Now start filling in some details. The &lt;code&gt;about.md&lt;/code&gt; file points to &lt;code&gt;content -&amp;gt; authors -&amp;gt; admin -&amp;gt; _index.md&lt;/code&gt; file, from where it stores and displays all that information. Fill it up with your own deets!&lt;/p&gt;
+&lt;p&gt;Same goes for &lt;code&gt;skills.md&lt;/code&gt; and &lt;code&gt;eperience.md&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;config.toml-and-config-folder&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;3. config.toml and config folder&lt;/h1&gt;
+&lt;p&gt;I use &lt;code&gt;config.toml&lt;/code&gt; for all my settings, and as the name says &lt;code&gt;config&lt;/code&gt; details. Remaining stuff like menu details go to &lt;code&gt;config -&amp;gt; _default -&amp;gt; menus.toml&lt;/code&gt;, and &lt;code&gt;params.toml&lt;/code&gt; for all website settings like theme, color, and other settings. (You won’t need a lot to start with)&lt;/p&gt;
+&lt;div id=&#34;menus.toml&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;menus.toml&lt;/h2&gt;
+&lt;p&gt;This is the easy part! This just contains the menu buttons you want to see at the top of your website. Though everything is published on your website in a long-ish format. Here, the menu buttons at the top will help the viewer to navigate to key sections. Use the widgets you want to appear here like follows:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;[[main]]
+  name = &amp;quot;Projects&amp;quot;
+  url = &amp;quot;#projects&amp;quot;
+  weight = 30
+  
+[[main]]
+  name = &amp;quot;Posts&amp;quot;
+  url = &amp;quot;#posts&amp;quot;
+  weight = 40
+
+  # and so on&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In my website &lt;code&gt;about&lt;/code&gt; and &lt;code&gt;skills&lt;/code&gt; are at weight &lt;code&gt;10&lt;/code&gt; and &lt;code&gt;20&lt;/code&gt;, and that’s why &lt;code&gt;projects&lt;/code&gt; has weight &lt;code&gt;30&lt;/code&gt;. Menu items follow the same order and weights as the widgets as well. You can change that! Weights just determine the order of appearance in the &lt;code&gt;menu&lt;/code&gt; section.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;config.toml&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;config.toml&lt;/h2&gt;
+&lt;p&gt;Here, I have everything as default except-&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;baseurl = &amp;quot;https://arorarshi.rbind.io/&amp;quot;
+title = &amp;quot;Arshi Arora&amp;quot;
+copyright = 
+
+paginate = 10  # Number of items per page in paginated lists.
+enableEmoji = true
+
+sharing = true
+
+#fixing image in posts 
+#this just puts the image used in your rmarkdown posts to appropriate folder, so that it doesn&amp;#39;t appear broken on website. confused? you can skip for now. 
+uglyurls = true
+#[permalinks]
+# post = &amp;quot;/:year/:month/:day/:slug/&amp;quot;
+
+[blackfriday] bit
+#this is only needed for .md files. Pandoc is better for .Rmd. Maybe remove later but for now I have it in. &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;params.toml&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;params.toml&lt;/h2&gt;
+&lt;p&gt;For a basic setup, you don’t need to worry about this.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rinse-and-repeat&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;4. Rinse and Repeat&lt;/h1&gt;
+&lt;p&gt;Keep adding interesting details about yourself and playing around with the widgets. I will add deployment and other intricate details in the next post!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;References&lt;/h1&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34; class=&#34;uri&#34;&gt;https://bookdown.org/yihui/blogdown/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
