@@ -5,12 +5,20 @@
     <link>https://gaurichaudhari9.github.io/post.html</link>
       <atom:link href="https://gaurichaudhari9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Posts</title>
       <link>https://gaurichaudhari9.github.io/post.html</link>
     </image>
+    
+    <item>
+      <title></title>
+      <link>https://gaurichaudhari9.github.io/post/2024-01-27-.html</link>
+      <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/post/2024-01-27-.html</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>A brief primer on scientific and mathematical notations</title>

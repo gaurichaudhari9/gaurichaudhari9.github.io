@@ -2,16 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://gaurichaudhari9.github.io/post/2024-01-27-.html</loc>
+    <lastmod>2024-01-27T11:08:44-05:00</lastmod>
+  </url><url>
+    <loc>https://gaurichaudhari9.github.io/</loc>
+    <lastmod>2024-01-27T11:08:44-05:00</lastmod>
+  </url><url>
+    <loc>https://gaurichaudhari9.github.io/post.html</loc>
+    <lastmod>2024-01-27T11:08:44-05:00</lastmod>
+  </url><url>
     <loc>https://gaurichaudhari9.github.io/categories/analysis.html</loc>
+    <lastmod>2024-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaurichaudhari9.github.io/categories/bert.html</loc>
     <lastmod>2024-01-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gaurichaudhari9.github.io/categories.html</loc>
     <lastmod>2024-01-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gaurichaudhari9.github.io/</loc>
+    <loc>https://gaurichaudhari9.github.io/project/classifying-tv-show-quotes-with-bert.html</loc>
     <lastmod>2024-01-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gaurichaudhari9.github.io/project/interactive-housing-sales-analytics-dashboard.html</loc>
+    <lastmod>2024-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaurichaudhari9.github.io/categories/natural-language-processing.html</loc>
+    <lastmod>2024-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaurichaudhari9.github.io/tags/nlp.html</loc>
     <lastmod>2024-01-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gaurichaudhari9.github.io/project.html</loc>
@@ -21,6 +39,9 @@
     <lastmod>2024-01-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gaurichaudhari9.github.io/tags.html</loc>
+    <lastmod>2024-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaurichaudhari9.github.io/categories/text-classification.html</loc>
     <lastmod>2024-01-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gaurichaudhari9.github.io/tags/visualizations.html</loc>
@@ -33,9 +54,6 @@
     <lastmod>2020-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gaurichaudhari9.github.io/tags/notes.html</loc>
-    <lastmod>2020-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gaurichaudhari9.github.io/post.html</loc>
     <lastmod>2020-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gaurichaudhari9.github.io/talk/wsds2020.html</loc>
