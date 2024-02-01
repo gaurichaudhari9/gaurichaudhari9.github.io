@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>classification | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/categories/classification.html</link>
+      <atom:link href="https://gaurichaudhari9.github.io/categories/classification/index.xml" rel="self" type="application/rss+xml" />
+    <description>classification</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Fri, 08 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>classification</title>
+      <link>https://gaurichaudhari9.github.io/categories/classification.html</link>
+    </image>
+    
+    <item>
+      <title>Classifying TV Show Quotes using BERT</title>
+      <link>https://gaurichaudhari9.github.io/project/classifying-tv-show-quotes-with-bert.html</link>
+      <pubDate>Fri, 08 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/classifying-tv-show-quotes-with-bert.html</guid>
+      <description>&lt;p&gt;I worked on an NLP classification project to distinguish quotes from two popular TV shows - Star Wars and Friends. The goal was to train a model to accurately categorize unseen quotes as belonging to one show or the other.&lt;/p&gt;
+&lt;h2 id=&#34;the-adventure-begins&#34;&gt;The Adventure Begins&amp;hellip;&lt;/h2&gt;
+&lt;p&gt;Every good quest starts with assembling a crew. I needed to gather a dataset of quotes from the two shows. This required venturing out into the wilderness of the internet to scrape relevant quotes from fan sites using &lt;strong&gt;selenium&lt;/strong&gt; and &lt;strong&gt;beautifulSoup&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;After gathering over 100 quotes from each show, it was time to &lt;strong&gt;wrangle the unruly data&lt;/strong&gt; into a form suitable for ML models. I cleaned and preprocessed the quotes, adding labels to denote the source show.
+python&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;quotes[&#39;label&#39;] = 0 # Star Wars
+quotes[&#39;label&#39;] = 1 # Friends
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;training-time&#34;&gt;Training Time&lt;/h2&gt;
+&lt;p&gt;Now for the fun part - &lt;strong&gt;teaching a model to discern quote origins&lt;/strong&gt;! I turned to the mighty BERT architecture and leveraged a pretrained model. BERT has oozed NLP knowledge from consuming piles of text data. I just needed to fine-tune it with my quotes.&lt;/p&gt;
+&lt;p&gt;First, I had to &lt;strong&gt;encode the text&lt;/strong&gt; into numeric tokens that BERT digests:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;tokenizer = BertTokenizer.from_pretrained(&#39;bert-base-uncased&#39;)
+
+encoded_quotes = tokenizer(quotes, 
+                           padding=True,
+                           truncation=True,
+                           return_tensors=&#39;tf&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then I compiled a BERT model, fitted it on the training quotes, and evaluated it on a held-out test set.&lt;/p&gt;
+&lt;h2 id=&#34;the-journeys-end&#34;&gt;The Journey&amp;rsquo;s End&lt;/h2&gt;
+&lt;p&gt;After fine-tuning the BERT model on the quote dataset, it was time to evaluate its performance and see how well it learned to classify the quotes.
+I tested the model on a held-out set of 40 quotes that it had never seen before - 20 Star Wars and 20 Friends. This would give an unbiased estimate of its real-world accuracy.
+The model achieved an overall test accuracy of &lt;strong&gt;80%!&lt;/strong&gt; This exceeded my expectations considering the small dataset size.
+Digging deeper into the results:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Precision for Star Wars quotes was 82% and Friends 78%&lt;/li&gt;
+&lt;li&gt;Recall for Star Wars was 85% and Friends 75%
+The confusion matrix showed the model struggled slightly more with Friends quotes - mistaking 5 of them for Star Wars.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This may be because Star Wars quotes have more distinct language like &amp;ldquo;Use the force&amp;rdquo; and mentions of &amp;ldquo;Jedi&amp;rdquo;. Whereas Friends has more everyday conversational quotes that are harder to classify.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Overall though, BERT was successfully able to learn distinguishing features between the two classes with moderate success.&lt;/p&gt;
+&lt;p&gt;There is definitely scope to improve accuracy further with:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A larger dataset for better generalization&lt;/li&gt;
+&lt;li&gt;Trying different pretrained models like RoBERTa&lt;/li&gt;
+&lt;li&gt;Hyperparameter tuning - learning rate, epochs etc.&lt;/li&gt;
+&lt;li&gt;Regularization techniques like dropout to reduce overfitting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;But as a first attempt, I am pleased with the model&amp;rsquo;s capabilities. It can classify unseen quotes with 80% accuracy - not bad!
+This was a fun first adventure in training BERT for text classification. I&amp;rsquo;m excited to keep exploring how transformers can be applied to NLP tasks going forward.&lt;/p&gt;
+&lt;p&gt;Until next time, may the force be with you!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

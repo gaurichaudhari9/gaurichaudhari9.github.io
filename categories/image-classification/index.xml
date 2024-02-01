@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>image classification | Gauri Chaudhari</title>
+    <link>https://gaurichaudhari9.github.io/categories/image-classification.html</link>
+      <atom:link href="https://gaurichaudhari9.github.io/categories/image-classification/index.xml" rel="self" type="application/rss+xml" />
+    <description>image classification</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Fri, 08 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>image classification</title>
+      <link>https://gaurichaudhari9.github.io/categories/image-classification.html</link>
+    </image>
+    
+    <item>
+      <title>Investigating Transfer Learning and Scratch Training for Image Recognition</title>
+      <link>https://gaurichaudhari9.github.io/project/investigating-transfer-learning-and-scratch-training-for-image-recognition.html</link>
+      <pubDate>Fri, 08 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/investigating-transfer-learning-and-scratch-training-for-image-recognition.html</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This project explores image classification using convolutional neural networks (CNNs). The goal is to classify images into three categories - apparel, chairs, and footwear.
+The project covers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Data collection and labeling&lt;/li&gt;
+&lt;li&gt;Splitting data into train, validation, and test sets&lt;/li&gt;
+&lt;li&gt;Building input pipelines with data augmentation&lt;/li&gt;
+&lt;li&gt;Fine-tuning a pretrained CNN model (ResNet50)&lt;/li&gt;
+&lt;li&gt;Training a CNN from scratch&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;data-collection-and-labeling&#34;&gt;Data Collection and Labeling&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Collected over 100 images per class (apparel, chairs, footwear) using a phone camera&lt;/li&gt;
+&lt;li&gt;Labeled images and assigned category labels - 0 for apparel, 1 for chairs, 2 for footwear&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img width=&#34;950&#34; alt=&#34;image&#34; src=&#34;https://github.com/gaurichaudhari9/image-classification-cnn/assets/25304556/2ca49bb5-52c8-45b3-b3dc-119e6ae70705&#34;&gt;
+&lt;h2 id=&#34;data-splitting&#34;&gt;Data Splitting&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Split data into 60% train, 20% validation, 20% test per class&lt;/li&gt;
+&lt;li&gt;Copied split data into separate folders for train, validation, and test&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;input-pipeline-and-data-augmentation&#34;&gt;Input Pipeline and Data Augmentation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Used Keras image_dataset_from_directory to load images as datasets&lt;/li&gt;
+&lt;li&gt;Added random flips and rotations for data augmentation&lt;/li&gt;
+&lt;li&gt;Defined a pipeline that applies these data augmentation to each element of the training data set in parallel.&lt;/li&gt;
+&lt;li&gt;I am also using &lt;code&gt;_prefetch_&lt;/code&gt; to avoid I/O blocking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;fine-tuning-resnet50&#34;&gt;Fine-tuning ResNet50&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Used transfer learning with pretrained ResNet50 model&lt;/li&gt;
+&lt;li&gt;Froze base layers, added GlobalAveragePooling and Dense layers&lt;/li&gt;
+&lt;li&gt;Achieved &lt;strong&gt;98.46% test accuracy&lt;/strong&gt; after 5 epochs of fine-tuning&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img width=&#34;903&#34; alt=&#34;image&#34; src=&#34;https://github.com/gaurichaudhari9/image-classification-cnn/assets/25304556/368f5c47-9ddd-4c0b-bd51-79b38c3fcaa0&#34;&gt;
+&lt;img width=&#34;1138&#34; alt=&#34;image&#34; src=&#34;https://github.com/gaurichaudhari9/image-classification-cnn/assets/25304556/6b3a9ecb-9306-4298-ae38-dcf4016a1ad3&#34;&gt;
+&lt;h2 id=&#34;training-cnn-from-scratch&#34;&gt;Training CNN from Scratch&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Built a CNN model with convolutional, pooling, batch norm, dropout layers&lt;/li&gt;
+&lt;li&gt;Trained for 10 epochs using Adam optimizer&lt;/li&gt;
+&lt;li&gt;Achieved &lt;strong&gt;70%&lt;/strong&gt; test accuracy&lt;/li&gt;
+&lt;li&gt;Training a model from scratch on a small dataset makes it difficult to learn robust features compared to fine-tuning a pretrained model. More data would be needed to improve accuracy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img width=&#34;653&#34; alt=&#34;image&#34; src=&#34;https://github.com/gaurichaudhari9/image-classification-cnn/assets/25304556/026072da-1c90-40f0-92e4-0c5616043d96&#34;&gt;
+&lt;img width=&#34;1121&#34; alt=&#34;image&#34; src=&#34;https://github.com/gaurichaudhari9/image-classification-cnn/assets/25304556/94613fbd-466d-4004-b224-01b63ea2df8a&#34;&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This project demonstrated classifying images using CNNs. Fine-tuning a pretrained CNN model like ResNet50 achieved high accuracy given the small dataset size. Training a CNN from scratch produced decent but lower accuracy. Overall, the models were able to effectively classify the apparel, chair, and footwear images.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Dataset collected using a phone camera. Location: Indiana University Bloomington Campus&lt;/li&gt;
+&lt;li&gt;Models built with TensorFlow/Keras&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
