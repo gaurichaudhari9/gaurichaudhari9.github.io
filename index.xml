@@ -168,6 +168,74 @@ This was a fun first adventure in training BERT for text classification. I&amp;r
     </item>
     
     <item>
+      <title>Boosting Sales Margin with Data-Driven Price Optimization</title>
+      <link>https://gaurichaudhari9.github.io/project/boosting-sales-margin-with-data-driven-price-optimization.html</link>
+      <pubDate>Tue, 06 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/boosting-sales-margin-with-data-driven-price-optimization.html</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This project is an exploration of how data analytics and optimization strategies can significantly enhance the profitability of products sold on e-commerce platforms. There are a lot of factors that may influence the price of a product and the likelihood of the customer to buy that product at a price point.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Price optimization deals with analyzing the historical transaction data and figuring out trends and abnormalities in the sales of a product to predict the best price of that product that would not only increase the likelihood of the customer purchasing the product but at the same time increases the profit margin of the company by increasing the sales.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This is achieved by modeling and training historical data using various machine learning algorithms resulting in a demand curve that would pinpoint the approximate best price of the product. We are considering sales volume as our major factor while trying to reach to an optimal price point.&lt;/p&gt;
+&lt;h2 id=&#34;project-objective&#34;&gt;Project Objective&lt;/h2&gt;
+&lt;p&gt;The primary goal is to identify a product from a top-selling category and implement data-driven pricing strategies to maximize its sales margin. This involves extensive data cleaning, exploratory data analysis (EDA), and the application of advanced analytical techniques.&lt;/p&gt;
+&lt;h2 id=&#34;dataset&#34;&gt;Dataset&lt;/h2&gt;
+&lt;p&gt;The project utilizes the Brazilian public E-commerce dataset, which contains real transactional data from the Olist store based in Brazil. This dataset comprises over 100,000 records and 40 features spanning from 2016 to 2018. The consolidated dataset includes features relevant to the project&amp;rsquo;s objectives.&lt;/p&gt;
+&lt;h2 id=&#34;methodology&#34;&gt;Methodology&lt;/h2&gt;
+&lt;h3 id=&#34;data-cleaning-and-preprocessing&#34;&gt;Data Cleaning and Preprocessing&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Incomplete Records Analysis&lt;/strong&gt;: Investigated and addressed incomplete records in the dataset.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duplicate Records Check&lt;/strong&gt;: Ensured the uniqueness of the dataset by checking for duplicates.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Order Status Filtering&lt;/strong&gt;: Focused analysis on &amp;lsquo;delivered orders&amp;rsquo; to maintain relevance to the objective.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;dimensionality-reduction&#34;&gt;Dimensionality Reduction&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Principal Component Analysis (PCA) is employed for dimensionality reduction, transforming the data from a high-dimensional to a low-dimensional space.&lt;/li&gt;
+&lt;li&gt;This aids in retaining important features for modeling. PCA is applied to 24 features, reducing them to 17 components which retained almost 90% of the variance after encoding categorical features using Label Encoding.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img width=&#34;848&#34; alt=&#34;image&#34; src=&#34;https://github.com/gaurichaudhari9/Boosting-Sales-Margin-of-a-product-using-Price-Optimization/assets/25304556/896baea2-7642-4220-bd0f-b0e21d4a5d47&#34;&gt;
+&lt;h3 id=&#34;exploratory-data-analysis-eda&#34;&gt;Exploratory Data Analysis (EDA)&lt;/h3&gt;
+&lt;p&gt;Data analysis provides insights into various aspects, such as product categories, sales trends, and revenue generation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key findings&lt;/strong&gt;  include the impact of time on order counts, top revenue-generating categories, and sales spikes on events like Black Friday.&lt;/p&gt;
+&lt;h3 id=&#34;price-optimization-modeling-developed-model-to-determine-the-optimal-pricing-strategy-for-the-selected-product&#34;&gt;Price Optimization Modeling**: Developed model to determine the optimal pricing strategy for the selected product&lt;/h3&gt;
+&lt;p&gt;The project involves training data using Linear Regression, Ridge, and Lasso algorithms to predict prices. Model evaluation includes Mean Squared Error (MSE) calculations. The project also explores a profit function and generating a demand curve, aiming to predict optimal prices for specific products.&lt;/p&gt;
+&lt;img width=&#34;860&#34; alt=&#34;image&#34; src=&#34;https://github.com/gaurichaudhari9/Boosting-Sales-Margin-of-a-product-using-Price-Optimization/assets/25304556/9e4e1101-4d1f-4904-8647-a2273ebf0408&#34;&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Improved Sales Margin&lt;/strong&gt;: Demonstrated a significant increase in the sales margin of the selected product through the application of the optimized pricing strategy. Based on the modeling results, adjusting the price of a specific product (437c05a395e9e47f9762e677a7068ce7) from &lt;strong&gt;$50.03 to $39.59&lt;/strong&gt; is predicted to increase sales volume by &lt;strong&gt;45%&lt;/strong&gt;, resulting in a projected revenue increase of &lt;strong&gt;78%&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Data-Driven Decisions&lt;/strong&gt;: Enabled informed decision-making by providing a data-backed rationale for pricing adjustments.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;While linear regression shows promise in predicting optimal prices, there is room for further improvement through advanced techniques like neural networks. This project highlights the significance of price optimization in enhancing customer purchases and company profits within an e-commerce context.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;future-work&#34;&gt;Future Work&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Expand the analysis to multiple products and categories.&lt;/li&gt;
+&lt;li&gt;The project acknowledges the potential for further optimization using neural networks or hybrid algorithms.&lt;/li&gt;
+&lt;li&gt;Integrate real-time data feeds for dynamic pricing strategies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://tryolabs.com/blog/price-optimization-machine-learning&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tryolabs - Price Optimization Using Machine Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://medium.com/hamoye-blogs/unraveling-brazilian-e-commerce-dataset-e78463d77340&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unraveling Brazilian E-commerce Dataset&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://www.semanticscholar.org/paper/Price-Optimization-in-Fashion-E-commerce-Kedia-Jain/69d699ca6ac62c759c6372aa86a10756c8f509ce&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Price Optimization in Fashion E-commerce&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://7learnings.com/blog/price-optimization-with-machine-learning-what-every-retailer-should-know/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Price Optimization with Machine Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://arxiv.org/abs/2007.05216&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Arxiv - Price Optimization in Fashion E-commerce&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://arxiv.org/pdf/2007.05216v2.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Arxiv - Brazilian E-commerce Dataset&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>A brief primer on scientific and mathematical notations</title>
       <link>https://gaurichaudhari9.github.io/post/2020-12-01-primer-scientific.html</link>
       <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
