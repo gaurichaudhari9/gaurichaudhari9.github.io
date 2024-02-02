@@ -5,7 +5,7 @@
     <link>https://gaurichaudhari9.github.io/categories/natural-language-processing.html</link>
       <atom:link href="https://gaurichaudhari9.github.io/categories/natural-language-processing/index.xml" rel="self" type="application/rss+xml" />
     <description>natural language processing</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Fri, 08 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Sat, 25 Nov 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>natural language processing</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Classifying TV Show Quotes using BERT</title>
       <link>https://gaurichaudhari9.github.io/project/classifying-tv-show-quotes-with-bert.html</link>
-      <pubDate>Fri, 08 Dec 2023 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://gaurichaudhari9.github.io/project/classifying-tv-show-quotes-with-bert.html</guid>
       <description>&lt;p&gt;I worked on an NLP classification project to distinguish quotes from two popular TV shows - Star Wars and Friends. The goal was to train a model to accurately categorize unseen quotes as belonging to one show or the other.&lt;/p&gt;
 &lt;h2 id=&#34;the-adventure-begins&#34;&gt;The Adventure Begins&amp;hellip;&lt;/h2&gt;

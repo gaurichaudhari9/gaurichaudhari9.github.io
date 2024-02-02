@@ -5,7 +5,7 @@
     <link>https://gaurichaudhari9.github.io/tags/deep-learning.html</link>
       <atom:link href="https://gaurichaudhari9.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     <description>Deep Learning</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Fri, 08 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Thu, 30 Nov 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Deep Learning</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Investigating Transfer Learning and Scratch Training for Image Recognition</title>
       <link>https://gaurichaudhari9.github.io/project/investigating-transfer-learning-and-scratch-training-for-image-recognition.html</link>
-      <pubDate>Fri, 08 Dec 2023 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://gaurichaudhari9.github.io/project/investigating-transfer-learning-and-scratch-training-for-image-recognition.html</guid>
       <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
 &lt;p&gt;This project explores image classification using convolutional neural networks (CNNs). The goal is to classify images into three categories - apparel, chairs, and footwear.
