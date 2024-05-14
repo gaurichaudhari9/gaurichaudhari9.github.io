@@ -5,12 +5,50 @@
     <link>https://gaurichaudhari9.github.io/</link>
       <atom:link href="https://gaurichaudhari9.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Gauri Chaudhari</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Tue, 12 Mar 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Gauri Chaudhari</title>
       <link>https://gaurichaudhari9.github.io/</link>
     </image>
+    
+    <item>
+      <title>A Visual Impact on New York&#39;s Creative Pulse</title>
+      <link>https://gaurichaudhari9.github.io/project/a-visual-impact-on-new-yorks-creative-pulse.html</link>
+      <pubDate>Tue, 12 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/a-visual-impact-on-new-yorks-creative-pulse.html</guid>
+      <description>&lt;p&gt;A Visual Impact on New York’s Creative Pulse encapsulates the essence of the city&amp;rsquo;s artistic reawakening, depicted through an innovative interactive dashboard fueled by the Guaranteed Income for Artists program. This visualization not only highlights the demographic diversity and narratives of New York&amp;rsquo;s artists but also brings to the forefront the profound interplay of identity, inclusivity, and artistic endeavors.&lt;/p&gt;
+&lt;h2 id=&#34;methodology&#34;&gt;Methodology&lt;/h2&gt;
+&lt;p&gt;In crafting our interactive tableau data visualization, we relied on the Guaranteed Income dataset as our foundation. Our methodology was meticulous, prioritizing data integrity through extensive cleaning (especially on the geographical aspects) and preparation processes.&lt;/p&gt;
+&lt;h4 id=&#34;approaches-performed-in-python&#34;&gt;Approaches performed in Python:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Removed Invalid Entries&lt;/li&gt;
+&lt;li&gt;Preparing geographical agttributes to outline the latitude and longitude&lt;/li&gt;
+&lt;li&gt;Data Cleaning&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;approaches-performed-in-excel&#34;&gt;Approaches performed in Excel:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Our strategy in Excel involved disaggregating multi-response variables across separate sheets, linked via participant IDs.
+&lt;ul&gt;
+&lt;li&gt;This crucial step shifted our data from a wide to a long format, maintaining the integrity of each participant&amp;rsquo;s responses across multiple variables.&lt;/li&gt;
+&lt;li&gt;Geographic data underwent a rigorous validation process, cross-referencing zip codes with a detailed lookup table to correct city names and ensure geographical accuracy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;final-visualization-tableau-&#34;&gt;Final Visualization: tableau –&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;We used &lt;strong&gt;calculated fields&lt;/strong&gt; to calculate KPIs.&lt;/li&gt;
+&lt;li&gt;Our map visualizations leveraged Tableau&amp;rsquo;s &lt;strong&gt;dynamic zone visibility&lt;/strong&gt;, enabling users to drill down from regions to counties, and counties to cities with seamless interactivity.
+a.	We made use of &lt;strong&gt;parameters&lt;/strong&gt; and &lt;strong&gt;actions&lt;/strong&gt; in Tableau to create interactivity between region, county, and city maps
+b. Simultaneously we can view the demographic information as well as the count of enrolled participants for the selected geographical area by hovering.
+c.	For the hovering effect, we used &lt;strong&gt;viz in the tooltip&lt;/strong&gt;
+d.	The end user can select from the &lt;strong&gt;demographic dropdown&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;To explore the overall New York City nature of the applicants and for the variables that were multi-response we created a narrative of visualizations such as bubble charts, treemaps, etc&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;dashboard&#34;&gt;Dashboard&lt;/h2&gt;
+&lt;p&gt;To learn more about the dashboard and to view the dashboard click on the tableau button at the top.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title></title>
