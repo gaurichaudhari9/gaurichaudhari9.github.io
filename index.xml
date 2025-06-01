@@ -5,7 +5,7 @@
     <link>https://gaurichaudhari9.github.io/</link>
       <atom:link href="https://gaurichaudhari9.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Gauri Chaudhari</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Tue, 12 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Tue, 12 Mar 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Gauri Chaudhari</title>
@@ -63,7 +63,9 @@ d.	The end user can select from the &lt;strong&gt;demographic dropdown&lt;/stron
       <link>https://gaurichaudhari9.github.io/project/interactive-housing-sales-analytics-dashboard.html</link>
       <pubDate>Wed, 03 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://gaurichaudhari9.github.io/project/interactive-housing-sales-analytics-dashboard.html</guid>
-      <description>&lt;p&gt;This dashboard visualizes and analyzes housing sales data for King County, Washington. The dashboard features a calendar widget, line chart, map, histograms, and a heatmap, providing a user-friendly interface to explore the dataset. The purpose is to understand trends in housing prices and identify relationships between price and other attributes like number of bedrooms/bathrooms, square footage, view, condition, etc.&lt;/p&gt;
+      <description>&lt;p&gt;Link to Dashboard: 
+&lt;a href=&#34;https://public.tableau.com/app/profile/gauri.chaudhari/viz/KingCountyHouseSales_17041554469630/KingCountyHouseSales&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://public.tableau.com/app/profile/gauri.chaudhari/viz/KingCountyHouseSales_17041554469630/KingCountyHouseSales&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This dashboard visualizes and analyzes housing sales data for King County, Washington. The dashboard features a calendar widget, line chart, map, histograms, and a heatmap, providing a user-friendly interface to explore the dataset. The purpose is to understand trends in housing prices and identify relationships between price and other attributes like number of bedrooms/bathrooms, square footage, view, condition, etc.&lt;/p&gt;
 &lt;p&gt;The dashboard allows users to filter the data by month and day to see how prices change over time. Additional filters for year built, square feet living area, and square feet lot area allow further slicing of the data.&lt;/p&gt;
 &lt;h2 id=&#34;analysis&#34;&gt;Analysis&lt;/h2&gt;
 &lt;p&gt;The dashboard consists of the following visualizations:&lt;/p&gt;
