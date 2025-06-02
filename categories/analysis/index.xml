@@ -5,12 +5,48 @@
     <link>https://gaurichaudhari9.github.io/categories/analysis.html</link>
       <atom:link href="https://gaurichaudhari9.github.io/categories/analysis/index.xml" rel="self" type="application/rss+xml" />
     <description>analysis</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Tue, 12 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><copyright>© 2024 Gauri Chaudhari</copyright><lastBuildDate>Fri, 03 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>analysis</title>
       <link>https://gaurichaudhari9.github.io/categories/analysis.html</link>
     </image>
+    
+    <item>
+      <title>Interactive Housing Sales Analytics Dashboard</title>
+      <link>https://gaurichaudhari9.github.io/project/interactive-housing-sales-analytics-dashboard.html</link>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://gaurichaudhari9.github.io/project/interactive-housing-sales-analytics-dashboard.html</guid>
+      <description>&lt;p&gt;This dashboard visualizes and analyzes housing sales data for King County, Washington. The dashboard features a calendar widget, line chart, map, histograms, and a heatmap, providing a user-friendly interface to explore the dataset. The purpose is to understand trends in housing prices and identify relationships between price and other attributes like number of bedrooms/bathrooms, square footage, view, condition, etc.&lt;/p&gt;
+&lt;p&gt;The dashboard allows users to filter the data by month and day to see how prices change over time. Additional filters for year built, square feet living area, and square feet lot area allow further slicing of the data.&lt;/p&gt;
+&lt;h2 id=&#34;analysis&#34;&gt;Analysis&lt;/h2&gt;
+&lt;p&gt;The dashboard consists of the following visualizations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Line chart showing average price over time&lt;/li&gt;
+&lt;li&gt;Map showing average price by ZIP code, colored by price&lt;/li&gt;
+&lt;li&gt;Histogram showing distribution of house prices&lt;/li&gt;
+&lt;li&gt;Histograms for distribution of number of bedrooms and bathrooms&lt;/li&gt;
+&lt;li&gt;Heatmap showing average price by view and condition&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The visualizations allow us to identify trends like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prices increasing over time&lt;/li&gt;
+&lt;li&gt;Areas with higher concentrations of expensive houses&lt;/li&gt;
+&lt;li&gt;Most houses having 2-4 bedrooms and 1-3 bathrooms&lt;/li&gt;
+&lt;li&gt;Higher prices for better views and conditions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;instructions&#34;&gt;Instructions&lt;/h2&gt;
+&lt;p&gt;The dashboard can be filtered in the following ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Select month and day from calendar to filter all visualizations to that time period&lt;/li&gt;
+&lt;li&gt;Use sliders for year built, square feet living area, and square feet lot area to filter the bottom 4 visualizations&lt;/li&gt;
+&lt;li&gt;Hover over marks in the visualizations to see more details&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The dashboard is interactive and allows slicing data in different ways to uncover insights.&lt;/p&gt;
+&lt;h2 id=&#34;dashboard&#34;&gt;Dashboard&lt;/h2&gt;
+&lt;p&gt;To learn more about the dashboard click on the github icon at the top and to view the dashboard click on the tableau button at the top.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>A Visual Impact on New York&#39;s Creative Pulse</title>
@@ -47,44 +83,6 @@ d.	The end user can select from the &lt;strong&gt;demographic dropdown&lt;/stron
 &lt;/ol&gt;
 &lt;h2 id=&#34;dashboard&#34;&gt;Dashboard&lt;/h2&gt;
 &lt;p&gt;To learn more about the dashboard and to view the dashboard click on the tableau button at the top.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Interactive Housing Sales Analytics Dashboard</title>
-      <link>https://gaurichaudhari9.github.io/project/interactive-housing-sales-analytics-dashboard.html</link>
-      <pubDate>Wed, 03 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://gaurichaudhari9.github.io/project/interactive-housing-sales-analytics-dashboard.html</guid>
-      <description>&lt;p&gt;Link to Dashboard: 
-&lt;a href=&#34;https://public.tableau.com/app/profile/gauri.chaudhari/viz/KingCountyHouseSales_17041554469630/KingCountyHouseSales&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://public.tableau.com/app/profile/gauri.chaudhari/viz/KingCountyHouseSales_17041554469630/KingCountyHouseSales&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This dashboard visualizes and analyzes housing sales data for King County, Washington. The dashboard features a calendar widget, line chart, map, histograms, and a heatmap, providing a user-friendly interface to explore the dataset. The purpose is to understand trends in housing prices and identify relationships between price and other attributes like number of bedrooms/bathrooms, square footage, view, condition, etc.&lt;/p&gt;
-&lt;p&gt;The dashboard allows users to filter the data by month and day to see how prices change over time. Additional filters for year built, square feet living area, and square feet lot area allow further slicing of the data.&lt;/p&gt;
-&lt;h2 id=&#34;analysis&#34;&gt;Analysis&lt;/h2&gt;
-&lt;p&gt;The dashboard consists of the following visualizations:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Line chart showing average price over time&lt;/li&gt;
-&lt;li&gt;Map showing average price by ZIP code, colored by price&lt;/li&gt;
-&lt;li&gt;Histogram showing distribution of house prices&lt;/li&gt;
-&lt;li&gt;Histograms for distribution of number of bedrooms and bathrooms&lt;/li&gt;
-&lt;li&gt;Heatmap showing average price by view and condition&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The visualizations allow us to identify trends like:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Prices increasing over time&lt;/li&gt;
-&lt;li&gt;Areas with higher concentrations of expensive houses&lt;/li&gt;
-&lt;li&gt;Most houses having 2-4 bedrooms and 1-3 bathrooms&lt;/li&gt;
-&lt;li&gt;Higher prices for better views and conditions&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;instructions&#34;&gt;Instructions&lt;/h2&gt;
-&lt;p&gt;The dashboard can be filtered in the following ways:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Select month and day from calendar to filter all visualizations to that time period&lt;/li&gt;
-&lt;li&gt;Use sliders for year built, square feet living area, and square feet lot area to filter the bottom 4 visualizations&lt;/li&gt;
-&lt;li&gt;Hover over marks in the visualizations to see more details&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The dashboard is interactive and allows slicing data in different ways to uncover insights.&lt;/p&gt;
-&lt;h2 id=&#34;dashboard&#34;&gt;Dashboard&lt;/h2&gt;
-&lt;p&gt;To learn more about the dashboard click on the github icon at the top and to view the dashboard click on the tableau button at the top.&lt;/p&gt;
 </description>
     </item>
     
